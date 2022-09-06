@@ -31,10 +31,6 @@ spring:
     show-sql: true
     hibernate:
       ddl-auto: create #객체를 보고 자동으로 테이블생성하는 기능을 사용하지 않는다. 생성 create, 비생성 none
-      
-  output:
-    ansi:
-      enabled: always #콘솔 확인을 위한 always
      
 logging:
   level:
