@@ -1,21 +1,13 @@
 package com.study.myProject.controller;
-
-
-import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
 
-@RestController
-public class TestController {
+@Controller
+public class MainController {
 	
-
-	@GetMapping("test")
-	public ResponseEntity<String> test() {
+	@GetMapping("/test")
+	public String test() {
 		
-		return ResponseEntity.ok("hello");
-		
+		return "index";
 	}
-	
-	
-
 }
