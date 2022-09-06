@@ -1,4 +1,4 @@
-package com.study.myProject.dao;
+package com.study.myProject.dto;
 
 import io.swagger.annotations.ApiParam;
 import lombok.Data;
