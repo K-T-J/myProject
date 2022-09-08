@@ -3,7 +3,7 @@
  */
 
  
-function loginCheck(){
+function signUpCheck(){
 	
 	if(this.validation()){
 		var data = {

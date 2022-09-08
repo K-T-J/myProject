@@ -25,12 +25,15 @@ public class UserController {
 	private final UserService userservice;
 	
 	@GetMapping(value = "signUp")
-	public String singUp(Model model) {
-		
-		model.addAttribute("menu",true); //left menu 버튼 안보이도록
-		
+	public String singUp() {
+
 		return "user/signUp";
 	}
+	/**
+	 * 
+	 * 회원가입
+	 * 
+	 * */
 	
 	@ApiOperation("회원가입")
 	@ResponseBody//상단에 @Restcontroller가 아닌 @controller로 작성할땐 @ResponseBody로 ajax를 받는다 
@@ -39,9 +42,19 @@ public class UserController {
 		
 		String result = userservice.userSubmit(userDTO);
 		
-		System.out.println("result >> " + result);
-
 		return result;
+	}
+	
+	/**
+	 * 
+	 * 로그인
+	 * 
+	 * */
+	@ApiOperation("로그인")
+	@GetMapping(value = "login")
+	public String login() {
+		
+		return "user/login";
 	}
 
 }

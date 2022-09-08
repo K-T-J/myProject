@@ -12,7 +12,7 @@
 	<body class="sb-nav-fixed">
 	    	<%-- top nav --%>
 			<c:import url="/WEB-INF/views/layout/bodyNavbar.jsp">
-				<c:param name="menu" value="${ menu }"></c:param>
+				<c:param name="menu" value="true"></c:param>
 			</c:import>
 			<div id="layoutSidenav">
 	            <div id="layoutSidenav_content">
@@ -32,7 +32,7 @@
 						                <form class="mx-1 mx-md-4" id="signupForm" name="signupForm" method="post">
 						
 						                  <div class="d-flex flex-row align-items-center mb-4">
-						                    <i class="fas fa-user fa-lg me-3 fa-fw mb-4"></i>
+						                    <i class="fas fa-user fa-lg me-3 fa-fw mb-4" style="color: #dc3545"></i>
 						                    <div class="form-outline flex-fill mb-0 ">
 						                      <input type="text" id="id" name="id" class="form-control" maxlength="20"/>
 						                      <label class="form-label" for="form3Example1c">Your ID</label>
@@ -40,7 +40,7 @@
 						                  </div>
 						
 						                  <div class="d-flex flex-row align-items-center mb-4">
-						                    <i class="fas fa-envelope fa-lg me-3 fa-fw mb-4"></i>
+						                    <i class="fas fa-envelope fa-lg me-3 fa-fw mb-4" style="color: #ffc107"></i>
 						                    <div class="form-outline flex-fill mb-0">
 						                      <input type="email" id="email" name="email" class="form-control" />
 						                      <label class="form-label" for="form3Example3c">Your Email</label>
@@ -48,7 +48,7 @@
 						                  </div>
 						
 						                  <div class="d-flex flex-row align-items-center mb-4">
-						                    <i class="fas fa-lock fa-lg me-3 fa-fw mb-4"></i>
+						                    <i class="fas fa-lock fa-lg me-3 fa-fw mb-4" style="color: #198754;"></i>
 						                    <div class="form-outline flex-fill mb-0">
 						                      <input type="password" id="password" name="password" class="form-control" maxlength="13"/>
 						                      <label class="form-label" for="form3Example4c">Password</label>
@@ -56,7 +56,7 @@
 						                  </div>
 						
 						                  <div class="d-flex flex-row align-items-center mb-4">
-						                    <i class="fas fa-key fa-lg me-3 fa-fw mb-4"></i>
+						                    <i class="fas fa-key fa-lg me-3 fa-fw mb-4" style="color: #0d6efd"></i>
 						                    <div class="form-outline flex-fill mb-0">
 						                      <input type="password" id="passwordCh" name="passwordCh" class="form-control" maxlength="13"/>
 						                      <label class="form-label" for="form3Example4cd">Repeat your password</label>
@@ -64,7 +64,7 @@
 						                  </div>
 						
 						                  <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
-						                    <button type="button" class="btn btn-primary btn-lg" onclick="loginCheck()">Register</button>
+						                    <button type="button" class="btn btn-primary btn-lg" onclick="signUpCheck()">Register</button>
 						                  </div>
 						
 						                </form>
