@@ -6,10 +6,9 @@
  <meta name="description" content="" />
  <meta name="author" content="" />
  <title><%= request.getParameter("title") %></title>
- <link rel="icon" href="resources/img/icon/favicon.ico"/>
- <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
- <link href="resources/css/styles.css" rel="stylesheet" />
  <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
- <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
+ <link rel="icon" href="resources/img/icon/favicon.ico"/>
+ <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
  <script src="resources/js/scripts.js"></script>
+ <link href="resources/css/styles.css" rel="stylesheet" />

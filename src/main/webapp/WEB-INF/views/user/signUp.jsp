@@ -4,6 +4,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
+		<script src="http://code.jquery.com/jquery-3.5.1.min.js"></script>
 		<script src="/resources/js/user/signUp.js"></script>
 		<c:import url="/WEB-INF/views/layout/header.jsp" charEncoding="UTF-8">
 			<c:param name="title" value="회원가입"></c:param>
@@ -36,6 +37,7 @@
 						                    <div class="form-outline flex-fill mb-0 ">
 						                      <input type="text" id="id" name="id" class="form-control" maxlength="20"/>
 						                      <label class="form-label" for="form3Example1c">Your ID</label>
+						                      <span id="idConfirm"></span>
 						                    </div>
 						                  </div>
 						
@@ -50,7 +52,7 @@
 						                  <div class="d-flex flex-row align-items-center mb-4">
 						                    <i class="fas fa-lock fa-lg me-3 fa-fw mb-4" style="color: #198754;"></i>
 						                    <div class="form-outline flex-fill mb-0">
-						                      <input type="password" id="password" name="password" class="form-control" maxlength="13"/>
+						                      <input type="password" id="password" name="password" class="form-control" maxlength="13" autocomplete="off"/>
 						                      <label class="form-label" for="form3Example4c">Password</label>
 						                    </div>
 						                  </div>
@@ -58,7 +60,7 @@
 						                  <div class="d-flex flex-row align-items-center mb-4">
 						                    <i class="fas fa-key fa-lg me-3 fa-fw mb-4" style="color: #0d6efd"></i>
 						                    <div class="form-outline flex-fill mb-0">
-						                      <input type="password" id="passwordCh" name="passwordCh" class="form-control" maxlength="13"/>
+						                      <input type="password" id="passwordCh" name="passwordCh" class="form-control" maxlength="13" autocomplete="off"/>
 						                      <label class="form-label" for="form3Example4cd">Repeat your password</label>
 						                    </div>
 						                  </div>

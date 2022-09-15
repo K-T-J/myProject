@@ -2,6 +2,31 @@
  * sign Up JS 파일
  */
 
+$(function(){
+	$('#id').keyup(function(){
+		$.ajax({
+			method : 'post',
+			url : '/idCheck',
+			data : {id : $('#id').val()},
+			success : function(result){
+				console.log('result >> ' , result);
+				if(result === "Y"){
+					$('#idConfirm').text('이미 사용중인 아이디 입니다').css('color',"red");
+				}else{
+					$('#idConfirm').text('사용가능한 아이디 입니다').css('color',"red");
+				}
+			},
+			error : function(err){
+				console.log('err >> ' ,err)
+			}
+		})
+	})
+})
+	
+
+	
+
+
  
 function signUpCheck(){
 	
@@ -18,7 +43,7 @@ function signUpCheck(){
 			success : function(result){
 				if(result === 'Y'){
 					alert("가입을 축하해요");
-					location.replace("/main"); //이전페이지로 이동x / location.href() : a태그와 동일 이전페이지 이동o / window.open() : 새창으로 열기 
+					location.replace("/login"); //이전페이지로 이동x / location.href() : a태그와 동일 이전페이지 이동o / window.open() : 새창으로 열기 
 				}else{
 					alert("가입에 실패 했어요");
 				}

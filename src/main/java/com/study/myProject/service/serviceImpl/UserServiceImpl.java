@@ -1,5 +1,7 @@
 package com.study.myProject.service.serviceImpl;
 
+import java.util.Optional;
+
 import org.springframework.stereotype.Service;
 
 import com.study.myProject.dto.UserDTO;
@@ -18,7 +20,14 @@ public class UserServiceImpl implements UserService{
 	private final UserRepository userRepository;
 	
 	@Override
-	public String userSubmit(UserDTO userDTO) {
+	public Optional<Users> idCheckService(String id) {
+				
+		
+		return userRepository.findById(id);
+	}
+	
+	@Override
+	public String signupSubmitService(UserDTO userDTO) {
 		try {
 			Users users = new Users();
 			users.setId(userDTO.getId());
@@ -33,6 +42,7 @@ public class UserServiceImpl implements UserService{
 		
 		return EnYn.YES.getCode();
 	}
+
 
 	
 }
