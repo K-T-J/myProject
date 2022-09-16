@@ -4,6 +4,6 @@
  
  function loginCh(){
 	
-	console.log('123');
+	
 	
 }

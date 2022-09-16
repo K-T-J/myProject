@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<script src="/resources/js/user/login.js"></script>
+		<script defer src="/resources/js/user/login.js"></script>
 		<c:import url="/WEB-INF/views/layout/header.jsp" charEncoding="UTF-8">
 			<c:param name="title" value="로그인"></c:param>
 		</c:import>
@@ -50,18 +50,12 @@
 				            <input type="password" id="password" class="form-control form-control-lg" autocomplete="off"/><!-- autocomplete : 비밀번호 자동완성 off -->
 				            <label class="form-label" for="form1Example23">Password</label>
 				          </div>
-				
-				          <div class="d-flex justify-content-around align-items-center mb-4">
-				            <!-- Checkbox -->
-				            <div class="form-check">
-				              <input class="form-check-input" type="checkbox" value="" id="form1Example3" checked />
-				              <label class="form-check-label" for="form1Example3"> Remember me </label>
-				            </div>
-				            <a href="#!">Forgot password?</a>
+				          <div>
+					      	<button type="button" class="btn btn-primary btn-lg btn-block mb-1" onclick="loginCh()" style="width: 100%; background-color: #FF4C4C; border-color: #FF4C4C;" >Forgot password?</button>
 				          </div>
-				
-				          <!-- Submit button -->
-				          <button type="button" class="btn btn-primary btn-lg btn-block" onclick="loginCh()">Sign in</button>
+				          <div>
+				          	<button type="button" class="btn btn-primary btn-lg btn-block" onclick="loginCh()" style="width: 100%">Sign in</button>
+				          </div>
 				
 <!-- 				          <div class="divider d-flex align-items-center my-4">
 				            <p class="text-center fw-bold mx-3 mb-0 text-muted">OR</p>
