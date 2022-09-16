@@ -1,33 +1,5 @@
-/**
- * sign Up JS 파일
- */
-
-$(function(){
-	$('#btSave').attr("disabled", true);	
-	$('#id').keyup(function(){
-		$.ajax({
-			method : 'post',
-			url : '/idCheck',
-			data : {id : $('#id').val()},
-			success : function(result){
-				console.log('result >> ' , result);
-				if(result === "Y"){
-					$('#idConfirm').text('이미 사용중인 아이디 입니다').css('color',"red");
-					
-				}else{
-					$('#idConfirm').text('사용가능한 아이디 입니다').css('color',"red");
-					$('#btSave').attr("disabled", false);
-				}
-			},
-			error : function(err){
-				console.log('err >> ' ,err)
-			}
-		})
-	})
-})
- 
 function signUpCheck(){
-	
+		
 	if(this.validation()){
 		var data = {
 			id : $('#id').val(),
@@ -54,6 +26,12 @@ function signUpCheck(){
 }
 
 function validation(){
+	
+	if(this.idCheck()){
+		alert("이미 사용중인 아이디 입니다");
+		$('#id').val("")
+		return false
+	}	
 	if($('#id').val().trim().length === 0){
 		alert("아이디를 입력해주세요");
 		return false
@@ -73,13 +51,34 @@ function validation(){
 	//비밀번호, 비밀번호 체크 확인
 	if($('#password').val().trim() !== $('#passwordCh').val().trim()){
 		alert("비밀번호가 서로 달라요");
+		$('#password').val("")
+		$('#passwordCh').val("")
 		return false
 	}
 	//이메일 형식
 	var emailRule = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
 	if(!emailRule.test($('#email').val())){// test : 찾는 문자열이 들어있는지 아닌지 알려준다.  없다면 false / 들어있다면 true
 		alert("올바른 이메일 형식이 아니에요");
+		$('#email').val("")
 		return false
 	}
 	return true
+}
+
+
+function idCheck(){
+	var data = false
+	$.ajax({
+		method : 'post',
+		url : '/idCheck',
+		async : false, //값을 리턴시 해당코드를 추가하여 동기로 변경
+		data : {id : $('#id').val()},
+		success : function(result){
+			if(result === 'Y') data = true
+		},
+		error : function(err){
+			console.log('err >> ' ,err)
+		}
+	})
+	return data
 }
