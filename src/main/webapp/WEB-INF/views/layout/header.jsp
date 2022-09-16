@@ -11,4 +11,5 @@
  <link rel="icon" href="resources/img/icon/favicon.ico"/>
  <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
  <script src="resources/js/scripts.js"></script>
+ <script src="http://code.jquery.com/jquery-3.5.1.min.js"></script>
  <link href="resources/css/styles.css" rel="stylesheet" />

@@ -3,6 +3,7 @@
  */
 
 $(function(){
+	$('#btSave').attr("disabled", true);	
 	$('#id').keyup(function(){
 		$.ajax({
 			method : 'post',
@@ -12,8 +13,10 @@ $(function(){
 				console.log('result >> ' , result);
 				if(result === "Y"){
 					$('#idConfirm').text('이미 사용중인 아이디 입니다').css('color',"red");
+					
 				}else{
 					$('#idConfirm').text('사용가능한 아이디 입니다').css('color',"red");
+					$('#btSave').attr("disabled", false);
 				}
 			},
 			error : function(err){
@@ -22,11 +25,6 @@ $(function(){
 		})
 	})
 })
-	
-
-	
-
-
  
 function signUpCheck(){
 	
