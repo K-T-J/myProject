@@ -67,7 +67,7 @@ function validation(){
 
 
 function idCheck(){
-	var data = false
+	let data = false
 	$.ajax({
 		method : 'post',
 		url : '/idCheck',

@@ -1,8 +1,14 @@
 package com.study.myProject.service.serviceImpl;
 
+
 import java.util.Optional;
 
+
+
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestAttribute;
+import org.springframework.web.context.request.RequestAttributes;
+import org.springframework.web.context.request.RequestContextHolder;
 
 import com.study.myProject.dto.UserDTO;
 import com.study.myProject.entity.Users;
@@ -22,7 +28,6 @@ public class UserServiceImpl implements UserService{
 	@Override
 	public Optional<Users> idCheckService(String id) {
 				
-		
 		return userRepository.findById(id);
 	}
 	
@@ -41,6 +46,15 @@ public class UserServiceImpl implements UserService{
 		}
 		
 		return EnYn.YES.getCode();
+	}
+
+	@Override
+	public Users loginCheckService(String id, String password) {
+
+		return userRepository.findByIdAndPassword(id ,password);
+		
+
+				
 	}
 
 

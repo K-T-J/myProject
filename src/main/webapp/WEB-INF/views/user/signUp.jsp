@@ -36,7 +36,6 @@
 				                    <div class="form-outline flex-fill mb-0 ">
 				                      <input type="text" id="id" name="id" class="form-control" maxlength="20"/>
 				                      <label class="form-label" for="form3Example1c">Your ID</label>
-				                      <span id="idConfirm"></span>
 				                    </div>
 				                  </div>
 				

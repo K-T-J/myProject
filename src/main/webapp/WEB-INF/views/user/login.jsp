@@ -41,20 +41,20 @@
 				        <form>
 				          <!-- Email input -->
 				          <div class="form-outline mb-4">
-				            <input type="email" id="id" class="form-control form-control-lg" />
+				            <input type="email" id="id" class="form-control form-control-lg" required="required"/>
 				            <label class="form-label" for="form1Example13">ID</label>
 				          </div>
 				
 				          <!-- Password input -->
 				          <div class="form-outline mb-4">
-				            <input type="password" id="password" class="form-control form-control-lg" autocomplete="off"/><!-- autocomplete : 비밀번호 자동완성 off -->
+				            <input type="password" id="password" class="form-control form-control-lg" autocomplete="off" required="required"/><!-- autocomplete : 비밀번호 자동완성 off -->
 				            <label class="form-label" for="form1Example23">Password</label>
 				          </div>
 				          <div>
-					      	<button type="button" class="btn btn-primary btn-lg btn-block mb-1" onclick="loginCh()" style="width: 100%; background-color: #FF4C4C; border-color: #FF4C4C;" >Forgot password?</button>
+				          	<button type="button" class="btn btn-primary btn-lg btn-block mb-1" onclick="loginCh()" style="width: 100%">Sign in</button>
 				          </div>
 				          <div>
-				          	<button type="button" class="btn btn-primary btn-lg btn-block" onclick="loginCh()" style="width: 100%">Sign in</button>
+					      	<button type="button" class="btn btn-primary btn-lg btn-block" onclick="passwordFind()" style="width: 100%; background-color: #FF4C4C; border-color: #FF4C4C;" >Forgot password?</button>
 				          </div>
 				
 <!-- 				          <div class="divider d-flex align-items-center my-4">
