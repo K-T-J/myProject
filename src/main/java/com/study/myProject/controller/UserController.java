@@ -3,6 +3,7 @@ package com.study.myProject.controller;
 import java.util.Optional;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -97,19 +98,15 @@ public class UserController {
 	public String loginCheck(
 			@ApiParam(value = "아이디", required = true) @RequestParam(name = "id", required = true) String id,
 			@ApiParam(value = "비밀번호", required = true) @RequestParam(name = "password", required = true) String password
-			) {
+			, HttpServletResponse httpServletResponse, HttpServletRequest request) {
 		
 		Users users = userservice.loginCheckService(id, password);
 		
 		if(users != null) {
 			
-			
-			sessionManager.createSession(users, null);
-			
-			//sessionManager.createSession(users, null);
-			
-			
-			
+			//세션 생성
+			sessionManager.createSession(id, httpServletResponse);
+					
 			return EnYn.YES.getCode(); 
 		}
 		

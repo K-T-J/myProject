@@ -14,7 +14,7 @@ import org.springframework.stereotype.Component;
 
 
 @Component
-public class SessionManager {
+public class SessionManager { //세션 쿠키 : 브라우저를 종료하면 로그아웃
 	
 	private static final String SESSION_COOKIE_NAME = "userId";
 	
@@ -29,10 +29,7 @@ public class SessionManager {
 	public void createSession(Object value, HttpServletResponse response) {
 		//세션 id를 생성하고, 값을 세션에 저장
 		String sessionId = UUID.randomUUID().toString();
-		System.out.println("sessionId >> " + sessionId);
 		sessionStore.put(sessionId, value);
-		
-		
 		
 		//쿠키 생성
 		Cookie mySessionCookie = new Cookie(SESSION_COOKIE_NAME, sessionId);
