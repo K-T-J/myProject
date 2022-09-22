@@ -1,4 +1,4 @@
-package com.study.myProject.controller;
+package com.study.myProject.petBill.controller;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -8,12 +8,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-//@RequestMapping("petBill/user/*")
+@RequestMapping(value = "petBill/user/*")
 public class PetBillUserController {
-	
-	@GetMapping(value = "petBill")		//쿠키
+
+	@GetMapping(value = "main")		//쿠키
 	public String main(HttpSession session,HttpServletRequest request) {
-		System.out.println("탐");
 		//----------------쿠키------------
 //		if(session.getAttribute("userId") == null) {//세션이 없을때
 //			//쿠키 있는지 확인
@@ -39,7 +38,52 @@ public class PetBillUserController {
 //				return "redirect:/user/loginPro.pet"; //loginPro로 이동
 //			}
 //		}
-		return "petBill/user/petBill_main";
-	}
-
+		return "petBill/user/main";
+	}	
+	//로그인 form
+	@RequestMapping("loginForm")
+	public String loginForm() {
+		
+		return "petBill/user/loginForm";
+	}	
+	
+	//회원가입 form
+	@RequestMapping("userSignupForm")
+	public String userSignupForm() {//Model model,@RequestParam Map<String, Object> Map
+		
+		
+//		model.addAttribute("id",Map.get("id"));
+//		model.addAttribute("pw",Map.get("pw"));//카카오 에서 넘어온 id를 password와 id에 넣을예정
+		
+		return "petBill/user/userSignupForm";
+	}	
+	
+	
+	//ajax 아이디 중복
+//	@RequestMapping("ajaxidcheck")
+//	public String ajaxidcheck(UserDTO dto){
+//		int result = UserService.idCheck(dto);
+//		
+//		String data="";
+//		if(result ==1) {
+//			data = "이미 사용중인 아이디";
+//		}else {
+//			data = "사용 가능한 아이디";
+//		}
+//		
+//		HttpHeaders respHeaders = new HttpHeaders();
+//		respHeaders.add("Content-Type", "text/html;charset=UTF-8");//한글깨짐
+//		
+//		return "";
+//	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }

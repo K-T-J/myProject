@@ -7,9 +7,8 @@
 <head>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
-<link href="/petBill/resources/css/styles.css" rel="stylesheet" type="text/css">
-<!-- footer css 태준(09/29)-->
-<link href="/petBill/resources/css/footer.css" rel="stylesheet" type="text/css">
+<link href="/resources/css/petBill/petBill_styles.css" rel="stylesheet" type="text/css">
+<link href="/resources/css/petBill/petBill_footer.css" rel="stylesheet" type="text/css">
 <meta charset="UTF-8">
 <title>main</title>
 </head>
@@ -61,8 +60,8 @@ function kakaoLogoutPro(){
                  	<li class="nav-item"><a class="nav-link" href="/petBill/admin/adMain.pet">관리자 페이지</a></li>
                   </c:if>
                         <c:if test="${sessionScope.userId == null && sessionScope.kakaoId == null}">	
-                  	<li class="nav-item active"><a class="nav-link" href="/petBill/user/loginForm.pet">로그인</a></li>
-                 	<li class="nav-item"><a class="nav-link" href="/petBill/user/userSignupForm.pet">회원가입</a></li>
+                  	<li class="nav-item active"><a class="nav-link" href="/petBill/user/loginForm">로그인</a></li>
+                 	<li class="nav-item"><a class="nav-link" href="/petBill/user/userSignupForm">회원가입</a></li>
                   </c:if>
                   <c:if test="${sessionScope.kakaoId != null ||sessionScope.userId != null && sessionScope.userId ne 'admin'}">
                   	<li class="nav-item active"><a class="nav-link" href="/petBill/user/logoutPro.pet">로그아웃</a></li>
@@ -74,18 +73,18 @@ function kakaoLogoutPro(){
 	</nav>
 	<div style ="text-align: center; margin-bottom: 110px; margin-top: 35px">
 		<a href="/petBill/search/mapMain.pet?petType=${'cat'}">
-		<img src="/petBill/resources/imgs/6.png"
-		onmouseover="this.src='/petBill/resources/imgs/7.png'"
-		onmouseout="this.src='/petBill/resources/imgs/6.png'" id="cat" ></a>
+		<img src="/resources/img/petBill/6.png"
+		onmouseover="this.src='/resources/img/petBill/7.png'"
+		onmouseout="this.src='/resources/img/petBill/6.png'" id="cat" ></a>
 		
 		<a href="/petBill/search/mapMain.pet?petType=${'dog'}">
-		<img src="/petBill/resources/imgs/4.png"
-		onmouseover="this.src='/petBill/resources/imgs/2.png'"
-		onmouseout="this.src='/petBill/resources/imgs/4.png'" id="dog"></a>
+		<img src="/resources/img/petBill/4.png"
+		onmouseover="this.src='/resources/img/petBill/2.png'"
+		onmouseout="this.src='/resources/img/petBill/4.png'" id="dog"></a>
 		<br />
 		<br />
    	<div style ="text-align: center; height: 150px;">
-		<img src="/petBill/resources/imgs/제목1.png"/>
+		<img src="/resources/img/petBill/제목1.png"/>
 	</div>
 	</div>
    	
