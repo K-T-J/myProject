@@ -1,15 +1,32 @@
 package com.study.myProject.petBill.controller;
 
+import java.sql.SQLException;
+import java.util.Optional;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+
+import com.study.myProject.petBill.dto.PetBillUserDTO;
+import com.study.myProject.petBill.entity.PetBillUsers;
+import com.study.myProject.petBill.service.PetBillUserService;
+
+
+import lombok.RequiredArgsConstructor;
 
 @Controller
+@RequiredArgsConstructor
 @RequestMapping(value = "petBill/user/*")
 public class PetBillUserController {
+	
+	private final PetBillUserService petBillUserService;
 
 	@GetMapping(value = "main")		//쿠키
 	public String main(HttpSession session,HttpServletRequest request) {
@@ -41,14 +58,14 @@ public class PetBillUserController {
 		return "petBill/user/main";
 	}	
 	//로그인 form
-	@RequestMapping("loginForm")
+	@GetMapping(value = "loginForm")
 	public String loginForm() {
 		
 		return "petBill/user/loginForm";
 	}	
 	
 	//회원가입 form
-	@RequestMapping("userSignupForm")
+	@GetMapping(value = "userSignupForm")
 	public String userSignupForm() {//Model model,@RequestParam Map<String, Object> Map
 		
 		
@@ -60,24 +77,30 @@ public class PetBillUserController {
 	
 	
 	//ajax 아이디 중복
-//	@RequestMapping("ajaxidcheck")
-//	public String ajaxidcheck(UserDTO dto){
-//		int result = UserService.idCheck(dto);
-//		
-//		String data="";
-//		if(result ==1) {
-//			data = "이미 사용중인 아이디";
-//		}else {
-//			data = "사용 가능한 아이디";
-//		}
-//		
-//		HttpHeaders respHeaders = new HttpHeaders();
-//		respHeaders.add("Content-Type", "text/html;charset=UTF-8");//한글깨짐
-//		
-//		return "";
-//	}
+	@ResponseBody
+	@PostMapping(value = "ajaxidcheck")
+	public Optional<PetBillUsers> ajaxidcheck(String id){
+		
+		return petBillUserService.idCheck(id);
+	}
 	
+	//ajax 닉네임 중복
+	@ResponseBody
+	@PostMapping(value = "ajaxnicknamecheck")
+	public Optional<PetBillUsers> ajaxnicknamecheck(String nickname){
+
+		return petBillUserService.ajaxnicknamecheck(nickname);
+	}
 	
+	//회원가입 pro
+	@ResponseBody
+	@PostMapping(value = "userSignupPro")
+	public String userSignupPro(PetBillUserDTO dto) throws SQLException{
+
+		String result = petBillUserService.userSignup(dto);
+	
+		return result;
+	}
 	
 	
 	

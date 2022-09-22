@@ -2,6 +2,7 @@ package com.study.myProject.petBill.entity;
 
 
 
+import java.time.LocalDateTime;
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -39,18 +40,15 @@ public class PetBillUsers {
 	private String nickName;
 	
 	@Column(name = "REG")
-	private Date reg;
+	private LocalDateTime reg;
 	
-	@Column(name = "USERACTIVENUM", length = 50)
-	@ColumnDefault(value = "활성화")
+	@Column(name = "USERACTIVENUM", length = 50, columnDefinition = "varchar(50) default '활성화'")
 	private String useractivenum;
 	
-	@Column(name = "USERREASON", length = 200)
-	@ColumnDefault(value = "none")
+	@Column(name = "USERREASON", length = 200, columnDefinition = "varchar(200) default 'none'")
 	private String userreason;
 	
-	@Column(name = "KAKAOLOGIN", length = 50)
-	@ColumnDefault(value = "none")
+	@Column(name = "KAKAOLOGIN", length = 50, columnDefinition = "varchar(50) default 'none'")
 	private String kakaologin;
 
 }
