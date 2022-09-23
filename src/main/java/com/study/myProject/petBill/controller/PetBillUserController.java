@@ -4,6 +4,7 @@ import java.sql.SQLException;
 import java.util.Optional;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
@@ -13,7 +14,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-
+import com.study.myProject.enums.EnYn;
 import com.study.myProject.petBill.dto.PetBillUserDTO;
 import com.study.myProject.petBill.entity.PetBillUsers;
 import com.study.myProject.petBill.service.PetBillUserService;
@@ -55,16 +56,31 @@ public class PetBillUserController {
 //				return "redirect:/user/loginPro.pet"; //loginPro로 이동
 //			}
 //		}
+		
+		//임시 데이터
+		PetBillUserDTO dto = new PetBillUserDTO();
+		dto.setId("java");
+		dto.setPw("1234");
+		dto.setName("java");
+		dto.setNickname("java");
+		dto.setMobile("123-456-6786");
+		
+		petBillUserService.userSignup(dto);
+		
 		return "petBill/user/main";
 	}	
-	//로그인 form
+	/**
+	 * 로그인 form
+	 * */
 	@GetMapping(value = "loginForm")
 	public String loginForm() {
 		
 		return "petBill/user/loginForm";
 	}	
 	
-	//회원가입 form
+	/**
+	 * 회원가입 form
+	 * */
 	@GetMapping(value = "userSignupForm")
 	public String userSignupForm() {//Model model,@RequestParam Map<String, Object> Map
 		
@@ -76,7 +92,9 @@ public class PetBillUserController {
 	}	
 	
 	
-	//ajax 아이디 중복
+	/**
+	 * ajax 아이디 중복
+	 * */
 	@ResponseBody
 	@PostMapping(value = "ajaxidcheck")
 	public Optional<PetBillUsers> ajaxidcheck(String id){
@@ -84,7 +102,9 @@ public class PetBillUserController {
 		return petBillUserService.idCheck(id);
 	}
 	
-	//ajax 닉네임 중복
+	/**
+	 * ajax 닉네임 중복
+	 * */
 	@ResponseBody
 	@PostMapping(value = "ajaxnicknamecheck")
 	public Optional<PetBillUsers> ajaxnicknamecheck(String nickname){
@@ -92,7 +112,9 @@ public class PetBillUserController {
 		return petBillUserService.ajaxnicknamecheck(nickname);
 	}
 	
-	//회원가입 pro
+	/**
+	 * 회원가입 pro
+	 * */
 	@ResponseBody
 	@PostMapping(value = "userSignupPro")
 	public String userSignupPro(PetBillUserDTO dto) throws SQLException{
@@ -102,7 +124,56 @@ public class PetBillUserController {
 		return result;
 	}
 	
-	
+	/**
+	 * 로그인 pro
+	 * */
+	@ResponseBody
+	@PostMapping(value = "loginPro")											//쿠키
+	public String loginPro(PetBillUserDTO dto, String auto, Model model, HttpServletResponse response, HttpServletRequest request){
+		
+		//--------------쿠키------------------------
+		//main에서 왔으면 dto값이 없을것이다.
+//		Cookie[] cookie = request.getCookies();
+//		System.out.println("여기왔나?");
+//		if(cookie != null) {
+//			System.out.println("쿠키값이 null이 아닐때");
+//			for(Cookie c : cookie) {
+//				if(c.getName().equals("autoid")) {dto.setId(c.getValue());}
+//				if(c.getName().equals("autopw")) {dto.setPw(c.getValue());}
+//				if(c.getName().equals("autoch")) {auto = c.getValue();}
+//			}
+//		}
+		
+		//일반회원 id,pw 체크
+		PetBillUsers petBilluser = petBillUserService.IdPwcheck(dto);
+
+		if(petBilluser == null) {
+			return EnYn.NO.getCode();
+		}
+		
+		
+//		if(result == 1) {//로그인 체크가 됐을때
+//			if(auto != null) {//자동 로그인을 눌렀을때
+//				System.out.println("쿠키생성");
+//				//쿠키 생성
+//				Cookie c1 = new Cookie("autoid", dto.getId());
+//				Cookie c2 = new Cookie("autopw", dto.getPw());
+//				Cookie c3 = new Cookie("autoch", auto);
+//				c1.setMaxAge(60*60*24);//24시간
+//				c2.setMaxAge(60*60*24);//24시간
+//				c3.setMaxAge(60*60*24);//24시간
+//				response.addCookie(c1);
+//				response.addCookie(c2);
+//				response.addCookie(c3);
+//			}
+//		}
+		
+		//--------------쿠키------------------------
+		//view로 보내기
+//		model.addAttribute("result",result);
+		
+		return EnYn.YES.getCode();
+	}
 	
 	
 	

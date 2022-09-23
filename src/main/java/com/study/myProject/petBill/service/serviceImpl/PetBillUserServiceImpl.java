@@ -4,13 +4,15 @@ import java.time.LocalDateTime;
 import java.util.Optional;
 
 import org.springframework.stereotype.Service;
+import org.springframework.web.context.request.RequestAttributes;
+import org.springframework.web.context.request.RequestContextHolder;
 
 import com.study.myProject.enums.EnYn;
 import com.study.myProject.petBill.dto.PetBillUserDTO;
 import com.study.myProject.petBill.entity.PetBillUsers;
-import com.study.myProject.petBill.repository.UserRepository;
+import com.study.myProject.petBill.repository.PetBillUserRepository;
 import com.study.myProject.petBill.service.PetBillUserService;
-import com.study.myProject.repository.PetBillUserRepository;
+
 
 import lombok.RequiredArgsConstructor;
 
@@ -25,9 +27,7 @@ public class PetBillUserServiceImpl implements PetBillUserService{
 	 * */
 	@Override
 	public Optional<PetBillUsers> idCheck(String id) {
-		
 		return petBillUserRepository.findById(id);
-		
 	}
 
 	/**
@@ -35,10 +35,7 @@ public class PetBillUserServiceImpl implements PetBillUserService{
 	 * */
 	@Override
 	public Optional<PetBillUsers> ajaxnicknamecheck(String nickname) {
-		
 		return petBillUserRepository.findByNickName(nickname);
-		
-		
 	}
 
 	/**
@@ -63,6 +60,24 @@ public class PetBillUserServiceImpl implements PetBillUserService{
 			
 		}
 		return EnYn.YES.getCode();
+	}
+	/**
+	 * 로그인 pro
+	 * */
+	@Override
+	public PetBillUsers IdPwcheck(PetBillUserDTO dto) {
+		
+		PetBillUsers petBillusers = petBillUserRepository.findByIdAndPw(dto.getId(), dto.getPw());
+		
+		if(petBillusers != null) {
+			//세션만들기
+			RequestContextHolder.getRequestAttributes().setAttribute("userId", dto.getId(), RequestAttributes.SCOPE_SESSION);
+		}
+		return petBillusers;
+		
+		
+		
+		
 	}
 
 }

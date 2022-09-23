@@ -15,6 +15,7 @@
 		
 	</head>
 	<script>
+	
 	//아이디 체크
 	$(function(){
 		$("#id").change(function(){
@@ -29,7 +30,7 @@
 						$("#id_ckeck").html("사용 가능한 아이디 입니다")
 					}else{
 						$("#id_ckeck").html("이미 사용중인 아이디 입니다")
-						$('$id').val('');
+						$('#id').val('');
 					}
 				},
 				error : function(e){
@@ -69,17 +70,19 @@
 	})	
 	
 	
-	function submitCheck(){
-			console.log('123');
-			
-/* 		if(validation()){
+	function submitCheck(){			
+		console.log('id >> ' , $('#id').val());
+		console.log('pw >> ' , $('#pw').val());
+		console.log('name >> ' , $('#name').val());
+		console.log('nickname >> ' , $('#nickname').val());
+		console.log('mobile >> ' , $('#mobile').val());
+ 		if(validation()){
 			var formData = {
 					id : $('#id').val(),
 					pw : $('#pw').val(),
 					name : $('#name').val(),
 					nickname : $('#nickname').val(),
-					mobile : $('mobile').val()
-					
+					mobile : $('#mobile').val()
 			}
 			$.ajax({
 				url : '/petBill/user/userSignupPro',
@@ -89,7 +92,7 @@
 				success : function(data){
 					if(data === 'Y'){
 						alert('가입 축하합니다')
-						location.replace('/petBill/user/login');
+						location.replace('/petBill/user/loginForm');
 					}else{
 						alert('가입 실패')
 						return
@@ -100,11 +103,11 @@
 				}
 			})
 			
-		} */
+		} 
 		
 	}
 			
-	//비밀번호 체크
+	
 	function validation(){
 		if($('#id').val().trim().length === 0){
 			alert("아이디를 입력해주세요");
@@ -140,26 +143,6 @@
 	    }
 		return true
 	}
-
-	
-	
-  
-/* 	
-	    $(function() {    //화면 다 뜨면 시작
-	        $("#searchInput").autocomplete({
-	            source : function( request, response ) {
-	               
-	             //위에 있는 코드랑 동일 생략//
-	             
-	            
-	            }
-	        }).autocomplete( "instance" )._renderItem = function( ul, item ) {    //요 부분이 UI를 마음대로 변경하는 부분
-	                  return $( "<li>" )    //기본 tag가 li로 되어 있음 
-	                  .append( "<div>" + item.value + "<br>" + item.label + "</div>" )    //여기에다가 원하는 모양의 HTML을 만들면 UI가 원하는 모양으로 변함.
-	                  .appendTo( ul );
-	           };
-	    }); */
-	    
 	</script>
 	
 	<body>
@@ -172,7 +155,7 @@
 	                <div class="form">
 	                	
 	                    <h2>회원가입</h2>
-	                    <form>
+	                    <form method="post">
 	                    	<c:if test="${id == null && pw == null}">
 		                        <div class="inputBox-signup">
 		                        	아이디
@@ -190,11 +173,11 @@
 		                        </div>
 		                        <div class="inputBox-signup">
 	                    			이름
-		                            <input type="text" name="name" maxlength='10' placeholder="이름을 입력하세요." required/>
+		                            <input type="text" name="name" id="name" maxlength='10' placeholder="이름을 입력하세요." required/>
 		                        </div>
 	                    		<div class="inputBox-signup">
 	                    			닉네임
-		                            <input type="text" name="nickname" maxlength='10' id="nickname" placeholder="닉네임을 입력하세요." required />
+		                            <input type="text" name="nickname" id="nickname" maxlength='10'  placeholder="닉네임을 입력하세요." required />
 		                            <br />
 		                            <span id="nickname_ckeck"></span>
 		                        </div>
@@ -203,6 +186,7 @@
 		                            <input type="text" name="mobile" id="mobile" placeholder="'-'를 포함하여 입력하세요." maxlength="13" required/>
 		                        </div>
 	                    	</c:if>
+	                    	<!-- 
 	                    	<c:if test="${id != null && pw != null}">
 		                        <div class="inputBox-signup">
 		                            <input type="hidden" name="id" id="id" value= "${id}"/>
@@ -228,9 +212,10 @@
 		                            <input type="text" name="mobile" id="mobile" placeholder="'-' 포함" maxlength="13" required/>
 		                        </div>
 	                    	</c:if>
+	                    	 -->
 	                    	<br />
 	                        <div align="center">
-                       		    <button class="btn-join" onclick="submitCheck()">가입</button>
+                       		    <button type="button" class="btn-join" onclick="submitCheck()">가입</button>
 	                        </div>   
 	                        <div align="center">
 	                            <button class="button" type="reset">재작성</button>
@@ -242,10 +227,5 @@
 	            </div>
 	        </div>
     	</section>
-		
-	<footer>
-	</footer>
-	
-	
 	</body>
 </html>

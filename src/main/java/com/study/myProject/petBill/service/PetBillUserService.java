@@ -11,7 +11,7 @@ public interface PetBillUserService {
 	String userSignup(PetBillUserDTO dto);
 //	
 //	//로그인
-//	public int IdPwcheck(UserDTO dto)throws SQLException;
+	public PetBillUsers IdPwcheck(PetBillUserDTO dto);
 //	
 //	//카카오 로그인  세션
 //	public Map<String, Object> kakaologincheck(Map<String, Object> Map)throws SQLException;

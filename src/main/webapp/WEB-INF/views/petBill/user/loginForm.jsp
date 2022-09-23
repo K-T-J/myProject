@@ -11,32 +11,29 @@
 		
 		<%-- user 로그인,회원가입,아이디/비번 찾기 폼 userStyle.css --%>
 		<link rel="stylesheet" type="text/css" href="/resources/css/petBill/petBill_userStyle.css" />
-		
+		<link rel="icon" href="/resources/img/icon/favicon.ico"/>
 		<script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
 		<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 		
 
 		<script>
 			Kakao.init("5acd7d0abad958ae8f6e5399abee0118");
-			console.log(Kakao.isInitialized());//SDK 초기화 여부 판단 잘되었다면 true
-			console.log("SDK 초기화 됐다!");
+			//console.log(Kakao.isInitialized());//SDK 초기화 여부 판단 잘되었다면 true
+			//console.log("SDK 초기화 됐다!");
 			
 		
 			function kakaoLogin() {//로그인 버튼 누르면 실행~
 				Kakao.Auth.loginForm({
 					success: function (response) {
-					Kakao.API.request({
-						url: '/v2/user/me',
-						success: function (response) {
-							kakaoLoginPro(response)//성공했으면 kakaoLoginPro실행~
-						},
-						fail: function (error) {
-							console.log(error)
-						},
-					})
-				},
-					fail: function (error) {
-						console.log(error)
+						Kakao.API.request({
+							url: '/v2/user/me',
+							success: function (response) {
+								kakaoLoginPro(response)//성공했으면 kakaoLoginPro실행~
+							},
+							fail: function (error) {
+								console.log(error)
+							},
+						})
 					},
 				})
 			}
@@ -67,6 +64,49 @@
 					}
 				});
 			}
+			function loginSubmit(){
+				
+				if(validation()){
+					var loginFormData = {
+							id : $('#id').val(),
+							pw : $('#pw').val()
+					}
+					$.ajax({
+						url : "petBill/user/loginPro",
+						method: "post",
+						data : loginFormData,
+						success : function(result){
+							console.log('result >> ' , result);
+							if(result === 'YES'){
+								alert('로그인 성공');
+								location.replace('/petBill/user/main');
+							}else{
+								alert('로그인 실패')
+								return
+							}
+						},
+						error : function(error){
+							console.log('error >> ' , error)
+						}
+						
+					})
+				}
+				
+			}			
+			
+			function validation(){
+				if($('#id').val().trim().length === 0){
+					alert("아이디를 입력해주세요");
+					return false
+				}
+				if($('#pw').val().trim().length === 0){
+					alert("비밀번호를 입력해주세요");
+					return false
+				}
+				return true
+			}
+			
+			
 		</script>
 
 	<body>
@@ -76,11 +116,6 @@
 	        <div class="color"></div>
 	        <div class="color"></div>
 	        <div class="box">
-	            <!-- <div class="square" style="--i:0;"></div>
-	            <div class="square" style="--i:1;"></div>
-	            <div class="square" style="--i:2;"></div>
-	            <div class="square" style="--i:3;"></div>
-	            <div class="square" style="--i:4;"></div> -->
 	            <div class="con">
 	                <div class="form">
 	                
@@ -91,19 +126,19 @@
 						</form>
 						
 	                    <h2>로그인</h2>
-	                    <form action="loginPro.pet" method="post" name="login">
+	                    <form method="post" name="login">
 	                        <div class="inputBox">
-	                            <input type="text" name="Id" placeholder="UserID" />
+	                            <input type="text" id="id" name="id" placeholder="UserID" />
 	                        </div>
 	                        <div class="inputBox">
-	                            <input type="password" name="Pw" placeholder="Password" />
+	                            <input type="password" id="pw" name="pw" placeholder="Password" />
 	                        </div>
 	                        <br />
 	                        <div>
-	                            <input type="checkbox" name="auto" value="1" /> 자동로그인
+	                            <input type="checkbox" id="auto" name="auto" value="1" /> 자동로그인
 	                        </div>
 	                        <div align="center">
-	                            <button class="button" type="submit">일반 로그인</button>
+	                            <button type="button" class="button" onclick="loginSubmit()">일반 로그인</button>
 	                            <button class="btn-kakao" type="button" onclick="location.href='javascript:kakaoLogin()'">
 									kakao 로그인
 	                            </button>

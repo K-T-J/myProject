@@ -7,8 +7,7 @@ import org.springframework.stereotype.Service;
 import com.study.myProject.dto.UserDTO;
 import com.study.myProject.entity.Users;
 import com.study.myProject.enums.EnYn;
-import com.study.myProject.petBill.repository.UserRepository;
-import com.study.myProject.repository.PetBillUserRepository;
+import com.study.myProject.repository.UserRepository;
 import com.study.myProject.service.UserService;
 
 import lombok.RequiredArgsConstructor;

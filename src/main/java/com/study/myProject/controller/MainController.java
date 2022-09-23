@@ -30,7 +30,7 @@ public class MainController {
 		userService.signupSubmitService(userDTO);
 		
 		//세션 확인
-		System.out.println("request >> " + sessionManager.getSession(request));
+		//System.out.println("request >> " + sessionManager.getSession(request));
 		
 		
 		
