@@ -73,11 +73,32 @@ public class PetBillUserServiceImpl implements PetBillUserService{
 			//세션만들기
 			RequestContextHolder.getRequestAttributes().setAttribute("userId", dto.getId(), RequestAttributes.SCOPE_SESSION);
 		}
-		return petBillusers;
-		
-		
-		
+		return petBillusers;	
+	}
+	/**
+	 * 로그아웃
+	 * */
+	@Override
+	public void logout(String userId) {
+		//세션삭제
+		RequestContextHolder.getRequestAttributes().removeAttribute("userId", RequestAttributes.SCOPE_SESSION);
 		
 	}
+	/**
+	 * 세션 가져오기
+	 * */
+	@Override
+	public String getSessionInfo() {
+		
+		return (String)RequestContextHolder.getRequestAttributes().getAttribute("userId", RequestAttributes.SCOPE_SESSION);
+	}
+
+	@Override
+	public PetBillUserDTO getUser() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
 
 }

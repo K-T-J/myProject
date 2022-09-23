@@ -9,6 +9,7 @@
 <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
 <link href="/resources/css/petBill/petBill_styles.css" rel="stylesheet" type="text/css">
 <link href="/resources/css/petBill/petBill_footer.css" rel="stylesheet" type="text/css">
+<link rel="icon" href="/resources/img/icon/favicon.ico"/>
 <meta charset="UTF-8">
 <title>main</title>
 </head>
@@ -56,7 +57,7 @@ function kakaoLogoutPro(){
 	
 					<%-- 로그인 분기처리 --%>
                   <c:if test="${sessionScope.userId eq 'admin'}">	
-                  	<li class="nav-item active"><a class="nav-link" href="/petBill/user/logoutPro.pet">로그아웃</a></li>
+                  	<li class="nav-item active"><a class="nav-link" href="/petBill/user/logoutPro">로그아웃</a></li>
                  	<li class="nav-item"><a class="nav-link" href="/petBill/admin/adMain.pet">관리자 페이지</a></li>
                   </c:if>
                         <c:if test="${sessionScope.userId == null && sessionScope.kakaoId == null}">	
@@ -64,8 +65,8 @@ function kakaoLogoutPro(){
                  	<li class="nav-item"><a class="nav-link" href="/petBill/user/userSignupForm">회원가입</a></li>
                   </c:if>
                   <c:if test="${sessionScope.kakaoId != null ||sessionScope.userId != null && sessionScope.userId ne 'admin'}">
-                  	<li class="nav-item active"><a class="nav-link" href="/petBill/user/logoutPro.pet">로그아웃</a></li>
-                 	<li class="nav-item"><a class="nav-link" href="/petBill/user/userMypage.pet">마이페이지</a></li>
+                  	<li class="nav-item active"><a class="nav-link" href="/petBill/user/logoutPro">로그아웃</a></li>
+                 	<li class="nav-item"><a class="nav-link" href="/petBill/user/userMypage">마이페이지</a></li>
                   </c:if>
 				</ul>
 			</div>

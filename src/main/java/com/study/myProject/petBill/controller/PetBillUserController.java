@@ -67,6 +67,15 @@ public class PetBillUserController {
 		
 		petBillUserService.userSignup(dto);
 		
+		PetBillUserDTO admin = new PetBillUserDTO();
+		admin.setId("admin");
+		admin.setPw("1234");
+		admin.setName("admin");
+		admin.setNickname("admin");
+		admin.setMobile("123-456-6786");
+		
+		petBillUserService.userSignup(admin);
+		
 		return "petBill/user/main";
 	}	
 	/**
@@ -175,9 +184,51 @@ public class PetBillUserController {
 		return EnYn.YES.getCode();
 	}
 	
+	/**
+	 * 로그아웃
+	 * */
+	@RequestMapping("logoutPro")							//쿠키
+	public String logoutPro(HttpSession session, Model model,HttpServletRequest request,HttpServletResponse response) {
+		
+			//session.invalidate();
+			petBillUserService.logout("userId");//일반유저 세션삭제
+			// 쿠키 삭제
+//			Cookie[] cookie = request.getCookies();
+//			if(cookie != null) {//쿠키 값이 있으면
+//				System.out.println("쿠키 삭제돼라");
+//				for(Cookie c : cookie) {
+//					if(c.getName().equals("autoid") || c.getName().equals("autopw")||c.getName().equals("autoch")) {
+//						c.setMaxAge(0);
+//						response.addCookie(c);
+//					}
+//				}
+//			}
+		
+		return "redirect:/petBill/user/main";
+	}
 	
+	/**
+	 * 마이페이지
+	 * */
 	
-	
-	
+	//마이페이지
+	@GetMapping("userMypage.pet")
+	public String userMypage(Model model,HttpSession session) throws SQLException{
+		
+		Optional<PetBillUsers> dto = null;
+		
+		if(session.getAttribute("userId") != null) {
+			//유저 1명정보 가져오기
+			String userId = petBillUserService.getSessionInfo();
+			dto = petBillUserService.idCheck(userId);
+		}else {
+			String id = (String)session.getAttribute("kakaoId");
+			//DB카카오 유저 정보 가져오기
+			//dto = petBillUserService.getkakao(id);
+		}
+		model.addAttribute("dto", dto);
+		
+		return "petBill/user/userMypage";
+	}
 	
 }

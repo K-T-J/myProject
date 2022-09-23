@@ -17,7 +17,7 @@
 		
 
 		<script>
-			Kakao.init("5acd7d0abad958ae8f6e5399abee0118");
+			//Kakao.init("5acd7d0abad958ae8f6e5399abee0118");
 			//console.log(Kakao.isInitialized());//SDK 초기화 여부 판단 잘되었다면 true
 			//console.log("SDK 초기화 됐다!");
 			
@@ -65,23 +65,25 @@
 				});
 			}
 			function loginSubmit(){
-				
 				if(validation()){
 					var loginFormData = {
 							id : $('#id').val(),
 							pw : $('#pw').val()
 					}
+
 					$.ajax({
-						url : "petBill/user/loginPro",
+						url : "/petBill/user/loginPro",
 						method: "post",
 						data : loginFormData,
 						success : function(result){
 							console.log('result >> ' , result);
-							if(result === 'YES'){
+							if(result === 'Y'){
 								alert('로그인 성공');
 								location.replace('/petBill/user/main');
 							}else{
-								alert('로그인 실패')
+								alert('로그인 실패');
+								$("#id").val("");
+								$("#pw").val("");
 								return
 							}
 						},
@@ -126,7 +128,7 @@
 						</form>
 						
 	                    <h2>로그인</h2>
-	                    <form method="post" name="login">
+	                    <form name="login">
 	                        <div class="inputBox">
 	                            <input type="text" id="id" name="id" placeholder="UserID" />
 	                        </div>

@@ -70,12 +70,7 @@
 	})	
 	
 	
-	function submitCheck(){			
-		console.log('id >> ' , $('#id').val());
-		console.log('pw >> ' , $('#pw').val());
-		console.log('name >> ' , $('#name').val());
-		console.log('nickname >> ' , $('#nickname').val());
-		console.log('mobile >> ' , $('#mobile').val());
+	function submitCheck(){
  		if(validation()){
 			var formData = {
 					id : $('#id').val(),

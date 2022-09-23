@@ -11,7 +11,7 @@ public interface PetBillUserService {
 	String userSignup(PetBillUserDTO dto);
 //	
 //	//로그인
-	public PetBillUsers IdPwcheck(PetBillUserDTO dto);
+	PetBillUsers IdPwcheck(PetBillUserDTO dto);
 //	
 //	//카카오 로그인  세션
 //	public Map<String, Object> kakaologincheck(Map<String, Object> Map)throws SQLException;
@@ -26,10 +26,13 @@ public interface PetBillUserService {
 //	public UserDTO getkakao(String id)throws SQLException;
 //	
 //	//로그아웃
-//	public void logout(String userId);
+	void logout(String userId);
 //	
 //	//회원 1명정보 가져오기
-//	public UserDTO getUser()throws SQLException;
+	PetBillUserDTO getUser();
+	
+	//세션 가져오기
+	String getSessionInfo();
 //	
 //	//유저 정보 수정
 //	public int updateUser(UserDTO dto,String nickname,String mobile)throws SQLException;
