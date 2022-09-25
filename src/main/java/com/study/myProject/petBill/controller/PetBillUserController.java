@@ -187,7 +187,7 @@ public class PetBillUserController {
 	/**
 	 * 로그아웃
 	 * */
-	@RequestMapping("logoutPro")							//쿠키
+	@RequestMapping(value = "logoutPro")							//쿠키
 	public String logoutPro(HttpSession session, Model model,HttpServletRequest request,HttpServletResponse response) {
 		
 			//session.invalidate();
@@ -210,25 +210,95 @@ public class PetBillUserController {
 	/**
 	 * 마이페이지
 	 * */
-	
-	//마이페이지
-	@GetMapping("userMypage.pet")
+	@GetMapping(value = "userMypage")
 	public String userMypage(Model model,HttpSession session) throws SQLException{
 		
-		Optional<PetBillUsers> dto = null;
+		PetBillUserDTO dto = new PetBillUserDTO();
 		
 		if(session.getAttribute("userId") != null) {
 			//유저 1명정보 가져오기
 			String userId = petBillUserService.getSessionInfo();
-			dto = petBillUserService.idCheck(userId);
-		}else {
-			String id = (String)session.getAttribute("kakaoId");
+			dto = petBillUserService.getUser(userId);
+		}else if(session.getAttribute("kakaoId") != null){
+			//String id = (String)session.getAttribute("kakaoId");
 			//DB카카오 유저 정보 가져오기
 			//dto = petBillUserService.getkakao(id);
 		}
 		model.addAttribute("dto", dto);
 		
 		return "petBill/user/userMypage";
+	}
+	
+	/**
+	 * 유저 정보 수정 Form
+	 * */
+	@GetMapping(value = "userModifyForm")
+	public String userModifyForm (Model model, HttpSession session) throws SQLException{
+		
+		PetBillUserDTO dto = null;
+		
+		if(session.getAttribute("userId") != null) {
+			//유저 1명정보 가져오기
+			String userId = petBillUserService.getSessionInfo();
+			dto = petBillUserService.getUser(userId);
+		}else {
+//			String id = (String)session.getAttribute("kakaoId");
+//			//DB카카오 유저 정보 가져오기
+//			dto = petBillUserService.getkakao(id);
+		}
+		model.addAttribute("dto", dto);
+		
+		return "petBill/user/userModifyForm";
+	}	
+	
+	/**
+	 * 비밀번호 수정Form
+	 * */
+	@RequestMapping(value = "pwModifyForm")
+	public String pwModifyForm() {
+		
+		return "petBill/user/pwModifyForm";
+	}
+	
+	/**
+	 * 비밀번호 체크
+	 * */
+	@ResponseBody
+	@PostMapping(value = "pwCheck")
+	public String pwCheck(String pw, HttpSession session) {
+		
+		String userId = petBillUserService.getSessionInfo();
+		PetBillUsers user = petBillUserService.userPwCheck(userId, pw);
+		
+		if(user == null) {
+			return EnYn.NO.getCode();
+		}
+		return EnYn.YES.getCode();
+	}
+	/**
+	 * 비밀번호 수정Pro
+	 * */
+	@ResponseBody
+	@RequestMapping("pwModiFyPro")
+	public String pwModiFyPro(HttpServletRequest request, HttpServletResponse response, 
+			HttpSession session, String pw,String newPw) throws SQLException{
+		String userId = petBillUserService.getSessionInfo();
+		String result = petBillUserService.pwModify(userId,pw,newPw);
+//		if(result == 1) {
+//			// 쿠키 삭제
+//			Cookie[] cookie = request.getCookies();
+//			if(cookie != null) {//쿠키 값이 있으면
+//				System.out.println("쿠키 삭제돼라");
+//				for(Cookie c : cookie) {
+//					if(c.getName().equals("autoid") || c.getName().equals("autopw")||c.getName().equals("autoch")) {
+//						c.setMaxAge(0);
+//						response.addCookie(c);
+//					}
+//				}
+//			}
+//		}
+				
+		return result;
 	}
 	
 }

@@ -1,6 +1,5 @@
 package com.study.myProject.petBill.dto;
-
-import java.sql.Timestamp;
+import java.time.LocalDateTime;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -16,7 +15,7 @@ public class PetBillUserDTO {
 	private String name;				//이름
 	private String mobile;				//핸드폰
 	private String nickname;			//닉네임
-	private Timestamp reg;				//가입날짜
+	private LocalDateTime reg;				//가입날짜
 	private String useractivenum;		//상태
 	private String userreason;			//이유
 

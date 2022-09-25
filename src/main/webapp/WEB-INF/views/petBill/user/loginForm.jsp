@@ -76,7 +76,6 @@
 						method: "post",
 						data : loginFormData,
 						success : function(result){
-							console.log('result >> ' , result);
 							if(result === 'Y'){
 								alert('로그인 성공');
 								location.replace('/petBill/user/main');

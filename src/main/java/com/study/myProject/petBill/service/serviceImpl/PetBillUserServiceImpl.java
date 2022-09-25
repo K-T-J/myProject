@@ -92,11 +92,56 @@ public class PetBillUserServiceImpl implements PetBillUserService{
 		
 		return (String)RequestContextHolder.getRequestAttributes().getAttribute("userId", RequestAttributes.SCOPE_SESSION);
 	}
-
+	
+	/**
+	 * 유저 한명 데이터
+	 * */
 	@Override
-	public PetBillUserDTO getUser() {
-		// TODO Auto-generated method stub
-		return null;
+	public PetBillUserDTO getUser(String id) {
+		
+		Optional<PetBillUsers> userId = petBillUserRepository.findById(id);
+		PetBillUserDTO dto = new PetBillUserDTO();
+		if(userId != null) {
+			dto.setId(userId.get().getId());
+			dto.setPw(userId.get().getPw());
+			dto.setName(userId.get().getName());
+			dto.setNickname(userId.get().getNickName());
+			dto.setReg(userId.get().getReg());
+			dto.setMobile(userId.get().getMobile());
+			dto.setUseractivenum(userId.get().getUseractivenum());
+			dto.setUserreason(userId.get().getUserreason());
+		}else {
+			dto = null;
+		}
+
+		return dto;
+	}
+
+	/**
+	 * 회원 비밀번호 체크
+	 * */
+	@Override
+	public PetBillUsers userPwCheck(String id, String pw) {
+		
+		return petBillUserRepository.findByIdAndPw(id,pw);
+
+	}
+	
+	/**
+	 * 비밀번호 수정Pro
+	 * */
+	@Override
+	public String pwModify(String userId, String pw, String newPw) {
+		
+		PetBillUsers userInfo = petBillUserRepository.findByIdAndPw(userId,pw);
+		if(userInfo != null) {
+			userInfo.setPw(newPw);
+			petBillUserRepository.save(userInfo);
+			return EnYn.YES.getCode();
+		}else {
+			
+		}
+		return EnYn.NO.getCode();
 	}
 
 

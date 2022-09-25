@@ -7,12 +7,14 @@ import com.study.myProject.petBill.entity.PetBillUsers;
 
 public interface PetBillUserService {
 	
-//	//회원가입
+	//회원가입
 	String userSignup(PetBillUserDTO dto);
-//	
-//	//로그인
+	
+	//로그인
 	PetBillUsers IdPwcheck(PetBillUserDTO dto);
-//	
+	
+	//회원 비밀번호 체크
+	PetBillUsers userPwCheck(String id, String pw);
 //	//카카오 로그인  세션
 //	public Map<String, Object> kakaologincheck(Map<String, Object> Map)throws SQLException;
 //	
@@ -29,7 +31,7 @@ public interface PetBillUserService {
 	void logout(String userId);
 //	
 //	//회원 1명정보 가져오기
-	PetBillUserDTO getUser();
+	PetBillUserDTO getUser(String id);
 	
 	//세션 가져오기
 	String getSessionInfo();
@@ -49,11 +51,12 @@ public interface PetBillUserService {
 //	//pw찾기
 //	public String findpw(UserDTO dto)throws SQLException;
 //	
-//	//pw 변경
-//	public int pwModify(String pw, String pwModify, String pwModifych)throws SQLException;
+	//pw 변경
+	String pwModify(String userId, String pw, String newPw);
 //	
 //	//id 중복
 	Optional<PetBillUsers> idCheck(String id);
+
 //	
 //	//-----------------------------1:1 문의 ------------------------------------
 //	
