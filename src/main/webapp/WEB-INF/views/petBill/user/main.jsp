@@ -73,7 +73,7 @@ function kakaoLogoutPro(){
 		</div>
 	</nav>
 	<div style ="text-align: center; margin-bottom: 110px; margin-top: 35px">
-		<a href="/petBill/search/mapMain.pet?petType=${'cat'}">
+		<a href="/petBill/search/mapMain?petType=${'cat'}">
 		<img src="/resources/img/petBill/6.png"
 		onmouseover="this.src='/resources/img/petBill/7.png'"
 		onmouseout="this.src='/resources/img/petBill/6.png'" id="cat" ></a>

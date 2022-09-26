@@ -1,6 +1,5 @@
 package com.study.myProject.petBill.controller;
 
-import java.sql.SQLException;
 import java.util.Optional;
 
 import javax.servlet.http.HttpServletRequest;
@@ -126,7 +125,7 @@ public class PetBillUserController {
 	 * */
 	@ResponseBody
 	@PostMapping(value = "userSignupPro")
-	public String userSignupPro(PetBillUserDTO dto) throws SQLException{
+	public String userSignupPro(PetBillUserDTO dto){
 
 		String result = petBillUserService.userSignup(dto);
 	
@@ -211,7 +210,7 @@ public class PetBillUserController {
 	 * 마이페이지
 	 * */
 	@GetMapping(value = "userMypage")
-	public String userMypage(Model model,HttpSession session) throws SQLException{
+	public String userMypage(Model model,HttpSession session){
 		
 		PetBillUserDTO dto = new PetBillUserDTO();
 		
@@ -233,7 +232,7 @@ public class PetBillUserController {
 	 * 유저 정보 수정 Form
 	 * */
 	@GetMapping(value = "userModifyForm")
-	public String userModifyForm (Model model, HttpSession session) throws SQLException{
+	public String userModifyForm (Model model, HttpSession session){
 		
 		PetBillUserDTO dto = null;
 		
@@ -281,7 +280,7 @@ public class PetBillUserController {
 	@ResponseBody
 	@RequestMapping("pwModiFyPro")
 	public String pwModiFyPro(HttpServletRequest request, HttpServletResponse response, 
-			HttpSession session, String pw,String newPw) throws SQLException{
+			HttpSession session, String pw,String newPw){
 		String userId = petBillUserService.getSessionInfo();
 		String result = petBillUserService.pwModify(userId,pw,newPw);
 //		if(result == 1) {
@@ -298,6 +297,31 @@ public class PetBillUserController {
 //			}
 //		}
 				
+		return result;
+	}
+	
+	/**
+	 * 유저 정보 수정 Pro
+	 * */
+	@ResponseBody
+	@RequestMapping("userModifyPro")
+	public String userModifyPro(String nickname, String mobile, HttpSession session) {
+		
+		String userId = petBillUserService.getSessionInfo();
+		String result = null;
+		if(session.getAttribute("userId") != null) {
+			//정보수정
+			result = petBillUserService.updateUser(userId,nickname,mobile);
+			
+		}else {
+//			String id = (String)session.getAttribute("kakaoId");
+//			//DB카카오 유저 정보 가져오기
+//			dto = UserService.getkakao(id);
+//			result = UserService.updatekakao(dto,nickname,mobile);
+		}
+		
+
+		
 		return result;
 	}
 	

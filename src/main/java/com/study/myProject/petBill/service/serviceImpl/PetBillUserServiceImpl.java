@@ -144,6 +144,22 @@ public class PetBillUserServiceImpl implements PetBillUserService{
 		return EnYn.NO.getCode();
 	}
 
+	/**
+	 * 유저 정보 수정
+	 * */
+	@Override
+	public String updateUser(String userId, String nickname, String mobile) {
+		Optional<PetBillUsers> user= petBillUserRepository.findById(userId);
+		if(user != null) {
+			user.get().setNickName(nickname);
+			user.get().setMobile(mobile);
+			petBillUserRepository.save(user.get());
+			
+			return EnYn.YES.getCode();
+		}
+		return EnYn.NO.getCode();
+	}
+
 
 
 }

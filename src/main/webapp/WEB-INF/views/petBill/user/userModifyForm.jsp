@@ -47,9 +47,6 @@
 	             type : "post",
 	             data : {nickname:nicknameVal},
 	             success : function(data){
-	                console.log("data : " + data);
-	                
-                
 		            $("#nickname_ckeck").css("color","red");
 		            if(data == null){
 			            $("#nickname_ckeck").html("사용 가능한 닉네임 입니다")
@@ -68,20 +65,50 @@
 	  	
 	  	
 		function userModify(){
-			
+			if(validation()){
+				$.ajax({
+					url : "/petBill/user/userModifyPro",
+					method : "post",
+					data : {
+						nickname : $('#nickname').val(),
+						mobile : $('#mobile').val()
+					},
+					success : function(result){
+						
+						if(result === "Y"){
+							alert("수정되었습니다.");
+							location.replace("/petBill/user/userMypage");
+						}else{
+							alert("수정 실패");
+							return
+						}
+					},
+					error : function(error){
+						console.log("error >> " , error);
+					}
+				})
+			}
 			
 			
 		}
 		
-		//핸드폰 체크
-		function check(){
-			var inputs = document.inputForm;
+		function validation(){
+	
+			if($('#nickname').val().trim().length === 0){
+				alert("닉네임을 입력해주세요");
+				return false
+			}
+			if($('#mobile').val().trim().length === 0){
+				alert("핸드폰번호를 입력해주세요");
+				return false
+			}
 		    var patternPhone = /01[016789]-[^0][0-9]{2,3}-[0-9]{3,4}/;
-			if(!patternPhone.test(inputs.mobile.value)){
+			if(!patternPhone.test($('#mobile').val())){
 		        alert('핸드폰 번호를 확인 해주세요');
 		        $("#mobile").val("");
 		        return false;
-		    }  
+		    }
+			return true
 		}
 		
 		
@@ -133,7 +160,7 @@
 				                <div class="form">
 				                
 				                    <h2>회원 정보 수정</h2>
-				                    <form action="/petBill/user/userModifyPro" name="inputForm" method="post">
+				                    <form name="inputForm" method="post">
 				                    	<c:if test="${sessionScope.kakaoId == null}">
 				                        <div class="inputBox-signup">
 				                        	아이디

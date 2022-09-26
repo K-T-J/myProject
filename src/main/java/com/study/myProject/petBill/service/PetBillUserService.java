@@ -35,9 +35,9 @@ public interface PetBillUserService {
 	
 	//세션 가져오기
 	String getSessionInfo();
-//	
-//	//유저 정보 수정
-//	public int updateUser(UserDTO dto,String nickname,String mobile)throws SQLException;
+	
+	//유저 정보 수정
+	String updateUser(String userId,String nickname,String mobile);
 //	
 //	//카카오 유저 정보 수정
 //	public int updatekakao(UserDTO dto,String nickname,String mobile)throws SQLException;
