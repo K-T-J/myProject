@@ -99,7 +99,7 @@
 			<div class="border-end bg-white" id="sidebar-wrapper">
 				<%-- 로고 --%>
 				<div class="sidebar-heading border-bottom bg-light">
-					<a href="/petBill/user/main.pet">
+					<a href="/petBill/user/main">
 						<img src="/resources/img/petBill/로고화면.png" style="width: 190px; margin-top: 10px;">
 					</a>
 				</div>

@@ -192,15 +192,15 @@
 			<div class="border-end bg-white" id="sidebar-wrapper">
 				<%-- 로고 --%>
 				<div class="sidebar-heading border-bottom bg-light">
-					<a href="/petBill/user/main.pet">
+					<a href="/petBill/user/main">
 						<img src="/resources/img/petBill/로고화면.png" style="width: 190px; margin-top: 10px;">
 					</a>
 				</div>
 				<div class="list-group list-group-flush">
-					<a class="list-group-item list-group-item-action list-group-item-light p-3" href="/petBill/search/mapMain.pet?petType=${param.petType}">지도 병원검색</a> 
-					<a class="list-group-item list-group-item-action list-group-item-light p-3" href="/petBill/search/searchResult.pet?pageNum=1&petType=${param.petType}">시/도 병원검색</a> 
-					<a class="list-group-item list-group-item-action list-group-item-light p-3" href="/petBill/hospital/hosCompare.pet?petType=${param.petType}">병원 비교하기</a> 
-					<a class="list-group-item list-group-item-action list-group-item-light p-3" href="/petBill/admin/noticeList.pet?petType=${param.petType}">공지사항</a>
+					<a class="list-group-item list-group-item-action list-group-item-light p-3" href="/petBill/search/mapMain?petType=${param.petType}">지도 병원검색</a> 
+					<a class="list-group-item list-group-item-action list-group-item-light p-3" href="/petBill/search/searchResult?pageNum=1&petType=${param.petType}">시/도 병원검색</a> 
+					<a class="list-group-item list-group-item-action list-group-item-light p-3" href="/petBill/hospital/hosCompare?petType=${param.petType}">병원 비교하기</a> 
+					<a class="list-group-item list-group-item-action list-group-item-light p-3" href="/petBill/admin/noticeList?petType=${param.petType}">공지사항</a>
 					<br />
 					
 				</div>
@@ -222,7 +222,7 @@
 							<ul class="navbar-nav ms-auto mt-2 mt-lg-0">
 								<li>
 									<%-- 위치 변경필요할듯 search(검색)form 조장님 수정부분 --%>
-									<form action="/petBill/search/searchResult.pet">
+									<form action="/petBill/search/searchResult">
 										<input type="search" name="search" placeholder="병원명 입력"/>
 										<input type="hidden" name="petType" value="${param.petType}"/>
 										<input type="submit" value="검색" class="btn btn-secondary btn-sm"/>                 
