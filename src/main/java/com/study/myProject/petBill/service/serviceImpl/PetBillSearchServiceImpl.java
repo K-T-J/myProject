@@ -47,11 +47,11 @@ public class PetBillSearchServiceImpl implements PetBillSearchService {
 		System.out.println("getHosList!!");
 		
 		// 전체 병원list 개수 가져오기 
-		count = searchDAO.getHosCount();
+//		count = searchDAO.getHosCount();
 		// 병원 list 하나라도 있으면 병원 list 다시 가져오기 
-		if (count > 0) {
-			hosList = searchDAO.getHospitals(startRow, endRow);
-		}
+//		if (count > 0) {
+//			hosList = searchDAO.getHospitals(startRow, endRow);
+//		}
 		System.out.println("검색X 전체병원list count : " + count);
 		// 게시판 목록에 뿌려줄 가상의 글 번호 
 		number = count - (currentPage - 1) * pageSize;	
@@ -98,13 +98,13 @@ public class PetBillSearchServiceImpl implements PetBillSearchService {
 		int number = 0;						// 화면에 뿌려줄 가상 글 번호 
 		
 		// 검색한 병원list 개수 가져오기 
-		count = searchDAO.getSearchHosCount(search);
-		System.out.println("검색O list count : " + count);
+//		count = searchDAO.getSearchHosCount(search);
+//		System.out.println("검색O list count : " + count);
 		
 		// 검색한 병원이 하나라도 있으면 검색한 병원 list 다시 가져오기 
-		if (count > 0) {
-			hosList = searchDAO.getSearchHospitals(search, startRow, endRow);
-		}
+//		if (count > 0) {
+//			hosList = searchDAO.getSearchHospitals(search, startRow, endRow);
+//		}
 		
 		// 검색한 병원 목록에 뿌려줄 가상의 글 번호 
 		number = count - (currentPage - 1) * pageSize;	
@@ -213,13 +213,13 @@ public class PetBillSearchServiceImpl implements PetBillSearchService {
 		int number = 0;						// 화면에 뿌려줄 가상 글 번호 
 		
 		// 지역 선택 및 검색한 병원list 개수 가져오기 
-		count = searchDAO.getSelHosCount(sidoSel, siguSel, search);
-		System.out.println("시/도,구O(부/자) 검색O list count : " + count);
+//		count = searchDAO.getSelHosCount(sidoSel, siguSel, search);
+//		System.out.println("시/도,구O(부/자) 검색O list count : " + count);
 		
 		// 조건에 해당하는 병원 list가 하나라도 있으면 검색한 병원 list 다시 가져오기 
-		if (count > 0) {
-			hosList = searchDAO.getSelSearchList(sidoSel, siguSel, search, startRow, endRow);
-		}
+//		if (count > 0) {
+//			hosList = searchDAO.getSelSearchList(sidoSel, siguSel, search, startRow, endRow);
+//		}
 		
 		
 		// 검색한 병원 목록에 뿌려줄 가상의 글 번호 

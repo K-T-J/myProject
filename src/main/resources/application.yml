@@ -31,6 +31,12 @@ spring:
     show-sql: true
     hibernate:
       ddl-auto: create #객체를 보고 자동으로 테이블생성하는 기능을 사용하지 않는다. 생성 create, 비생성 none
+   
+  security:
+    user:
+      name : test
+      password : 1234
+      roles : USER, ADMIN
      
 logging:
   level:
