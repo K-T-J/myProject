@@ -2,6 +2,8 @@ package com.study.myProject.service.serviceImpl;
 
 
 import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.study.myProject.dto.UserDTO;
@@ -17,7 +19,8 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class UserServiceImpl implements UserService{
 	
-	private final UserRepository userRepository;
+	@Autowired
+	private UserRepository userRepository;
 	
 	@Override
 	public Optional<Users> idCheckService(String id) {
@@ -38,7 +41,6 @@ public class UserServiceImpl implements UserService{
 				userRepository.save(users);
 				
 			}
-
 		}catch(IllegalArgumentException e) {
 			System.out.println("저장 에러 ------>" +  e);
 			return EnYn.NO.getCode();

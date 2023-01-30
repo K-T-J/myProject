@@ -1,0 +1,44 @@
+server:
+  port: 8083
+
+spring:
+#jsp controller 경로 설정
+  mvc:
+    view:
+      prefix: /WEB-INF/views/
+      suffix: .jsp
+#swagger 설정   
+    pathmatch:
+      matching-strategy: ant-path-matcher
+      
+#h2 설정
+  h2:
+    console:
+      enabled: true  # H2 웹 콘솔을 사용하겠다는 의미
+      path: /h2-console  # 콘솔의 경로
+ 
+#db 설정     
+  datasource:
+    driver-class-name: org.h2.Driver  #h2 드라이버 설정
+    # jdbc:h2:file = file로 DB를 관리하겠다
+    # ~/.../test_db = 현재 설정된 경로에 test-db라는 이름으로 데이터 베이스를 생성
+    # AUTO_SERVER = 다중 접속을 허용하겠다는 의미 
+    url: jdbc:h2:mem:testdb  #접속 URL  
+    username: test  # 사용자 이름 (로그인 시 사용)
+    password: 1234  # 사용자 암호 (로그인 시 사용)
+    
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: create #객체를 보고 자동으로 테이블생성하는 기능을 사용하지 않는다. 생성 create, 비생성 none
+   
+  security:
+    user:
+      name : test
+      password : 1234
+      roles : USER, ADMIN
+     
+logging:
+  level:
+    org.hibernate.type: trace #파라미터 확인을 위한 trace
+  

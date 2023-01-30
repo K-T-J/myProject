@@ -3,6 +3,7 @@ package com.study.myProject.petBill.service.serviceImpl;
 import java.time.LocalDateTime;
 import java.util.Optional;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.context.request.RequestAttributes;
 import org.springframework.web.context.request.RequestContextHolder;
@@ -13,14 +14,11 @@ import com.study.myProject.petBill.entity.PetBillUsers;
 import com.study.myProject.petBill.repository.PetBillUserRepository;
 import com.study.myProject.petBill.service.PetBillUserService;
 
-
-import lombok.RequiredArgsConstructor;
-
 @Service
-@RequiredArgsConstructor
 public class PetBillUserServiceImpl implements PetBillUserService{
 	
-	private final PetBillUserRepository petBillUserRepository;
+	@Autowired
+	private PetBillUserRepository petBillUserRepository;
 	
 	/**
 	 * 아이디 중복 체크

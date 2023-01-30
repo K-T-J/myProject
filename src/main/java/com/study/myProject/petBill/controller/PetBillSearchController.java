@@ -4,6 +4,7 @@ import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,14 +15,16 @@ import lombok.RequiredArgsConstructor;
 
 @Controller
 @RequestMapping("petBill/search/*")
-@RequiredArgsConstructor
 public class PetBillSearchController {
 	
-	private final PetBillSearchService petBillSearchService;
+	@Autowired
+	private PetBillSearchService petBillSearchService;
 	
+
 	/**
 	 * mapMain page 지도 페이지
-	 * */  
+	 * @return
+	 */
 	@RequestMapping(value = "mapMain")
 	public String mapMain() {
 		return "petBill/search/mapMain";

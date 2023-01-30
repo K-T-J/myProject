@@ -6,6 +6,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,15 +19,12 @@ import com.study.myProject.petBill.dto.PetBillUserDTO;
 import com.study.myProject.petBill.entity.PetBillUsers;
 import com.study.myProject.petBill.service.PetBillUserService;
 
-
-import lombok.RequiredArgsConstructor;
-
 @Controller
-@RequiredArgsConstructor
 @RequestMapping(value = "petBill/user/*")
 public class PetBillUserController {
 	
-	private final PetBillUserService petBillUserService;
+	@Autowired
+	private PetBillUserService petBillUserService;
 
 	@GetMapping(value = "main")		//쿠키
 	public String main(HttpSession session,HttpServletRequest request) {

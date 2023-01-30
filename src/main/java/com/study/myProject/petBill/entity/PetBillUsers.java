@@ -3,23 +3,13 @@ package com.study.myProject.petBill.entity;
 
 
 import java.time.LocalDateTime;
-import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-import org.hibernate.annotations.ColumnDefault;
-
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-
 @Entity
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
 @Table(name = "petBillUsers")
 public class PetBillUsers {
 	
@@ -51,4 +41,77 @@ public class PetBillUsers {
 	@Column(name = "KAKAOLOGIN", length = 50, columnDefinition = "varchar(50) default 'none'")
 	private String kakaologin;
 
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
+	}
+
+	public String getPw() {
+		return pw;
+	}
+
+	public void setPw(String pw) {
+		this.pw = pw;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getMobile() {
+		return mobile;
+	}
+
+	public void setMobile(String mobile) {
+		this.mobile = mobile;
+	}
+
+	public String getNickName() {
+		return nickName;
+	}
+
+	public void setNickName(String nickName) {
+		this.nickName = nickName;
+	}
+
+	public LocalDateTime getReg() {
+		return reg;
+	}
+
+	public void setReg(LocalDateTime reg) {
+		this.reg = reg;
+	}
+
+	public String getUseractivenum() {
+		return useractivenum;
+	}
+
+	public void setUseractivenum(String useractivenum) {
+		this.useractivenum = useractivenum;
+	}
+
+	public String getUserreason() {
+		return userreason;
+	}
+
+	public void setUserreason(String userreason) {
+		this.userreason = userreason;
+	}
+
+	public String getKakaologin() {
+		return kakaologin;
+	}
+
+	public void setKakaologin(String kakaologin) {
+		this.kakaologin = kakaologin;
+	}
+
+	
 }

@@ -1,5 +1,5 @@
 server:
-  port: 8083
+  port: 8080
 
 spring:
 #jsp controller 경로 설정
@@ -23,20 +23,28 @@ spring:
     # jdbc:h2:file = file로 DB를 관리하겠다
     # ~/.../test_db = 현재 설정된 경로에 test-db라는 이름으로 데이터 베이스를 생성
     # AUTO_SERVER = 다중 접속을 허용하겠다는 의미 
+    # localhost:8080/h2-console 접속
     url: jdbc:h2:mem:testdb  #접속 URL  
     username: test  # 사용자 이름 (로그인 시 사용)
     password: 1234  # 사용자 암호 (로그인 시 사용)
+    initialization-mode: always
+    schema: classpath:h2/schema.sql 
+    data: classpath:h2/data.sql
+    #platform : {platform}
     
   jpa:
     show-sql: true
+    defer-datasource-initialization: true
     hibernate:
       ddl-auto: create #객체를 보고 자동으로 테이블생성하는 기능을 사용하지 않는다. 생성 create, 비생성 none
+
+
    
-  security:
-    user:
-      name : test
-      password : 1234
-      roles : USER, ADMIN
+#  security:
+#    user:
+#      name : test
+#      password : 1234
+#      roles : USER, ADMIN
      
 logging:
   level:
