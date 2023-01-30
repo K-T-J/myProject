@@ -9,7 +9,7 @@ import io.swagger.annotations.Api;
 @Api(value = "MainController", tags = "메인 컨트롤러")
 @Controller
 public class MainController {
-	//테스트123
+	//테스트123123
 	@GetMapping("/main")
 	public String test(HttpServletRequest request) {
 		return "page/main";
