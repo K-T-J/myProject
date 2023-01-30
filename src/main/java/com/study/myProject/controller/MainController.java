@@ -3,6 +3,7 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import io.swagger.annotations.Api;
 
@@ -10,8 +11,8 @@ import io.swagger.annotations.Api;
 @Controller
 public class MainController {
 
-	@GetMapping("/main")
-	public String test(HttpServletRequest request) {
+	@GetMapping("/api/get/main")
+	public String main(HttpServletRequest request) {
 		return "page/main";
 	}
 }
