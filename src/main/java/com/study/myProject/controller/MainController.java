@@ -1,20 +1,15 @@
 package com.study.myProject.controller;
 import javax.servlet.http.HttpServletRequest;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
-
-import com.study.myProject.component.SessionManager;
-import com.study.myProject.dto.UserDTO;
-import com.study.myProject.service.UserService;
-
 import io.swagger.annotations.Api;
 
 @Api(value = "MainController", tags = "메인 컨트롤러")
 @Controller
 public class MainController {
 	
+	//테스트333
 	@GetMapping("/main")
 	public String test(HttpServletRequest request) {
 		return "page/main";
