@@ -15,9 +15,6 @@ import io.swagger.annotations.Api;
 @Controller
 public class MainController {
 	
-	@Autowired
-	private UserService userService;
-	
 	@GetMapping("/main")
 	public String test(HttpServletRequest request) {
 		return "page/main";
