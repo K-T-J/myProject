@@ -18,9 +18,15 @@
 			containerDiv.empty();
 			$.each(data.rows, function(index, item){
 				let appendDiv = $("#tempCard").clone().attr("id","").show();
-				appendDiv.find("img").attr("src","https://img-api.neople.co.kr/df/servers/"+item.serverId+"/characters/"+item.characterId+"?zoom=1");
+				appendDiv.find("img.characterImg").attr("src","https://img-api.neople.co.kr/df/servers/"+item.serverId+"/characters/"+item.characterId+"?zoom=3");
+				appendDiv.find(".level").text("Lv."+item.level);
+				appendDiv.find(".characterName").text(item.characterName);
 				let serverIdText = serverIdSearch(item.serverId);
-				appendDiv.find(".characterName").text("[" +serverIdText+"] "+item.characterName);
+				appendDiv.find(".jobGrowNameAndServerId").text(item.jobGrowName + " । " +serverIdText);
+				let fame = item.fame == null ? "0" : item.fame;
+				appendDiv.find(".fame").text(fame);
+				appendDiv.find(".fame").prepend("<img class='fameImg' src='/resources/img/icon/ico_fame.png' style='margin-right:5px; margin-bottom:4px;'>");
+								
 				
 				
 				containerDiv.append(appendDiv);
@@ -34,6 +40,11 @@
 			console.log('error' , error)
 		}
 	})
+}
+
+function test(){
+	console.log(" >> ");
+	
 }
 
 function serverIdSearch(serverId){

@@ -13,6 +13,7 @@
     </head>
     <body>
         <!-- Navigation-->
+        <!-- 
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container px-4 px-lg-5">
                 <a class="navbar-brand" href="#!">Start Bootstrap</a>
@@ -34,6 +35,7 @@
                 </div>
             </div>
         </nav>
+         -->
         <!-- Header-->
         <header class="bg-dark py-5">
             <div class="container px-4 px-lg-5 my-5">
@@ -76,22 +78,24 @@
         
 		<div id="tempCard"  style="display: none;">
 			<div class="col mb-5">
-				<div class="card h-100">
+				<div class="card h-100 characterInfoCard" onclick="test();" style="cursor : pointer;">
 					<!-- Product image-->
-					<img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
+					<img class="card-img-top characterImg" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..."  style=""/>
 					<!-- Product details-->
 					<div class="card-body p-4">
 						<div class="text-center">
+							<P class="level">$40.00 - $80.00</P>
 							<!-- Product name-->
 							<h5 class="fw-bolder characterName">Fancy Product</h5>
 							<!-- Product price-->
-							$40.00 - $80.00
+							<P class="jobGrowNameAndServerId">$40.00 - $80.00</P>
+							<p class="fame"></p>
 						</div>
 					</div>
 					<!-- Product actions-->
-					<div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+			<!-- 		<div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
 						<div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">View options</a></div>
-					</div>
+					</div> -->
 				</div>
 			</div>        
 		</div>

@@ -17,7 +17,8 @@ public class ResApiCharacterInfoVM {
 		public String jobId;		//캐릭터 직업 고유 코드
 		public String jobGrowId;	//캐릭터 전직 직업 고유 코드
 		public String jobName;		//캐릭터 직업 명칭
-		public Integer fame;		//캐릭터 모험가 명성
+		public String jobGrowName;	//캐릭터 전직 직업 명칭
+		public String fame;		//캐릭터 모험가 명성
 		
 	}
 

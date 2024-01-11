@@ -27,7 +27,7 @@ public class DfMainResource extends DfApiRestTemplate{
 	) {
 		try {
 			
-			String url = "https://api.neople.co.kr/df/servers/"+serverId+"/characters?characterName="+characterName+"&apikey=";
+			String url = "https://api.neople.co.kr/df/servers/"+serverId+"/characters?characterName="+characterName+"&wordType=full"+"&apikey=";
 			ObjectNode reqNode = objectMapper.createObjectNode();
 			reqNode.put("serverId", serverId);
 			reqNode.put("characterName", characterName);
