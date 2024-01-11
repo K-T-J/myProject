@@ -26,18 +26,13 @@
 				let fame = item.fame == null ? "0" : item.fame;
 				appendDiv.find(".fame").text(fame);
 				appendDiv.find(".fame").prepend("<img class='fameImg' src='/resources/img/icon/ico_fame.png' style='margin-right:5px; margin-bottom:4px;'>");
-								
-				
 				
 				containerDiv.append(appendDiv);
 				
 			})
 		},
-		"error" : function(request, status, error){
-			console.log('code' , request.status)
-			console.log('code' , status)
-			console.log('message' , request.responseText)
-			console.log('error' , error)
+		"error" : function(result){
+			commonAjaxError(result);
 		}
 	})
 }
@@ -78,4 +73,14 @@ function serverIdSearch(serverId){
 	}
 	return serverIdText;
 	
+}
+function commonAjaxError( result ) {
+	var errorMsg = "처리를 실패하였습니다.";
+	if ( result.responseText !== undefined && result.responseText != "" ) {
+		errorMsg = result.responseText;
+	}
+	else if ( result.responseJSON !== undefined && result.responseJSON.message !== undefined && result.responseJSON.message != "" ) {
+		errorMsg = result.responseJSON.message;
+	} 
+	alert( errorMsg );
 }
