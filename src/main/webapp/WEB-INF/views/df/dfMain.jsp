@@ -11,6 +11,12 @@
         <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
         <link href="/resources/css/df/styles.css" rel="stylesheet" />
     </head>
+    <style>
+		.characterImg{
+			background-image: url('/resources/img/df_bg_avatar.png');
+			background-size: cover;
+		}
+	</style>
     <body>
         <!-- Navigation-->
         <!-- 
@@ -66,9 +72,7 @@
                     <div class="align-self-center">
                         <button class="btn btn-outline-success" type="button" onclick="btnSearch();">Search</button>
                     </div>
-
                 </div>
-
             </div>        
             <div class="container px-4 px-lg-5 mt-5">
                 <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center" id="containerDiv">
@@ -76,18 +80,20 @@
             </div>
         </section>
         
-		<div id="tempCard"  style="display: none;">
+		<div id="tempCard"  style="display: none;">	
 			<div class="col mb-5">
-				<div class="card h-100 characterInfoCard" onclick="test();" style="cursor : pointer;">
-					<!-- Product image-->
-					<img class="card-img-top characterImg" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..."  style=""/>
-					<!-- Product details-->
-					<div class="card-body p-4">
+				<div class="card h-100 characterInfoCard" style="cursor : pointer;">
+					<input type="hidden" name="serverId" value="">
+					<input type="hidden" name="characterId" value="">
+					<!-- character image-->
+					<img class="card-img-top characterImg" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg"/>
+					<!-- character details-->
+					<div class="card-body p-4 bg-dark text-white">
 						<div class="text-center">
 							<P class="level">$40.00 - $80.00</P>
-							<!-- Product name-->
+							
 							<h5 class="fw-bolder characterName">Fancy Product</h5>
-							<!-- Product price-->
+
 							<P class="jobGrowNameAndServerId">$40.00 - $80.00</P>
 							<p class="fame"></p>
 						</div>

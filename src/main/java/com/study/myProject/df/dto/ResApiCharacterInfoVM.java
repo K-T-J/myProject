@@ -18,8 +18,10 @@ public class ResApiCharacterInfoVM {
 		public String jobGrowId;	//캐릭터 전직 직업 고유 코드
 		public String jobName;		//캐릭터 직업 명칭
 		public String jobGrowName;	//캐릭터 전직 직업 명칭
-		public String fame;		//캐릭터 모험가 명성
-		
+		public String fame;			//캐릭터 모험가 명성
+		public String adventureName;//모험단 이름
+		public String guildId;		//길드 고유 코드
+		public String guildName;	//길드 이름
 	}
 
 }

@@ -1,6 +1,10 @@
-/**
- * 
- */
+$(function(){
+	
+	$(".characterInfoCard").on("click", function(){
+		
+	})
+	
+})
  
  function btnSearch(){
 	
@@ -18,6 +22,11 @@
 			containerDiv.empty();
 			$.each(data.rows, function(index, item){
 				let appendDiv = $("#tempCard").clone().attr("id","").show();
+				appendDiv.find(".characterInfoCard").on("click",function(){
+					window.location.href = "/df/characterDetail?serverId="+item.serverId+"&characterId="+item.characterId;
+				});
+				
+				
 				appendDiv.find("img.characterImg").attr("src","https://img-api.neople.co.kr/df/servers/"+item.serverId+"/characters/"+item.characterId+"?zoom=3");
 				appendDiv.find(".level").text("Lv."+item.level);
 				appendDiv.find(".characterName").text(item.characterName);
@@ -26,6 +35,8 @@
 				let fame = item.fame == null ? "0" : item.fame;
 				appendDiv.find(".fame").text(fame);
 				appendDiv.find(".fame").prepend("<img class='fameImg' src='/resources/img/icon/ico_fame.png' style='margin-right:5px; margin-bottom:4px;'>");
+				appendDiv.find("input[name='serverId']").val(item.serverId);
+				appendDiv.find("input[name='characterId']").val(item.characterId);
 				
 				containerDiv.append(appendDiv);
 				
