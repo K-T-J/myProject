@@ -1,5 +1,5 @@
-INSERT INTO `users` (`id`, `email`, `password`) VALUES
-    ('java', 'java@naver.com','1234');
+INSERT INTO `user_info` (`id`, `pw`, `email`) VALUES
+    ('java', '1234','java@naver.com');
 
  
 

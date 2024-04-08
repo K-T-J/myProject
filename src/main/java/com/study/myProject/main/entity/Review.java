@@ -1,4 +1,4 @@
-package com.study.myProject.entity;
+package com.study.myProject.main.entity;
 
 //import java.time.LocalDateTime;
 //import java.time.LocalTime;

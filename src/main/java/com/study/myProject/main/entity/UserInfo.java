@@ -1,4 +1,4 @@
-package com.study.myProject.entity;
+package com.study.myProject.main.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -6,18 +6,19 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "Users")
-public class Users{
+@Table(name = "UserInfo")
+public class UserInfo{
 	
 	@Id
 	@Column(name = "ID", nullable = false, length = 20)
 	private String id;
 	
+	@Column(name = "PW", length = 20)
+	private String pw;
+	
 	@Column(name = "EMAIL", length = 255)
 	private String email;
 	
-	@Column(name = "PASSWORD", length = 20)
-	private String password;
 
 	public String getId() {
 		return id;
@@ -35,14 +36,12 @@ public class Users{
 		this.email = email;
 	}
 
-	public String getPassword() {
-		return password;
+	public String getPw() {
+		return pw;
 	}
 
-	public void setPassword(String password) {
-		this.password = password;
+	public void setPw(String pw) {
+		this.pw = pw;
 	}
-	
-
 	
 }

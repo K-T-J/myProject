@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.context.request.RequestAttributes;
 import org.springframework.web.context.request.RequestContextHolder;
 
-import com.study.myProject.enums.EnYn;
+import com.study.myProject.main.enums.EnYn;
 import com.study.myProject.petBill.dto.PetBillUserDTO;
 import com.study.myProject.petBill.entity.PetBillUsers;
 import com.study.myProject.petBill.repository.PetBillUserRepository;

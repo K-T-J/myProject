@@ -38,20 +38,20 @@
 				      </div>
 				      <div class="col-md-7 col-lg-5 col-xl-5">
 				      <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Login</p>
-				        <form>
+				        <form method="post" action="/loginCheck">
 				          <!-- Email input -->
 				          <div class="form-outline mb-4">
-				            <input type="email" id="id" class="form-control form-control-lg" required="required"/>
+				            <input type="text" id="id" name="id" class="form-control form-control-lg" required="required"/>
 				            <label class="form-label" for="form1Example13">ID</label>
 				          </div>
 				
 				          <!-- Password input -->
 				          <div class="form-outline mb-4">
-				            <input type="password" id="password" class="form-control form-control-lg" autocomplete="off" required="required"/><!-- autocomplete : 비밀번호 자동완성 off -->
+				            <input type="password" id="pw" name="pw" class="form-control form-control-lg" autocomplete="off" required="required"/><!-- autocomplete : 비밀번호 자동완성 off -->
 				            <label class="form-label" for="form1Example23">Password</label>
 				          </div>
 				          <div>
-				          	<button type="button" class="btn btn-primary btn-lg btn-block mb-1" onclick="loginCh()" style="width: 100%">Sign in</button>
+				          	<button type="submit" class="btn btn-primary btn-lg btn-block mb-1" style="width: 100%">Sign in</button>
 				          </div>
 				          <div>
 					      	<button type="button" class="btn btn-primary btn-lg btn-block" onclick="passwordFind()" style="width: 100%; background-color: #FF4C4C; border-color: #FF4C4C;" >Forgot password?</button>

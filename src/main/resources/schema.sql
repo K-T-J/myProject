@@ -1,6 +1,5 @@
-create table usersABC (
+create table if not exists user_info (
     id varchar(20) not null primary key,
-    email varchar(255),
-    password varchar(20)
-    
+    pw varchar(20),
+    email varchar(255)
 );

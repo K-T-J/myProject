@@ -1,4 +1,4 @@
-package com.study.myProject.service.serviceImpl;
+package com.study.myProject.main.service.impl;
 
 
 import java.util.Optional;
@@ -6,11 +6,11 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.study.myProject.dto.UserDTO;
-import com.study.myProject.entity.Users;
-import com.study.myProject.enums.EnYn;
-import com.study.myProject.repository.UserRepository;
-import com.study.myProject.service.UserService;
+import com.study.myProject.main.dto.UserDTO;
+import com.study.myProject.main.entity.UserInfo;
+import com.study.myProject.main.enums.EnYn;
+import com.study.myProject.main.repository.UserInfoRepository;
+import com.study.myProject.main.service.UserService;
 
 import lombok.RequiredArgsConstructor;
 
@@ -20,10 +20,10 @@ import lombok.RequiredArgsConstructor;
 public class UserServiceImpl implements UserService{
 	
 	@Autowired
-	private UserRepository userRepository;
+	private UserInfoRepository userRepository;
 	
 	@Override
-	public Optional<Users> idCheckService(String id) {
+	public Optional<UserInfo> idCheckService(String id) {
 				
 		return userRepository.findById(id);
 	}
@@ -31,13 +31,13 @@ public class UserServiceImpl implements UserService{
 	@Override
 	public String signupSubmitService(UserDTO userDTO) {
 		try {
-			Optional<Users> userCh = userRepository.findById(userDTO.getId());
+			Optional<UserInfo> userCh = userRepository.findById(userDTO.getId());
 			if(!userCh.isPresent()) { //isPresent() 값이 있으면 true
 				
-				Users users = new Users();
+				UserInfo users = new UserInfo();
 				users.setId(userDTO.getId());
-				users.setEmail(userDTO.getEmail());
-				users.setPassword(userDTO.getPassword());
+				//users.setEmail(userDTO.getEmail());
+				//users.setPassword(userDTO.getPassword());
 				userRepository.save(users);
 				
 			}
@@ -50,9 +50,9 @@ public class UserServiceImpl implements UserService{
 	}
 
 	@Override
-	public Users loginCheckService(String id, String password) {
+	public UserInfo loginCheckService(String id, String password) {
 
-		return userRepository.findByIdAndPassword(id ,password);
+		return userRepository.findByIdAndPw(id ,password);
 		
 	}
 

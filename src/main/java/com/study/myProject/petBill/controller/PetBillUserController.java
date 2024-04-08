@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.study.myProject.enums.EnYn;
+import com.study.myProject.main.enums.EnYn;
 import com.study.myProject.petBill.dto.PetBillUserDTO;
 import com.study.myProject.petBill.entity.PetBillUsers;
 import com.study.myProject.petBill.service.PetBillUserService;

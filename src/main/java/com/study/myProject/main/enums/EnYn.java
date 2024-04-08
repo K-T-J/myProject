@@ -1,4 +1,4 @@
-package com.study.myProject.enums;
+package com.study.myProject.main.enums;
 
 import lombok.Getter;
 
