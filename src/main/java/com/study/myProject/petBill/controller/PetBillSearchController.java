@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.study.myProject.petBill.service.PetBillSearchService;
 
@@ -26,127 +27,144 @@ public class PetBillSearchController {
 	 * @return
 	 */
 	@RequestMapping(value = "mapMain")
-	public String mapMain() {
+	public String mapMain(@RequestParam(name = "petType", required = true) String petType , Model model) {
+		model.addAttribute("petType", petType);
 		return "petBill/search/mapMain";
 	}
-	 
 	/**
 	 * 서울특별시 선택시 페이지 이동
 	 * */  
 	@RequestMapping(value = "/loc/locSeoul")
-	public String locSeoul(){
+	public String locSeoul(@RequestParam(name = "petType", required = true) String petType , Model model){
+		model.addAttribute("petType", petType);
 		return "petBill/search/loc/locSeoul";
 	}
 	/**
 	 * 경기도 선택시 페이지 이동
 	 * */  
 	@RequestMapping(value = "/loc/locGyeonggi")
-	public String locGyeonggi() {
+	public String locGyeonggi(@RequestParam(name = "petType", required = true) String petType , Model model) {
+		model.addAttribute("petType", petType);
 		return "petBill/search/loc/locGyeonggi";
 	}
 	/**
 	 * 인천광역시 선택시 페이지 이동
 	 * */  
 	@RequestMapping(value = "/loc/locIncheon")
-	public String locIncheon() {
+	public String locIncheon(@RequestParam(name = "petType", required = true) String petType , Model model) {
+		model.addAttribute("petType", petType);
 		return "petBill/search/loc/locIncheon";
 	}
 	/**
 	 * 강원도 선택시 페이지 이동 
 	 * */ 
 	@RequestMapping(value = "/loc/locGangwon")
-	public String locGangwon() {
+	public String locGangwon(@RequestParam(name = "petType", required = true) String petType , Model model) {
+		model.addAttribute("petType", petType);
 		return "petBill/search/loc/locGangwon";
 	}
 	/**
 	 * 충청남도 선택시 페이지 이동
 	 * */  
 	@RequestMapping(value = "/loc/locSouthChungcheong")
-	public String locSouthChungcheong() {
+	public String locSouthChungcheong(@RequestParam(name = "petType", required = true) String petType , Model model) {
+		model.addAttribute("petType", petType);
 		return "petBill/search/loc/locSouthChungcheong";
 	}
 	/**
 	 * 대전광역시 선택시 페이지 이동
 	 * */  
 	@RequestMapping(value = "/loc/locDaejeon")
-	public String locDaejeon() {
+	public String locDaejeon(@RequestParam(name = "petType", required = true) String petType , Model model) {
+		model.addAttribute("petType", petType);
 		return "petBill/search/loc/locDaejeon";
 	}
 	/**
 	 * 충청북도 선택시 페이지 이동
 	 * */  
 	@RequestMapping(value = "/loc/locNorthChungchung")
-	public String locNorthChungchung() {
+	public String locNorthChungchung(@RequestParam(name = "petType", required = true) String petType , Model model) {
+		model.addAttribute("petType", petType);
 		return "petBill/search/loc/locNorthChungchung";
 	}
 	/**
 	 * 세종특별자치구 선택시 페이지 이동
 	 * */  
 	@RequestMapping(value = "/loc/locSejong")
-	public String locSejong() {
+	public String locSejong(@RequestParam(name = "petType", required = true) String petType , Model model) {
+		model.addAttribute("petType", petType);
 		return "petBill/search/loc/locSejong";
 	}
 	/**
 	 * 부산광역시 선택시 페이지 이동
 	 * */  
 	@RequestMapping(value = "/loc/locBusan")
-	public String locBusan() {
+	public String locBusan(@RequestParam(name = "petType", required = true) String petType , Model model) {
+		model.addAttribute("petType", petType);
 		return "petBill/search/loc/locBusan";
 	}
 	/**
 	 * 울산광역시 선택시 페이지 이동
 	 * */  
 	@RequestMapping(value = "/loc/locUlsan")
-	public String locUlsan() {
+	public String locUlsan(@RequestParam(name = "petType", required = true) String petType , Model model) {
+		model.addAttribute("petType", petType);
 		return "petBill/search/loc/locUlsan";
 	}
 	/**
 	 * 대구광역시 선택시 페이지 이동
 	 * */  
 	@RequestMapping(value = "/loc/locDaegu")
-	public String locDaegu() {
+	public String locDaegu(@RequestParam(name = "petType", required = true) String petType , Model model) {
+		model.addAttribute("petType", petType);
 		return "petBill/search/loc/locDaegu";
 	}
 	/**
 	 * 경상북도 선택시 페이지 이동
 	 * */  
 	@RequestMapping(value = "/loc/locNorthGyeongsang")
-	public String locNorthGyeongsang() {
+	public String locNorthGyeongsang(@RequestParam(name = "petType", required = true) String petType , Model model) {
+		model.addAttribute("petType", petType);
 		return "petBill/search/loc/locNorthGyeongsang";
 	}
 	/**
 	 * 경상남도 선택시 페이지 이동
 	 * */  
 	@RequestMapping(value = "/loc/locSouthGyeongsang")
-	public String locSouthGyeongsang() {
+	public String locSouthGyeongsang(@RequestParam(name = "petType", required = true) String petType , Model model) {
+		model.addAttribute("petType", petType);
 		return "petBill/search/loc/locSouthGyeongsang";
 	}
 	/**
 	 * 전라남도 선택시 페이지 이동
 	 * */  
 	@RequestMapping(value = "/loc/locSouthJeolla")
-	public String locSouthJeolla() {
+	public String locSouthJeolla(@RequestParam(name = "petType", required = true) String petType , Model model) {
+		model.addAttribute("petType", petType);
 		return "petBill/search/loc/locSouthJeolla";
 	}
 	/**
 	 * 광주광역시 선택시 페이지 이동
 	 * */  
 	@RequestMapping(value = "/loc/locGwangju")
-	public String locGwangju() {
+	public String locGwangju(@RequestParam(name = "petType", required = true) String petType , Model model) {
+		model.addAttribute("petType", petType);
 		return "petBill/search/loc/locGwangju";
 	}
 	/**
 	 * 전라북도 선택시 페이지 이동
 	 * */  
 	@RequestMapping(value = "/loc/locNorthJeolla")
-	public String locNorthJeolla() {
+	public String locNorthJeolla(@RequestParam(name = "petType", required = true) String petType , Model model) {
+		model.addAttribute("petType", petType);
 		return "petBill/search/loc/locNorthJeolla";
 	}
 	/**
 	 * 제주도 선택시 페이지 이동
 	 * */  
 	@RequestMapping(value = "/loc/locJeju")
-	public String locJeju(){
+	public String locJeju(@RequestParam(name = "petType", required = true) String petType , Model model){
+		model.addAttribute("petType", petType);
 		return "petBill/search/loc/locJeju";
 	}
 	

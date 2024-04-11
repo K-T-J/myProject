@@ -99,10 +99,10 @@
 					</a>
 				</div>
 				<div class="list-group list-group-flush">
-					<a class="list-group-item list-group-item-action list-group-item-light p-3" href="/petBill/search/mapMain?petType=${param.petType}">지도 병원검색</a> 
-					<a class="list-group-item list-group-item-action list-group-item-light p-3" href="/petBill/search/searchResult?pageNum=1&petType=${param.petType}">시/도 병원검색</a> 
-					<a class="list-group-item list-group-item-action list-group-item-light p-3" href="/petBill/hospital/hosCompare?petType=${param.petType}">병원 비교하기</a> 
-					<a class="list-group-item list-group-item-action list-group-item-light p-3" href="/petBill/admin/noticeList?petType=${param.petType}">공지사항</a>
+					<a class="list-group-item list-group-item-action list-group-item-light p-3" href="/petBill/search/mapMain?petType=${petType}">지도 병원검색</a> 
+					<a class="list-group-item list-group-item-action list-group-item-light p-3" href="/petBill/search/searchResult?pageNum=1&petType=${petType}">시/도 병원검색</a> 
+					<a class="list-group-item list-group-item-action list-group-item-light p-3" href="/petBill/hospital/hosCompare?petType=${petType}">병원 비교하기</a> 
+					<a class="list-group-item list-group-item-action list-group-item-light p-3" href="/petBill/admin/noticeList?petType=${petType}">공지사항</a>
 				</div>
 			</div>
 			<%-- Page content wrapper --%>
@@ -125,7 +125,7 @@
 									<%-- 위치 변경필요할듯 search(검색)form 조장님 수정부분 --%>
 									<form action="/petBill/search/searchResult">
 										<input type="search" name="search" placeholder="병원명 입력"/>
-										<input type="hidden" name="petType" value="${param.petType}"/>
+										<input type="hidden" name="petType" value="${petType}"/>
 										<input type="submit" value="검색" class="btn btn-secondary btn-sm"/>                 
 									</form>
 								</li>
@@ -152,10 +152,10 @@
 									</div>
 								</li>
 							</ul>
-							<c:if test="${param.petType eq 'dog'}">
+							<c:if test="${petType eq 'dog'}">
                            		<img src="/resources/img/petBill/10.png" style="width: 50px; height: 50px">
                             </c:if>
-                            <c:if test="${param.petType eq 'cat'}">
+                            <c:if test="${petType eq 'cat'}">
                            		<img src="/resources/img/petBill/11.png" style="width: 50px; height: 50px">
                             </c:if>									
 						</div>
@@ -192,7 +192,7 @@
 						
 						<!-- <g filter="url(#dropshadow)"> -->
 						
-							<a id="gangnam" href="/petBill/search/searchResult?sidoSel=서울특별시&siguSel=강남구&pageNum=1&petType=${param.petType}">
+							<a id="gangnam" href="/petBill/search/searchResult?sidoSel=서울특별시&siguSel=강남구&pageNum=1&petType=${petType}">
 								<title>강남구</title>
 								<path id="gangnam" d="M809.529,885.332
 									c3.344-3.51,7.164-6.168,11.002-9.502c3.58-3.111,6.844-7.933,11.002-9.503c3.145-1.187,8.471-1.302,12.504-2.001
@@ -215,7 +215,7 @@
 									c-1.125-6.854-1.74-14.938-3.5-20.506c-2.148-6.789-6.955-12.942-10.002-19.004C815.576,898.467,812.641,891.889,809.529,885.332z"
 									/>
 							</a>
-							<a id="gangdong" href="/petBill/search/searchResult?sidoSel=서울특별시&siguSel=강동구&pageNum=1&petType=${param.petType}">
+							<a id="gangdong" href="/petBill/search/searchResult?sidoSel=서울특별시&siguSel=강동구&pageNum=1&petType=${petType}">
 								<title>강동구</title>
 								<path id="gangdong"  d="M1169.111,741.299
 									c5.732-6.754,13.379-10.111,22.004-15.504c8.936-5.586,14.174-12.908,26.506-13.003c10.67-0.333,22.672,0.667,32.508-0.5
@@ -230,7 +230,7 @@
 									c5.16-14.568,16.49-35.228,7.002-51.011c-3.82-0.68-7.887-1.115-12.502-1.001c-3.299-2.87-5.486-6.851-8.502-10.003
 									c4.039-21.131,4.615-45.729,18.504-57.012C1164.984,745.842,1167.152,743.675,1169.111,741.299z"/>
 							</a>
-							<a id="gangbuk" href="/petBill/search/searchResult?sidoSel=서울특별시&siguSel=강북구&pageNum=1&petType=${param.petType}">
+							<a id="gangbuk" href="/petBill/search/searchResult?sidoSel=서울특별시&siguSel=강북구&pageNum=1&petType=${petType}">
 								<title>강북구</title>
 								<path id="gangbuk" d="M809.029,188.173
 									c0.912,12.448,6.383,24.226,6.5,36.508c0.084,8.802-3.998,17.245-3,27.006c-1.156,1.678-0.176,5.492-0.5,8.001
@@ -246,7 +246,7 @@
 									c6.334-11.432,14.252-23.222,21.004-34.508c2.314-3.867,5.734-8.378,7.002-12.002c4.479-12.813,3.801-26.4,8.502-40.509
 									C784.264,197.082,796.582,192.563,809.029,188.173z"/>
 							</a>
-							<a id="gangseo" href="/petBill/search/searchResult?sidoSel=서울특별시&siguSel=강서구&pageNum=1&petType=${param.petType}">
+							<a id="gangseo" href="/petBill/search/searchResult?sidoSel=서울특별시&siguSel=강서구&pageNum=1&petType=${petType}">
 								<title>강서구</title>
 								<path id="gangseo" d="M134.875,530.751
 									c14.186,7.902,28.88,17.473,41.509,27.006c4.251,3.209,9.459,6.075,13.003,9.502c4.232,4.093,7.689,10.18,11.502,15.004
@@ -267,7 +267,7 @@
 									c3.839-3.569,7.796-7.497,13.003-12.002c6.48-5.608,15.725-9.435,13.003-23.005c1.155-1.678,0.175-5.493,0.5-8.002
 									c1.876-13.255-8.925-25.063-6.001-37.508C126.606,538.5,132.789,536.269,134.875,530.751z"/>
 							</a>
-							<a id="gwanak" href="/petBill/search/searchResult.pet?sidoSel=서울특별시&siguSel=관악구&pageNum=1&petType=${param.petType}">
+							<a id="gwanak" href="/petBill/search/searchResult.pet?sidoSel=서울특별시&siguSel=관악구&pageNum=1&petType=${petType}">
 								<title>관악구</title>
 								<path id="gwanak"  d="M694.002,1210.906
 									c-4.465,4.478-9.49,9.332-15.003,14.503c-4.905,4.601-9.783,10.629-15.504,14.503c-5.579,3.778-12.692,6.807-20.004,11.003
@@ -283,7 +283,7 @@
 									c-1.588,13.631,1.807,20.663,6.002,29.007c7.521,14.96,15.389,32.314,24.006,43.51c-3.738,0.93-8.176,1.16-11.502,2.5
 									C718.799,1185.691,706.297,1198.194,694.002,1210.906z"/>
 							</a>
-							<a id="gwangjin" href="/petBill/search/searchResult?sidoSel=서울특별시&siguSel=광진구&pageNum=1&petType=${param.petType}">
+							<a id="gwangjin" href="/petBill/search/searchResult?sidoSel=서울특별시&siguSel=광진구&pageNum=1&petType=${petType}">
 								<title>광진구</title>
 								<path id="gwangjin" d="M968.564,871.328
 									c2.316-14.521,7.197-26.477,7.502-43.01c8.822-11.86,18.256-21.808,24.006-37.008c5.83-15.418,6.246-33.637,11.002-51.012
@@ -296,7 +296,7 @@
 									c-2.334,0-4.668,0-7.002,0c-3.334,0-6.668,0-10.002,0c-1.52,0.314-4.309-0.641-5.002,0.5
 									C995.094,881.143,980.262,877.802,968.564,871.328z"/>
 							</a>
-							<a id="guro" href="/petBill/search/searchResult.pet?sidoSel=서울특별시&siguSel=구로구&pageNum=1&petType=${param.petType}">
+							<a id="guro" href="/petBill/search/searchResult.pet?sidoSel=서울특별시&siguSel=구로구&pageNum=1&petType=${petType}">
 								<title>구로구</title>
 								<path id="guro"  d="M428.942,1040.367c0.317,1.684-0.644,4.645,0.5,5.501
 									c0,1,0,2.001,0,3.001c-7.014,3.32-11.124,9.547-20.504,10.502c-1.849,0.319-4.982-0.647-6.001,0.5c-2.667,0-5.334,0-8.002,0
@@ -319,7 +319,7 @@
 									c0.317,1.685-0.644,4.646,0.5,5.501c0,2.834,0,5.668,0,8.502c0.317,1.684-0.644,4.646,0.5,5.502
 									C428.942,1035.032,428.942,1037.699,428.942,1040.367z"/>
 							</a>
-							<a id="geumcheon" href="/petBill/search/searchResult?sidoSel=서울특별시&siguSel=금천구&pageNum=1&petType=${param.petType}">
+							<a id="geumcheon" href="/petBill/search/searchResult?sidoSel=서울특별시&siguSel=금천구&pageNum=1&petType=${petType}">
 								<title>금천구</title>
 								<path id="geumcheon"  d="M409.438,1062.872
 									c10.055-0.948,14.109-7.896,22.005-11.003c8.709,3.959,17.785,18.691,29.007,11.503c1.936,4.731,4.911,8.425,7.001,13.003
@@ -331,7 +331,7 @@
 									c-2.895-34.114-17.084-56.934-26.506-84.52c2.5,0,5.001,0,7.501,0c3.009,0.833,9.495,0.833,12.503,0c2.834,0,5.668,0,8.502,0
 									c1.849-0.319,4.982,0.647,6.002-0.5c2.667,0,5.334,0,8.001,0C405.284,1063.053,408.418,1064.02,409.438,1062.872z"/>
 							</a>
-							<a id="nowon" href="/petBill/search/searchResult?sidoSel=서울특별시&siguSel=노원구&pageNum=1&petType=${param.petType}">
+							<a id="nowon" href="/petBill/search/searchResult?sidoSel=서울특별시&siguSel=노원구&pageNum=1&petType=${petType}">
 								<title>노원구</title>
 								<path id="nowon"  d="M1083.592,305.699
 									c-0.51,4.537-3.662,5.613-4.502,10.002c-0.775,4.05,0.262,18.509,1.5,23.005c0.885,3.208,6.793,14.643,9.002,16.004
@@ -352,7 +352,7 @@
 									c3.346,4.858,12.357,11.303,14.004,17.004c2.277,7.894-0.465,15.084,1.5,26.006c-3.293,4.746-15.668,6.805-18.004,12.003
 									c-1.809,4.022,0.287,9.412-0.5,16.003C1083.416,300.207,1082.436,304.021,1083.592,305.699z"/>
 							</a>
-							<a id="dobong-gu" href="/petBill/search/searchResult?sidoSel=서울특별시&siguSel=도봉구&pageNum=1&petType=${param.petType}">
+							<a id="dobong-gu" href="/petBill/search/searchResult?sidoSel=서울특별시&siguSel=도봉구&pageNum=1&petType=${petType}">
 								<title>도봉구</title>
 								<path id="dobong"  d="M964.064,164.667
 									c-1.447,9.018-0.285,18.105-2.002,27.506c-2.068,11.332-9.018,22.101-11.502,33.507c-0.867,3.979-0.977,9.201-1.5,14.003
@@ -367,7 +367,7 @@
 									c3.451,0.612,7.951-0.803,10.502,0c9.178,2.887,3.551,20.857,10.002,25.005c4.402,2.831,14.043,1.217,20.506,1.5
 									c7.441,0.328,14.299,0.634,21.004,1C944.035,158.024,948.826,166.568,964.064,164.667z"/>
 							</a>
-							<a id="dongdaemun" href="/petBill/search/searchResult?sidoSel=서울특별시&siguSel=동대문구&pageNum=1&petType=${param.petType}">
+							<a id="dongdaemun" href="/petBill/search/searchResult?sidoSel=서울특별시&siguSel=동대문구&pageNum=1&petType=${petType}">
 								<title>동대문구</title>
 								<path id="dongdaemun" d="M943.059,562.258
 									c17.314-12.86,45.85-14.498,69.016-21.505c4.727,50.787,10.273,100.752,15.504,151.034c-6.555,14.951-12.34,30.67-19.004,45.511
@@ -378,7 +378,7 @@
 									c-1.777-8.816,6.691-12.109,9.502-18.004c3.188-6.685,2.475-12.889,5.502-20.004c13.135-9.705,25.787-19.891,43.01-25.506
 									c5.984-9.353,9.824-20.849,17.004-29.006C935.932,569.802,939.6,566.134,943.059,562.258z"/>
 							</a>	
-							<a id="dongjak" href="/petBill/search/searchResult?sidoSel=서울특별시&siguSel=동작구&pageNum=1&petType=${param.petType}">
+							<a id="dongjak" href="/petBill/search/searchResult?sidoSel=서울특별시&siguSel=동작구&pageNum=1&petType=${petType}">
 								<title>동작구</title>
 								<path id="dongjak"  d="M549.469,914.338
 									c12.88,1.814,26.066,2.353,40.509,1.5c5.67-0.331,12.667,0.665,17.504-0.5c1.864,0.031,3.163-0.504,4.501-1
@@ -393,7 +393,7 @@
 									c8.821-3.948,20.193-3.832,30.507-7.002c2.514-8.961,8.113-16.396,10.002-25.506c1.771-8.537-0.226-17.053,1.5-26.506
 									c0.636-3.48,3.329-7.236,5.001-11.002C533.56,938.992,541.504,925.207,549.469,914.338z"/>
 							</a>
-							<a id="mapo" href="/petBill/search/searchResult?sidoSel=서울특별시&siguSel=마포구&pageNum=1&petType=${param.petType}">
+							<a id="mapo" href="/petBill/search/searchResult?sidoSel=서울특별시&siguSel=마포구&pageNum=1&petType=${petType}">
 								<title>마포구</title>
 								<path id="mapo" d="M402.936,583.763
 									c6.628,6.041,6.576,18.764,20.004,18.004c5.968,13.406,17.593,19.237,29.007,28.007c7.357,5.653,15.368,10.769,22.005,16.504
@@ -410,7 +410,7 @@
 									c8.283-2.733,16.484-15.161,25.005-17.004c9.141-1.977,18.662,0.807,29.507-1c3.474-3.274,7.478-7.106,11.502-11.503
 									c3.063-3.346,9.383-8.809,10.502-12.503c0.708-2.338-0.158-4.918,0.5-7.001C393.398,591.544,399.557,589.176,402.936,583.763z"/>
 							</a>
-							<a id="seodaemun" href="/petBill/search/searchResult.pet?sidoSel=서울특별시&siguSel=서대문구&pageNum=1&petType=${param.petType}">
+							<a id="seodaemun" href="/petBill/search/searchResult.pet?sidoSel=서울특별시&siguSel=서대문구&pageNum=1&petType=${petType}">
 								<title>서대문구</title>
 								<path id="seodaemun" d="M651.993,687.787
 									c5.392,5.944,12.344,10.328,17.504,16.503c-9.036,16.137-28.058,22.287-41.509,34.008c-13.573-1.495-30.166-3.397-45.511-5.001
@@ -425,7 +425,7 @@
 									c2.945,11.225,5.782,22.557,8.002,34.508c-4.303,13.218-8.536,28.992-13.003,44.01c-1.528,5.135-4.425,10.297-4.501,14.504
 									c-0.115,6.354,4.344,11.713,5.501,18.004c1.625,2.043,3.458,3.876,5.501,5.501C648.116,684.328,649.95,686.162,651.993,687.787z"/>
 							</a>
-							<a id="seocho" href="/petBill/search/searchResult?sidoSel=서울특별시&siguSel=서초구&pageNum=1&petType=${param.petType}">
+							<a id="seocho" href="/petBill/search/searchResult?sidoSel=서울특별시&siguSel=서초구&pageNum=1&petType=${petType}">
 								<title>서초구</title>
 								<path id="seocho" d="M806.527,888.332
 									c4.836,12.346,15.342,23.65,19.506,37.509c1.785,5.944,2.385,13.452,3.5,20.005c1.16,6.825,0.615,14.923,3,20.504
@@ -451,7 +451,7 @@
 									c19.89-0.508,35.938,1.268,50.012-4.502c6.559-2.688,13.355-10.818,19.004-16.004C772.443,924.47,790.729,906.379,806.527,888.332z"
 									/>
 							</a>
-							<a id="seongdong" href="/petBill/search/searchResult?sidoSel=서울특별시&siguSel=성동구&pageNum=1&petType=${param.petType}">
+							<a id="seongdong" href="/petBill/search/searchResult?sidoSel=서울특별시&siguSel=성동구&pageNum=1&petType=${petType}">
 								<title>성동구</title>
 								<path id="seongdong" d="M874.543,701.29c2.168,0,4.334,0,6.502,0
 									c5.318-3.184,4.223-12.782,14.504-11.002c0.693,1.141,3.48,0.187,5,0.5c9.426-0.09,18.045,0.627,27.006,1
@@ -463,7 +463,7 @@
 									c0-2.834,0-5.668,0-8.502c1.15-1.184,0.18-4.489,0.5-6.501c0-2.5,0-5.001,0-7.501c4.824,2.01,6.006,7.664,13.004,7.501
 									C870.236,701.93,873.023,700.976,874.543,701.29z"/>
 							</a>
-							<a id="seongbuk" href="/petBill/search/searchResult?sidoSel=서울특별시&siguSel=성북구&pageNum=1&petType=${param.petType}">
+							<a id="seongbuk" href="/petBill/search/searchResult?sidoSel=서울특별시&siguSel=성북구&pageNum=1&petType=${petType}">
 								<title>성북구</title>
 								<path id="seongbuk" d="M729.51,392.219
 									c4.775,3.428,6.586,11.528,11.504,15.003c6.434,4.547,15.797,4.11,23.004,8.002c4.41,2.381,8.689,6.688,13.004,10.002
@@ -480,7 +480,7 @@
 									c-2.35-6.257-5.504-12.853-7.502-19.505c-5.582-18.59-7.576-37.961-14.002-53.512c-4.844-3.493-10.78-5.892-14.504-10.503
 									c6.551-1.802,13.174,0.948,18.004-1C724.17,405.237,724.545,395.769,729.51,392.219z"/>
 							</a>
-							<a id="songpa" href="/petBill/search/searchResult?sidoSel=서울특별시&siguSel=송파구&pageNum=1&petType=${param.petType}">
+							<a id="songpa" href="/petBill/search/searchResult?sidoSel=서울특별시&siguSel=송파구&pageNum=1&petType=${petType}">
 								<title>송파구</title>
 								<path id="songpa" d="M1142.104,808.314
 									c3.291,2.545,5.451,6.219,8.002,9.502c3.914,0.421,8.018,0.652,12.504,0.5c6.393,10.426,0.719,26.423-3.502,37.508
@@ -502,7 +502,7 @@
 									c7.645-3.023,11.229-8.839,16.004-15.004c8.344-10.771,16.424-21.131,24.506-31.508c5.502-7.063,12.068-13.736,16.004-21.004
 									C1133.998,825.777,1137.637,816.13,1142.104,808.314z"/>
 							</a>	
-							<a id="yangcheon" href="/petBill/search/searchResult?sidoSel=서울특별시&siguSel=양천구&pageNum=1&petType=${param.petType}">
+							<a id="yangcheon" href="/petBill/search/searchResult?sidoSel=서울특별시&siguSel=양천구&pageNum=1&petType=${petType}">
 								<title>양천구</title>
 								<path id="yangcheon" d="M199.39,804.313
 									c2.805-5.029,4.873-10.797,8.502-15.003c6.626,0.688,11.923-2.626,17.004-1.501c2.33,0.518,7.231,5.06,8.502,7.002
@@ -518,7 +518,7 @@
 									c-1.747-5.422-3.626-10.71-6.001-15.503c-9.487-1.849-19.228-3.443-29.007-5.001c1.961-7.553,11.313-18.918,12.503-27.006
 									c1.75-11.883,0-27.833,0-43.01c0-15.213,2.144-31.803,0-43.51C207.808,816.662,200.691,810.254,199.39,804.313z"/>
 							</a>	
-							<a id="yeongdeungpo" href="/petBill/search/searchResult?sidoSel=서울특별시&siguSel=영등포구&pageNum=1&petType=${param.petType}">
+							<a id="yeongdeungpo" href="/petBill/search/searchResult?sidoSel=서울특별시&siguSel=영등포구&pageNum=1&petType=${petType}">
 								<title>영등포구</title>
 								<path id="yeongdeungpo" d="M385.432,872.828
 									c3.914-3.196,8.258-7.184,13.503-11.502c3.549-2.922,11.847-7.633,13.003-12.003c1.547-5.849-1.958-11.689-1-19.505
@@ -534,7 +534,7 @@
 									c-20.856-23.653-42.328-46.692-74.017-59.514c2.068,15.437,4.544,30.464,9.502,43.01c5.697,5.112,13,14.698,21.004,17.004
 									c10.17,2.929,21.25,0.715,34.008,1.001C589.714,900.138,598.159,902.816,597.48,900.335z"/>
 							</a>	
-							<a id="yongsan" href="/petBill/search/searchResult?sidoSel=서울특별시&siguSel=용산구&pageNum=1&petType=${param.petType}">
+							<a id="yongsan" href="/petBill/search/searchResult?sidoSel=서울특별시&siguSel=용산구&pageNum=1&petType=${petType}">
 								<title>용산구</title>
 								<path id="yongsan" d="M737.012,767.305
 									c8.662,5.808,11.73,17.15,28.506,14.504c1.02,1.146,4.154,0.18,6.002,0.5c3.002,0,6.002,0,9.002,0c1.02,1.146,4.154,0.181,6.002,0.5
@@ -546,7 +546,7 @@
 									c2.834,0,5.668,0,8.502,0c2.344-0.324,5.988,0.654,7.502-0.5c3.334,0,6.668,0,10.002,0
 									C730.596,766.053,735.563,764.919,737.012,767.305z"/>
 							</a>
-							<a id="eunpyeong" href="/petBill/search/searchResult?sidoSel=서울특별시&siguSel=은평구&pageNum=1&petType=${param.petType}">
+							<a id="eunpyeong" href="/petBill/search/searchResult?sidoSel=서울특별시&siguSel=은평구&pageNum=1&petType=${petType}">
 								<title>은평구</title>
 								<path id="eunpyeong" d="M575.476,330.705
 									c7.587,0.952,9.29-2.505,13.003-6.501c7.224-7.775,13.519-17.169,18.004-25.505c14.693,12.132,30.782,26.277,46.01,39.509
@@ -567,7 +567,7 @@
 									c3.694,0.163,8,1.385,11.503,0c7.246-2.866,6.368-17.586,19.004-13.503c0.693,1.141,3.481,0.187,5.001,0.5
 									C569.141,330.705,572.308,330.705,575.476,330.705z"/>
 							</a>
-							<a id="jongno" href="/petBill/search/searchResult?sidoSel=서울특별시&siguSel=종로구&pageNum=1&petType=${param.petType}">
+							<a id="jongno" href="/petBill/search/searchResult?sidoSel=서울특별시&siguSel=종로구&pageNum=1&petType=${petType}">
 								<title>종로구</title>
 								<path id="jongno" d="M720.008,682.285
 									c-13.643,8.694-29.509,15.167-47.511,19.505c-6.417-5.753-13.255-11.084-19.004-17.504c-1.625-2.043-3.458-3.876-5.501-5.501
@@ -585,7 +585,7 @@
 									c-3.002,0-6.002,0-9.002,0c-2.014,0.321-5.318-0.65-6.502,0.5c-12.729,0.941-23.139,4.201-35.508,5.501c-8.336,0-16.672,0-25.006,0
 									c-4.959-3.876-8.289-9.382-14.004-12.503C726.826,681.454,721.691,681.454,720.008,682.285z"/>
 							</a>
-							<a id="junggu" href="/petBill/search/searchResult?sidoSel=서울특별시&siguSel=중구&pageNum=1&petType=${param.petType}">
+							<a id="junggu" href="/petBill/search/searchResult?sidoSel=서울특별시&siguSel=중구&pageNum=1&petType=${petType}">
 								<title>중구</title>
 								<path id="jung" d="M852.039,722.795
 									c-3.846,7.49-7.141,15.533-13.504,20.504c-2.877,2.459-5.543,5.126-8.002,8.002c-0.404,0.096-0.498,0.502-1,0.5
@@ -599,7 +599,7 @@
 									c0.834,0,1.668,0,2.502,0c0,2.834,0,5.668,0,8.502c0,3.001,0,6.002,0,9.002c-1.148,1.02-0.182,4.154-0.5,6.002
 									C852.039,717.46,852.039,720.127,852.039,722.795z"/>
 							</a>
-							<a id="jungnang" href="/petBill/search/searchResult?sidoSel=서울특별시&siguSel=중랑구&pageNum=1&petType=${param.petType}">
+							<a id="jungnang" href="/petBill/search/searchResult?sidoSel=서울특별시&siguSel=중랑구&pageNum=1&petType=${petType}">
 								<title>중랑구</title>
 								<path id="jungnang" d="M1120.1,474.238
 									c4.662,7.841,18.324,6.681,27.006,10.502c-2.287,12.067,11.305,15.833,13.004,24.506c1.773,9.058-4.662,14.91-5.502,24.005
@@ -615,127 +615,127 @@
 						<!-- </g> -->
 						
 							<text id="LCD44" class="TEXT" x="930" y="1000">
-								<a id="gangnam" class="OUTLINE" href="/petBill/search/searchResult?sidoSel=서울특별시&siguSel=강남구&pageNum=1&petType=${param.petType}">
+								<a id="gangnam" class="OUTLINE" href="/petBill/search/searchResult?sidoSel=서울특별시&siguSel=강남구&pageNum=1&petType=${petType}">
 									강남구
 								</a>
 							</text>
 							<text id="LCD30" class="TEXT" x="1250" y="790">
-								<a id="gangdong" class="OUTLINE" href="/petBill/search/searchResult?sidoSel=서울특별시&siguSel=강동구&pageNum=1&petType=${param.petType}">
+								<a id="gangdong" class="OUTLINE" href="/petBill/search/searchResult?sidoSel=서울특별시&siguSel=강동구&pageNum=1&petType=${petType}">
 									강동구
 								</a>	
 							</text>
 							<text id="LCD43" class="TEXT" x="830" y="400">
-								<a id="gangbuk" class="OUTLINE" href="/petBill/search/searchResult?sidoSel=서울특별시&siguSel=강북구&pageNum=1&petType=${param.petType}">
+								<a id="gangbuk" class="OUTLINE" href="/petBill/search/searchResult?sidoSel=서울특별시&siguSel=강북구&pageNum=1&petType=${petType}">
 									강북구
 								</a>
 							</text>
 							<text id="LCD36" class="TEXT" x="200" y="710">
-								<a id="gangseo" class="OUTLINE" href="/petBill/search/searchResult?sidoSel=서울특별시&siguSel=강서구&pageNum=1&petType=${param.petType}">
+								<a id="gangseo" class="OUTLINE" href="/petBill/search/searchResult?sidoSel=서울특별시&siguSel=강서구&pageNum=1&petType=${petType}">
 									강서구
 								</a>	
 							</text>
 							<text id="LCD26" class="TEXT" x="600" y="1150">
-								<a id="gwanak" class="OUTLINE" href="/petBill/search/searchResult?sidoSel=서울특별시&siguSel=관악구&pageNum=1&petType=${param.petType}">
+								<a id="gwanak" class="OUTLINE" href="/petBill/search/searchResult?sidoSel=서울특별시&siguSel=관악구&pageNum=1&petType=${petType}">
 									관악구
 								</a>
 							</text>
 							<text id="LCD31" class="TEXT" x="1060" y="790">
-								<a id="gwangjin" class="OUTLINE" href="/petBill/search/searchResult?sidoSel=서울특별시&siguSel=광진구&pageNum=1&petType=${param.petType}">
+								<a id="gwangjin" class="OUTLINE" href="/petBill/search/searchResult?sidoSel=서울특별시&siguSel=광진구&pageNum=1&petType=${petType}">
 									광진구
 								</a>
 							</text>
 							<text id="LCD42" class="TEXT" x="300" y="1010">
-								<a id="guro" class="OUTLINE" href="/petBill/search/searchResult?sidoSel=서울특별시&siguSel=구로구&pageNum=1&petType=${param.petType}">
+								<a id="guro" class="OUTLINE" href="/petBill/search/searchResult?sidoSel=서울특별시&siguSel=구로구&pageNum=1&petType=${petType}">
 									구로구
 								</a>
 							</text>
 							<text id="LCD27" class="TEXT" x="428" y="1130">
-								<a id="geumcheon" class="OUTLINE" href="/petBill/search/searchResult?sidoSel=서울특별시&siguSel=금천구&pageNum=1&petType=${param.petType}">
+								<a id="geumcheon" class="OUTLINE" href="/petBill/search/searchResult?sidoSel=서울특별시&siguSel=금천구&pageNum=1&petType=${petType}">
 									금천구
 								</a>
 							</text>
 							<text id="LCD47" class="TEXT" x="1030" y="360">
-								<a id="nowon" class="OUTLINE" href="/petBill/search/searchResult?sidoSel=서울특별시&siguSel=노원구&pageNum=1&petType=${param.petType}">
+								<a id="nowon" class="OUTLINE" href="/petBill/search/searchResult?sidoSel=서울특별시&siguSel=노원구&pageNum=1&petType=${petType}">
 									노원구
 								</a>
 							</text>
 							<text id="LCD11" class="TEXT" x="890" y="260">
-								<a id="dobong" class="OUTLINE" href="/petBill/search/searchResult?sidoSel=서울특별시&siguSel=도봉구&pageNum=1&petType=${param.petType}">
+								<a id="dobong" class="OUTLINE" href="/petBill/search/searchResult?sidoSel=서울특별시&siguSel=도봉구&pageNum=1&petType=${petType}">
 									도봉구
 								</a>
 							</text>
 							<text id="LCD41" class="TEXT" x="950" y="655">
-								<a id="dongdaemun" class="OUTLINE" href="/petBill/search/searchResult?sidoSel=서울특별시&siguSel=동대문구&pageNum=1&petType=${param.petType}">
+								<a id="dongdaemun" class="OUTLINE" href="/petBill/search/searchResult?sidoSel=서울특별시&siguSel=동대문구&pageNum=1&petType=${petType}">
 									동대문구
 								</a>
 							</text>
 							<text id="LCD28" class="TEXT" x="600" y="990">
-								<a id="dongjak" class="OUTLINE" href="/petBill/search/searchResult?sidoSel=서울특별시&siguSel=동작구&pageNum=1&petType=${param.petType}">
+								<a id="dongjak" class="OUTLINE" href="/petBill/search/searchResult?sidoSel=서울특별시&siguSel=동작구&pageNum=1&petType=${petType}">
 									동작구
 								</a>
 							</text>
 							<text id="LCD46" class="TEXT" x="490" y="754">
-								<a id="mapo" class="OUTLINE" href="/petBill/search/searchResult?sidoSel=서울특별시&siguSel=마포구&pageNum=1&petType=${param.petType}">
+								<a id="mapo" class="OUTLINE" href="/petBill/search/searchResult?sidoSel=서울특별시&siguSel=마포구&pageNum=1&petType=${petType}">
 									마포구
 								</a>
 							</text>
 							<text id="LCD29" class="TEXT" x="570" y="660">
-								<a id="seodaemun" class="OUTLINE" href="/petBill/search/searchResult?sidoSel=서울특별시&siguSel=서대문구&pageNum=1&petType=${param.petType}">
+								<a id="seodaemun" class="OUTLINE" href="/petBill/search/searchResult?sidoSel=서울특별시&siguSel=서대문구&pageNum=1&petType=${petType}">
 									서대문구
 								</a>
 							</text>
 							<text id="LCD45" class="TEXT" x="800" y="1090">
-								<a id="seocho" class="OUTLINE" href="/petBill/search/searchResult?sidoSel=서울특별시&siguSel=서초구&pageNum=1&petType=${param.petType}">
+								<a id="seocho" class="OUTLINE" href="/petBill/search/searchResult?sidoSel=서울특별시&siguSel=서초구&pageNum=1&petType=${petType}">
 									서초구
 								</a>
 							</text>
 							<text id="LCD50" class="TEXT" x="910" y="785">
-								<a id="seongdong" class="OUTLINE" href="/petBill/search/searchResult?sidoSel=서울특별시&siguSel=성동구&pageNum=1&petType=${param.petType}">
+								<a id="seongdong" class="OUTLINE" href="/petBill/search/searchResult?sidoSel=서울특별시&siguSel=성동구&pageNum=1&petType=${petType}">
 									성동구
 								</a>
 							</text> 
 							<text id="LCD50" class="TEXT" x="850" y="575">
-								<a id="seongbuk" class="OUTLINE" href="/petBill/search/searchResult?sidoSel=서울특별시&siguSel=성북구&pageNum=1&petType=${param.petType}">
+								<a id="seongbuk" class="OUTLINE" href="/petBill/search/searchResult?sidoSel=서울특별시&siguSel=성북구&pageNum=1&petType=${petType}">
 									성북구
 								</a>
 							</text> 
 							<text id="LCD50" class="TEXT" x="1130" y="990">
-								<a id="songpa" class="OUTLINE" href="/petBill/search/searchResult?sidoSel=서울특별시&siguSel=송파구&pageNum=1&petType=${param.petType}">
+								<a id="songpa" class="OUTLINE" href="/petBill/search/searchResult?sidoSel=서울특별시&siguSel=송파구&pageNum=1&petType=${petType}">
 									송파구
 								</a>
 							</text> 
 							<text id="LCD50" class="TEXT" x="300" y="905">
-								<a id="yangcheon" class="OUTLINE" href="/petBill/search/searchResult?sidoSel=서울특별시&siguSel=양천구&pageNum=1&petType=${param.petType}">
+								<a id="yangcheon" class="OUTLINE" href="/petBill/search/searchResult?sidoSel=서울특별시&siguSel=양천구&pageNum=1&petType=${petType}">
 									양천구
 								</a>
 							</text> 
 							<text id="LCD50" class="TEXT" x="460" y="920">
-								<a id="yeongdeungpo" class="OUTLINE" href="/petBill/search/searchResult?sidoSel=서울특별시&siguSel=영등포구&pageNum=1&petType=${param.petType}">
+								<a id="yeongdeungpo" class="OUTLINE" href="/petBill/search/searchResult?sidoSel=서울특별시&siguSel=영등포구&pageNum=1&petType=${petType}">
 									영등포구
 								</a>
 							</text> 
 							<text id="LCD50" class="TEXT" x="710" y="850">
-								<a id="yongsan" class="OUTLINE" href="/petBill/search/searchResult?sidoSel=서울특별시&siguSel=용산구&pageNum=1&petType=${param.petType}">
+								<a id="yongsan" class="OUTLINE" href="/petBill/search/searchResult?sidoSel=서울특별시&siguSel=용산구&pageNum=1&petType=${petType}">
 									용산구
 								</a>
 							</text> 
 							<text id="LCD50" class="TEXT" x="560" y="460">
-								<a id="eunpyeong" class="OUTLINE" href="/petBill/search/searchResult?sidoSel=서울특별시&siguSel=은평구&pageNum=1&petType=${param.petType}">
+								<a id="eunpyeong" class="OUTLINE" href="/petBill/search/searchResult?sidoSel=서울특별시&siguSel=은평구&pageNum=1&petType=${petType}">
 									은평구
 								</a>
 							</text> 
 							<text id="LCD50" class="TEXT" x="710" y="620">
-								<a id="jongno" class="OUTLINE" href="/petBill/search/searchResult?sidoSel=서울특별시&siguSel=종로구&pageNum=1&petType=${param.petType}">
+								<a id="jongno" class="OUTLINE" href="/petBill/search/searchResult?sidoSel=서울특별시&siguSel=종로구&pageNum=1&petType=${petType}">
 									종로구
 								</a>
 							</text> 
 							<text id="LCD50" class="TEXT" x="750" y="740">
-								<a id="junggu" class="OUTLINE" href="/petBill/search/searchResult?sidoSel=서울특별시&siguSel=중구&pageNum=1&petType=${param.petType}">
+								<a id="junggu" class="OUTLINE" href="/petBill/search/searchResult?sidoSel=서울특별시&siguSel=중구&pageNum=1&petType=${petType}">
 									중구
 								</a>
 							</text> 
 							<text id="LCD50" class="TEXT" x="1080" y="580">
-								<a id="jungnang" class="OUTLINE" href="/petBill/search/searchResult?sidoSel=서울특별시&siguSel=중랑구&pageNum=1&petType=${param.petType}">
+								<a id="jungnang" class="OUTLINE" href="/petBill/search/searchResult?sidoSel=서울특별시&siguSel=중랑구&pageNum=1&petType=${petType}">
 									중랑구
 								</a>
 							</text> 

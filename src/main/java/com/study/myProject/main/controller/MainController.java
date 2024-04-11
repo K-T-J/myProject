@@ -1,8 +1,8 @@
 package com.study.myProject.main.controller;
 import javax.servlet.http.HttpServletRequest;
 
-import org.springframework.security.core.annotation.AuthenticationPrincipal;
-import org.springframework.security.core.userdetails.UserDetails;
+//import org.springframework.security.core.annotation.AuthenticationPrincipal;
+//import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -22,12 +22,12 @@ public class MainController {
 		return "page/main";
 	}
 	
-	@PostMapping(value = "/loginCheck")
-	public String loginCheck(@AuthenticationPrincipal UserDetails userDetails) {
-		
-		System.out.println();
-		return null;
-	}
+//	@PostMapping(value = "/loginCheck")
+//	public String loginCheck(@AuthenticationPrincipal UserDetails userDetails) {
+//		
+//		System.out.println();
+//		return null;
+//	}
 	/**
 	 * 로그인 
 	 * @return

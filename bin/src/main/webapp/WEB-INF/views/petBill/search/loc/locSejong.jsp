@@ -100,10 +100,10 @@
 					</a>
 				</div>
 				<div class="list-group list-group-flush">
-					<a class="list-group-item list-group-item-action list-group-item-light p-3" href="/petBill/search/mapMain?petType=${param.petType}">지도 병원검색</a> 
-					<a class="list-group-item list-group-item-action list-group-item-light p-3" href="/petBill/search/searchResult?pageNum=1&petType=${param.petType}">시/도 병원검색</a> 
-					<a class="list-group-item list-group-item-action list-group-item-light p-3" href="/petBill/hospital/hosCompare?petType=${param.petType}">병원 비교하기</a> 
-					<a class="list-group-item list-group-item-action list-group-item-light p-3" href="/petBill/admin/noticeList?petType=${param.petType}">공지사항</a>
+					<a class="list-group-item list-group-item-action list-group-item-light p-3" href="/petBill/search/mapMain?petType=${petType}">지도 병원검색</a> 
+					<a class="list-group-item list-group-item-action list-group-item-light p-3" href="/petBill/search/searchResult?pageNum=1&petType=${petType}">시/도 병원검색</a> 
+					<a class="list-group-item list-group-item-action list-group-item-light p-3" href="/petBill/hospital/hosCompare?petType=${petType}">병원 비교하기</a> 
+					<a class="list-group-item list-group-item-action list-group-item-light p-3" href="/petBill/admin/noticeList?petType=${petType}">공지사항</a>
 				</div>
 			</div>
 			<%-- Page content wrapper --%>
@@ -126,7 +126,7 @@
 									<%-- 위치 변경필요할듯 search(검색)form 조장님 수정부분 --%>
 									<form action="/petBill/search/searchResult">
 										<input type="search" name="search" placeholder="병원명 입력"/>
-										<input type="hidden" name="petType" value="${param.petType}"/>
+										<input type="hidden" name="petType" value="${petType}"/>
 										<input type="submit" value="검색" class="btn btn-secondary btn-sm"/>                 
 									</form>
 								</li>
@@ -153,10 +153,10 @@
 									</div>
 								</li>
 							</ul>
-							<c:if test="${param.petType eq 'dog'}">
+							<c:if test="${petType eq 'dog'}">
                            		<img src="/resources/img/petBill/10.png" style="width: 50px; height: 50px">
                             </c:if>
-                            <c:if test="${param.petType eq 'cat'}">
+                            <c:if test="${petType eq 'cat'}">
                            		<img src="/resources/img/petBill/11.png" style="width: 50px; height: 50px">
                             </c:if>									
 						</div>
@@ -197,7 +197,7 @@
 						
 						<!-- <g filter="url(#dropshadow)"> -->  
 					        
-			            <a id="sejong" href="/petBill/search/searchResult?sidoSel=세종특별자치시&siguSel=세종특별자치시&pageNum=1&petType=${param.petType}">
+			            <a id="sejong" href="/petBill/search/searchResult?sidoSel=세종특별자치시&siguSel=세종특별자치시&pageNum=1&petType=${petType}">
 							<title>세종특별자치시</title>
 			            	<path class="OUTLINE" d="M160.4,25.5c-4.3,1.9-5.7,3.9-5.9,7.1s-0.7,8.2-3.8,10.2S143,47,141,48.6s-4.3,3.4-5.5,4.2
 								c-1.2,0.7-3.2,3.2,0.2,4.5s5.2,0.7,5.9,3.1c0.7,2.3,1.2,3.3,2.3,4.3s2,4.5,2.6,6.7s1.3,5,1.2,6.1s1.1,1.7,2.6,0.5s2.2-1,3.8-0.7
@@ -242,7 +242,7 @@
 				        <!-- </g> -->
 				        	
 				        	<text id="sejong" class="TEXT" x="240" y="170">
-								<a id="sejong" class="OUTLINE" href="/petBill/search/searchResult?sidoSel=세종특별자치시&siguSel=세종특별자치시&pageNum=1&petType=${param.petType}">
+								<a id="sejong" class="OUTLINE" href="/petBill/search/searchResult?sidoSel=세종특별자치시&siguSel=세종특별자치시&pageNum=1&petType=${petType}">
 									세종특별자치시
 								</a>
 							</text>

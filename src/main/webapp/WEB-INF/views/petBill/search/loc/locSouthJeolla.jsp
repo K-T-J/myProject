@@ -100,10 +100,10 @@
 					</a>
 				</div>
 				<div class="list-group list-group-flush">
-					<a class="list-group-item list-group-item-action list-group-item-light p-3" href="/petBill/search/mapMain?petType=${param.petType}">지도 병원검색</a> 
-					<a class="list-group-item list-group-item-action list-group-item-light p-3" href="/petBill/search/searchResult?pageNum=1&petType=${param.petType}">시/도 병원검색</a> 
-					<a class="list-group-item list-group-item-action list-group-item-light p-3" href="/petBill/hospital/hosCompare?petType=${param.petType}">병원 비교하기</a> 
-					<a class="list-group-item list-group-item-action list-group-item-light p-3" href="/petBill/admin/noticeList?petType=${param.petType}">공지사항</a>
+					<a class="list-group-item list-group-item-action list-group-item-light p-3" href="/petBill/search/mapMain?petType=${petType}">지도 병원검색</a> 
+					<a class="list-group-item list-group-item-action list-group-item-light p-3" href="/petBill/search/searchResult?pageNum=1&petType=${petType}">시/도 병원검색</a> 
+					<a class="list-group-item list-group-item-action list-group-item-light p-3" href="/petBill/hospital/hosCompare?petType=${petType}">병원 비교하기</a> 
+					<a class="list-group-item list-group-item-action list-group-item-light p-3" href="/petBill/admin/noticeList?petType=${petType}">공지사항</a>
 				</div>
 			</div>
 			<%-- Page content wrapper --%>
@@ -126,7 +126,7 @@
 									<%-- 위치 변경필요할듯 search(검색)form 조장님 수정부분 --%>
 									<form action="/petBill/search/searchResult">
 										<input type="search" name="search" placeholder="병원명 입력"/>
-										<input type="hidden" name="petType" value="${param.petType}"/>
+										<input type="hidden" name="petType" value="${petType}"/>
 										<input type="submit" value="검색" class="btn btn-secondary btn-sm"/>                 
 									</form>
 								</li>
@@ -153,10 +153,10 @@
 									</div>
 								</li>
 							</ul>
-							<c:if test="${param.petType eq 'dog'}">
+							<c:if test="${petType eq 'dog'}">
                            		<img src="/resources/img/petBill/10.png" style="width: 50px; height: 50px">
                             </c:if>
-                            <c:if test="${param.petType eq 'cat'}">
+                            <c:if test="${petType eq 'cat'}">
                            		<img src="/resources/img/petBill/11.png" style="width: 50px; height: 50px">
                             </c:if>									
 						</div>
@@ -200,91 +200,91 @@
 					
 					<!-- <g filter="url(#dropshadow)"> -->
 						
-						<a id="mokpo" href="/petBill/search/searchResult?sidoSel=전라남도&siguSel=목포시&pageNum=1&petType=${param.petType}">
+						<a id="mokpo" href="/petBill/search/searchResult?sidoSel=전라남도&siguSel=목포시&pageNum=1&petType=${petType}">
 							<title>목포시</title>
 							<path id="mokpo" class="OUTLINE" d="M 318 411 l 5 3 3 8 4 5 2 1 3 10 -6 2 -6 -7 -6 3 -5 0 0 2 -4 3 -6 0 1 -2 -6 3 -5 -2 -5 -5 0 0 3 -6 7 -9 -3 -6 15 -5 z " />
 						</a>
-						<a id="yeosu" href="/petBill/search/searchResult?sidoSel=전라남도&siguSel=여수시&pageNum=1&petType=${param.petType}">
+						<a id="yeosu" href="/petBill/search/searchResult?sidoSel=전라남도&siguSel=여수시&pageNum=1&petType=${petType}">
 							<title>여수시</title>
 							<path id="yeosu" class="OUTLINE" d="M 891 565 l 5 1 4 8 2 3 3 5 3 6 -3 -1 -3 0 0 0 -1 0 0 1 5 1 7 5 -1 4 -6 1 -4 -1 0 0 -1 0 1 -1 2 -3 -7 -2 -8 -3 -3 -8 -5 -1 -5 -3 -4 -3 6 -2 5 -4 z M 891 505 l 2 -2 3 -6 0 -9 0 -5 0 0 -1 0 1 0 -1 -2 -3 -2 0 0 -1 -3 -2 -5 6 0 5 3 7 4 4 6 0 2 0 0 0 0 -4 0 -1 -4 -2 2 -2 -2 -2 0 0 2 2 2 -3 1 5 2 2 8 3 6 2 0 0 0 3 4 0 9 -1 9 -2 4 1 1 0 1 -1 1 1 2 -1 3 2 1 4 5 -10 4 -9 -3 -7 -3 -4 -5 -6 -4 -1 -7 2 -4 1 0 -2 -4 1 -6 z M 825 385 l 4 -1 -2 8 -3 4 1 2 4 5 3 5 2 -2 1 2 6 3 4 1 -3 2 -1 4 7 2 8 -2 5 -4 9 -3 0 -7 10 0 4 -1 -2 1 1 1 0 -1 3 1 4 3 1 -3 6 -3 6 1 1 4 0 0 0 4 -2 6 -1 4 2 3 -2 1 0 1 1 2 -1 2 1 3 -3 1 -3 4 -3 7 0 0 0 0 0 0 -1 2 0 2 0 0 1 2 1 11 3 3 4 -3 1 1 0 1 0 0 0 0 -6 3 -9 3 -5 3 -6 3 -5 -1 -4 -3 -4 -4 1 -1 -2 -2 -5 -4 -4 0 -1 3 0 0 -3 4 -3 7 -2 3 2 3 0 3 -2 -1 -4 -3 -3 3 -1 0 -1 0 0 0 0 0 0 1 0 1 0 1 3 3 2 5 5 3 -6 1 3 9 0 7 3 1 -2 1 2 1 -3 3 1 1 2 1 1 -1 0 4 -5 -1 -4 -4 -2 -2 0 0 0 0 0 0 -6 -2 -8 -1 -2 8 -2 -4 -4 -6 -3 -6 0 -9 1 -8 8 -1 -8 -4 -2 -4 -3 0 5 -5 1 -3 -1 0 2 -1 6 -4 3 -5 2 1 2 -1 0 -1 -2 -3 -3 -6 -3 2 -2 0 0 0 1 -4 -3 -4 2 -2 0 -1 -4 -5 -2 -7 -9 -1 -5 -2 0 -5 4 -5 3 -9 3 -4 1 -1 -1 -1 1 -1 -3 -4 -1 -7 8 -3 9 1 z " />
 						</a>
-						<a id="suncheon" href="/petBill/search/searchResult?sidoSel=전라남도&siguSel=순천시&pageNum=1&petType=${param.petType}">
+						<a id="suncheon" href="/petBill/search/searchResult?sidoSel=전라남도&siguSel=순천시&pageNum=1&petType=${petType}">
 							<title>순천시</title>
 							<path id="suncheon" class="OUTLINE" d="M 753 233 l 5 4 6 5 5 3 5 3 5 5 5 7 5 4 1 0 2 0 3 3 4 4 2 6 -3 9 -2 4 0 5 3 5 4 5 5 5 2 6 2 11 -4 7 -2 3 2 1 1 4 -3 5 1 1 0 0 0 0 -1 1 0 2 4 4 4 5 4 1 1 13 0 6 1 -5 5 10 -5 5 -1 -5 -3 -3 1 3 -2 2 1 0 4 3 -9 -1 -8 3 1 8 3 2 -1 2 1 1 -1 1 -3 4 -8 0 -2 -8 0 -10 2 -5 1 1 -1 -1 -4 4 -8 4 -6 -3 3 3 1 7 0 8 -3 4 0 0 -4 -1 -8 1 -3 3 -1 -1 -4 -3 1 -2 0 0 1 -2 1 -3 -1 2 -1 2 0 0 -1 -1 1 -3 -2 5 -2 5 0 0 -3 2 -3 -1 -1 -1 0 0 -4 -3 -9 -1 -4 -6 -5 -4 -9 -3 -3 -6 -1 -5 -1 0 -3 2 -4 -4 -8 -4 -9 3 -5 3 0 0 -1 0 0 -1 -5 2 -4 0 -5 -6 1 -10 -2 -10 -2 -7 -1 -2 0 0 -3 -2 -4 -8 -2 -5 -4 -1 -2 6 -7 -2 2 -3 1 -2 -1 -2 1 -3 -1 -1 0 -2 1 -2 0 -1 2 -2 2 -7 -1 -11 2 -9 -2 -9 0 -9 2 -10 2 -10 9 2 2 5 7 4 3 5 1 0 1 -3 5 6 1 7 4 -1 4 -2 2 2 6 2 8 4 2 3 3 -1 4 -5 3 -8 9 -1 5 -3 3 -7 3 -6 5 -5 4 -7 0 -10 -1 -9 z " />
 						</a>
-						<a id="naju" href="/petBill/search/searchResult?sidoSel=전라남도&siguSel=나주시&pageNum=1&petType=${param.petType}">
+						<a id="naju" href="/petBill/search/searchResult?sidoSel=전라남도&siguSel=나주시&pageNum=1&petType=${petType}">
 							<title>나주시</title>
 							<path id="naju" class="OUTLINE" d="M 421 269 l 10 2 9 -1 11 0 5 3 5 4 4 5 2 6 -4 4 -1 3 6 3 12 0 3 3 0 0 5 -1 9 -6 5 -2 5 -4 12 0 3 3 1 6 -2 5 -1 5 -5 10 -3 4 -1 2 7 5 3 3 1 3 -3 4 -3 6 -2 10 -3 4 0 4 1 4 -1 5 1 4 0 2 0 1 1 3 -3 5 -5 2 -8 4 -8 4 -5 2 -2 0 -4 -4 -5 -4 -5 -6 -10 -1 -7 2 -7 -6 -1 -4 -4 -11 -3 -5 -6 -2 -6 0 -2 8 3 5 2 3 -1 2 1 2 1 6 -2 4 1 2 -3 0 -3 -3 -10 0 -5 -4 3 -1 -1 -6 -1 -3 0 -1 -2 -1 -4 -3 -6 -1 -4 5 -7 3 -1 9 -2 8 -7 3 -4 -7 -4 -4 -5 -6 -3 -5 -1 -5 6 -1 5 4 -2 -7 -2 -9 3 -11 2 -4 3 -3 9 2 1 3 5 -4 3 -5 3 -5 -2 -6 -3 -1 3 -5 -1 -9 0 -8 1 -9 4 -12 7 3 10 -3 4 -4 z " />
 						</a>
-						<a id="gwangyang" href="/petBill/search/searchResult?sidoSel=전라남도&siguSel=광양시&pageNum=1&petType=${param.petType}">
+						<a id="gwangyang" href="/petBill/search/searchResult?sidoSel=전라남도&siguSel=광양시&pageNum=1&petType=${petType}">
 							<title>광양시</title>
 							<path id="gwangyang" class="OUTLINE" d="M 888 358 l 1 5 11 3 7 7 -1 16 -7 -5 -2 -6 -4 1 -2 0 -3 -1 -1 0 -2 0 -10 -4 0 -8 7 -8 z M 848 243 l 4 2 7 6 4 4 4 4 2 9 2 8 4 5 4 5 7 4 3 5 7 5 5 3 1 6 4 7 2 10 -3 10 -8 10 -4 4 -4 1 -4 -5 -1 8 -4 3 -3 4 -5 5 -1 3 0 0 -3 2 -2 -3 0 1 -2 -2 -4 -1 -3 5 -3 4 1 1 3 4 -7 4 4 -4 -2 -1 -2 -1 -5 1 -2 0 -1 -1 -2 1 -5 -4 -2 -3 -4 -7 -1 -9 0 7 -2 6 -8 2 -1 -10 -4 -1 -4 -5 -4 -4 0 -2 1 -1 0 0 0 0 -1 -1 3 -5 -1 -4 -2 -1 2 -3 4 -7 -2 -11 -2 -6 -5 -5 -4 -5 -3 -5 0 -5 2 -4 3 -9 9 1 4 -6 7 -4 7 -2 3 -8 -1 -8 3 -8 3 -5 2 -4 4 4 z " />
 						</a>
-						<a id="damyang" href="/petBill/search/searchResult?sidoSel=전라남도&siguSel=담양군&pageNum=1&petType=${param.petType}">
+						<a id="damyang" href="/petBill/search/searchResult?sidoSel=전라남도&siguSel=담양군&pageNum=1&petType=${petType}">
 							<title>담양군</title>
 							<path id="damyang" class="OUTLINE" d="M 507 173 l 2 -9 1 -5 7 -2 -1 -11 3 -8 5 -4 4 -5 6 -3 2 -9 9 3 11 -2 1 -10 3 -4 5 -7 3 -5 1 -2 0 -3 5 -1 7 -2 3 -1 0 4 2 11 3 3 1 6 -1 9 -5 3 1 7 8 3 4 4 1 4 -1 3 0 1 1 5 0 4 -3 1 -3 -2 -2 6 -2 4 0 1 5 2 9 4 6 2 2 5 -1 11 1 7 -4 5 -1 4 3 6 2 6 3 9 4 4 1 2 -7 4 -8 2 -7 0 1 3 1 2 -1 1 1 3 4 8 4 9 1 2 -2 1 -4 4 -6 -1 -5 -3 -6 -2 -10 -2 -2 -8 3 -12 -2 -5 -9 -3 -10 0 -2 -8 -3 -4 -2 -7 -4 -7 -3 -4 -5 -5 -9 -1 -5 3 -5 1 -1 -6 -3 -5 -2 -4 z " />
 						</a>
-						<a id="gokseong" href="/petBill/search/searchResult?sidoSel=전라남도&siguSel=곡성군&pageNum=1&petType=${param.petType}">
+						<a id="gokseong" href="/petBill/search/searchResult?sidoSel=전라남도&siguSel=곡성군&pageNum=1&petType=${petType}">
 							<title>곡성군</title>
 							<path id="gokseong" class="OUTLINE" d="M 649 157 l 3 3 7 2 3 -5 6 -3 6 5 5 4 8 1 10 2 12 0 7 -4 9 0 10 4 0 7 1 10 3 8 2 5 1 6 -4 3 -5 4 -4 2 2 5 -1 0 0 5 1 4 4 4 10 2 1 9 0 10 -4 7 -5 5 -3 6 -3 7 -5 3 -9 1 -3 8 -4 5 -3 1 -2 -3 -8 -4 -6 -2 -2 -2 -4 2 -4 1 -1 -7 -5 -6 -1 3 -1 0 -3 -5 -7 -4 -2 -5 -9 -2 1 -10 -2 -8 2 -7 2 -3 -1 -2 0 -1 0 -1 -2 -6 -4 -5 -2 1 -6 5 -5 4 -1 0 -1 0 -4 1 -5 0 -3 -2 -3 2 -1 -2 -4 -4 -3 -9 -2 -6 -3 -6 1 -4 4 -5 -1 -7 1 -11 10 -3 4 -3 7 -2 4 -6 5 -3 z " />
 						</a>
-						<a id="gurye" href="/petBill/search/searchResult?sidoSel=전라남도&siguSel=구례군&pageNum=1&petType=${param.petType}">
+						<a id="gurye" href="/petBill/search/searchResult?sidoSel=전라남도&siguSel=구례군&pageNum=1&petType=${petType}">
 							<title>구례군</title>
 							<path id="gurye" class="OUTLINE" d="M 775 138 l 3 2 1 0 3 0 5 1 5 5 9 8 6 4 6 4 4 4 3 8 4 9 2 4 5 4 3 10 2 4 1 7 -1 9 2 12 -2 4 -3 5 -3 8 1 8 -3 8 -7 2 -7 4 -4 6 -9 -1 -2 -6 -4 -4 -3 -3 -2 0 -1 0 -5 -4 -5 -7 -5 -5 -5 -3 -5 -3 -6 -5 -5 -4 -8 -2 -10 -2 -4 -4 -1 -4 0 -5 1 0 -2 -5 4 -2 5 -4 4 -3 -1 -6 -2 -5 -3 -8 -1 -10 0 -7 6 -4 5 -7 3 -5 3 -6 6 -5 6 -1 z " />
 						</a>
-						<a id="goheung" href="/petBill/search/searchResult?sidoSel=전라남도&siguSel=고흥군&pageNum=1&petType=${param.petType}">
+						<a id="goheung" href="/petBill/search/searchResult?sidoSel=전라남도&siguSel=고흥군&pageNum=1&petType=${petType}">
 							<title>고흥군</title>
 							<path id="goheung" class="OUTLINE" d="M 766 606 l 2 1 5 3 6 2 -1 2 6 -1 4 -3 -1 -1 4 3 3 5 6 5 0 8 -6 3 -5 2 -7 2 0 -6 -7 -4 -5 -3 -2 -1 6 0 4 -2 -5 -2 -7 -1 0 -2 0 0 -1 -5 z M 664 597 l 0 0 0 1 0 0 0 1 0 0 4 3 -2 8 -2 6 -1 4 -5 9 -7 0 -12 0 -9 2 -8 -3 -3 -3 -1 0 -1 0 -1 -1 1 -3 -6 -1 -1 -11 5 -3 2 -3 -1 -3 5 1 5 3 0 2 0 1 2 0 4 -3 8 -3 6 -3 3 -2 4 3 3 -1 3 -2 0 2 z M 718 421 l 4 3 5 4 6 5 4 6 0 9 8 0 -4 8 -5 4 -6 7 2 4 4 8 3 5 4 3 5 5 1 0 0 1 1 0 1 -1 2 5 6 4 1 1 1 -1 1 4 9 3 3 4 2 -1 0 2 4 3 -8 0 -4 0 2 4 2 1 0 0 4 1 6 2 3 11 2 7 1 2 -4 2 -5 6 -5 0 -6 -2 2 0 0 -1 -4 -3 -4 5 -4 0 -5 -3 -3 1 -1 0 -2 -2 -8 1 0 3 5 4 8 1 2 3 -3 -1 -1 0 0 1 0 0 -4 1 -4 -2 -2 1 0 2 4 2 7 0 -2 2 5 1 0 8 -1 9 -8 1 -3 6 -6 0 -2 10 -9 -1 -4 0 0 1 -5 2 -6 3 0 2 3 3 -5 2 4 3 0 1 -1 0 1 0 2 0 0 4 -7 2 -7 -3 4 -2 -1 -2 -1 0 0 -1 -5 -4 -4 -4 -6 -3 0 -6 2 1 -1 -6 -5 -5 -4 -3 -6 -2 1 -1 -1 0 1 2 -1 0 0 2 0 0 1 0 -4 -2 -5 -6 -2 -1 -6 5 -3 -2 -3 -3 -7 1 -3 3 -11 0 -4 0 0 0 -2 -2 -1 0 0 0 -1 -1 -2 1 -1 -6 -3 -3 0 -1 1 -2 -1 -1 1 -2 -1 -1 2 -2 4 -4 4 -2 -1 -2 3 -1 3 -7 8 0 3 -9 1 -8 2 -4 0 1 2 -1 4 -6 9 -4 6 -2 1 -4 4 -11 1 -6 4 -5 4 -4 7 -1 3 8 1 4 0 0 -2 6 2 7 7 0 7 -1 2 -7 3 -8 3 -5 2 -4 -4 -5 -1 -7 -3 -7 -7 0 -5 7 -7 0 -7 1 -6 -10 -7 -2 4 -6 3 -5 5 -5 6 -2 6 -6 5 -3 8 -2 5 -5 z " />
 						</a>
-						<a id="boseong" href="/petBill/search/searchResult?sidoSel=전라남도&siguSel=보성군&pageNum=1&petType=${param.petType}">
+						<a id="boseong" href="/petBill/search/searchResult?sidoSel=전라남도&siguSel=보성군&pageNum=1&petType=${petType}">
 							<title>보성군</title>
 							<path id="boseong" class="OUTLINE" d="M 651 338 l 4 1 2 5 4 8 3 2 0 0 1 2 2 7 2 10 -1 10 5 6 4 0 5 -2 0 1 1 0 0 0 5 -3 9 -3 8 4 4 4 3 -2 1 0 1 5 3 6 9 3 5 4 4 6 9 1 5 4 -12 2 -4 -3 -3 0 -2 0 -5 -1 -4 -2 3 3 5 2 7 4 5 5 6 0 6 2 -5 4 -4 3 -3 3 1 2 -3 -2 -4 -6 -6 -5 -5 -4 -4 -3 -8 2 -5 5 -8 2 -5 3 -6 6 -6 2 -5 5 -3 5 -4 6 -5 5 -4 8 -2 7 -3 4 -5 7 -8 3 -12 -1 -8 -3 -5 5 -2 6 -5 5 -7 2 -7 3 -4 8 -3 5 -1 0 -1 -5 -5 -9 -2 -6 -5 -3 -9 -1 -7 -2 -2 -8 1 -5 7 -6 4 -4 5 -4 1 -10 0 -6 1 -12 1 -10 1 -6 4 -4 2 -6 9 -4 3 -7 6 -4 5 -7 -2 -9 -1 -9 2 -8 6 -5 4 -3 3 -5 5 -6 7 1 12 -6 7 2 z " />
 						</a>
-						<a id="hwasun" href="/petBill/search/searchResult?sidoSel=전라남도&siguSel=화순군&pageNum=1&petType=${param.petType}">
+						<a id="hwasun" href="/petBill/search/searchResult?sidoSel=전라남도&siguSel=화순군&pageNum=1&petType=${petType}">
 							<title>화순군</title>
 							<path id="hwasun" class="OUTLINE" d="M 648 216 l 4 5 2 6 0 1 0 1 1 2 -2 3 -2 7 2 8 -1 10 -2 10 -2 10 0 9 2 9 -2 9 1 11 -2 7 -2 2 0 1 -1 2 0 2 1 1 -1 3 1 2 -1 2 -2 3 -12 6 -7 -1 -5 6 -3 5 -4 3 -6 5 -2 8 1 9 2 9 -5 7 -6 4 -3 7 -9 4 -9 -1 -10 1 -9 -4 -8 3 -4 7 -5 -2 -5 -5 -5 -4 -2 -8 -3 -5 -5 -2 -9 2 -4 5 -4 -3 -2 -1 -3 1 -4 -1 -3 -1 8 -4 8 -4 5 -2 3 -5 -1 -3 0 -1 0 -2 -1 -4 1 -5 -1 -4 0 -4 3 -4 2 -10 3 -6 3 -4 -1 -3 -3 -3 -7 -5 1 -2 3 -4 5 -10 1 -5 2 -5 -1 -6 -3 -3 7 -3 4 -3 3 -1 4 6 9 2 5 -4 4 -4 7 -4 2 -6 6 -6 4 -7 10 2 6 2 5 3 6 1 4 -4 2 -1 -1 -2 -4 -9 -4 -8 -1 -3 1 -1 -1 -2 -1 -3 7 0 8 -2 7 -4 3 -2 3 2 5 0 4 -1 1 0 1 0 5 -4 6 -5 z " />
 						</a>
-						<a id="jangheung" href="/petBill/search/searchResult?sidoSel=전라남도&siguSel=장흥군&pageNum=1&petType=${param.petType}">
+						<a id="jangheung" href="/petBill/search/searchResult?sidoSel=전라남도&siguSel=장흥군&pageNum=1&petType=${petType}">
 							<title>장흥군</title>
 							<path id="jangheung" class="OUTLINE" d="M 518 394 l 5 2 3 5 2 8 5 4 5 5 5 2 4 -7 8 -3 9 4 10 -1 9 1 -2 6 -4 4 -1 6 -1 10 -1 12 0 6 -1 10 -5 4 -4 4 -7 6 -1 5 2 8 7 2 9 1 5 3 2 6 5 9 1 5 -2 0 0 0 -1 0 -4 2 -6 3 -12 0 -9 0 -6 -2 5 4 11 1 3 4 4 3 -3 2 -3 6 -3 7 -3 3 7 3 4 -1 0 0 0 2 -4 5 -4 7 -7 1 -5 5 1 1 1 2 -1 0 0 0 0 0 5 5 1 3 0 0 -2 0 -1 0 -1 6 3 8 1 6 -3 -2 -3 2 0 1 0 0 0 1 0 0 -3 -1 -4 -5 -4 2 1 2 2 5 2 4 -1 0 -2 1 -4 2 -11 -3 -4 0 -6 -1 -5 0 0 2 3 4 0 11 -3 -6 -2 -1 -2 1 -2 -3 -8 -2 5 -9 1 -4 0 -2 -2 -5 -2 -9 1 -7 4 -5 4 -4 7 -6 -1 -6 -1 -10 -2 -4 -3 -6 -5 -9 -1 -4 0 -1 5 -2 6 -2 -2 -4 0 -5 1 -1 0 0 0 0 0 -1 0 0 0 0 0 0 0 0 0 -1 -1 0 1 -2 0 0 -3 -5 -4 -11 -2 -6 -1 -6 -1 -6 -6 -10 -3 -3 -2 -5 -3 -11 -1 -5 -2 1 -3 0 -4 -4 3 -10 2 -8 4 -5 5 -3 6 -2 6 -5 2 -7 4 -5 z " />
 						</a>
-						<a id="gangjin" href="/petBill/search/searchResult?sidoSel=전라남도&siguSel=강진군&pageNum=1&petType=${param.petType}">
+						<a id="gangjin" href="/petBill/search/searchResult?sidoSel=전라남도&siguSel=강진군&pageNum=1&petType=${petType}">
 							<title>강진군</title>
 							<path id="gangjin" class="OUTLINE" d="M 470 443 l 7 -2 4 4 3 0 2 -1 1 4 3 12 2 5 3 3 6 10 1 6 1 6 2 6 4 11 3 5 0 0 -1 2 1 0 0 1 0 0 0 0 0 0 0 0 0 1 0 0 0 0 -1 1 0 5 2 4 -6 2 -5 2 0 1 1 4 5 9 3 6 2 4 1 10 1 6 -7 6 -4 4 -4 5 -1 7 2 9 2 5 0 2 -1 4 -5 9 -9 -2 -4 -3 0 0 0 0 -1 0 -1 1 -2 -6 -7 -3 0 -3 4 -4 -1 -9 -1 -6 -1 -1 1 -4 0 -7 2 -11 0 -7 -3 -5 1 -1 0 -3 -4 -4 0 -7 1 -10 0 -5 -2 4 -3 8 -1 10 -1 14 0 6 -1 3 0 0 0 2 0 1 1 1 -1 1 0 2 0 2 2 2 1 1 -2 0 -2 0 -2 3 2 9 1 2 -4 3 -5 2 0 0 0 0 -2 3 3 4 2 2 1 0 -1 1 -9 7 -7 -6 -13 -1 -1 -6 1 -7 0 -10 -1 -8 -4 -3 3 -4 5 -6 -1 -8 -4 -7 -3 -6 2 -3 4 -4 3 -7 3 -5 -5 0 1 -6 2 -9 3 -3 -1 -3 0 -1 1 -4 -6 -3 -6 -1 -2 -4 2 -7 3 -4 -5 -4 -3 -5 5 -7 5 -4 5 -4 4 -2 4 2 1 0 1 0 5 2 7 0 5 -6 3 -5 z " />
 						</a>
-						<a id="haenam" href="/petBill/search/searchResult?sidoSel=전라남도&siguSel=해남군&pageNum=1&petType=${param.petType}">
+						<a id="haenam" href="/petBill/search/searchResult?sidoSel=전라남도&siguSel=해남군&pageNum=1&petType=${petType}">
 							<title>해남군</title>
 							<path id="haenam" class="OUTLINE" d="M 270 460 l 3 5 1 -1 1 0 0 4 5 8 4 6 0 1 -1 1 5 3 5 -5 0 0 4 -5 4 -7 -1 8 5 2 2 3 1 0 2 4 1 7 3 -1 2 -1 2 1 1 -5 7 -1 2 10 -5 5 -1 0 0 -1 -1 1 -1 -1 0 3 6 5 4 3 1 0 0 -1 5 4 10 3 6 2 5 3 5 2 -2 -6 -3 -4 -5 -5 -6 -2 -6 -4 0 -7 3 3 4 4 7 3 11 2 5 2 4 3 8 4 8 3 3 0 9 1 -9 -2 -10 -3 -7 -4 -2 -8 4 -5 5 -3 10 -1 10 1 7 0 5 -5 8 -3 2 4 6 1 6 3 -1 4 0 1 1 3 -3 3 -2 9 -1 6 5 0 -3 5 -3 7 -4 4 -2 3 3 6 4 7 1 8 -5 6 -3 4 4 3 1 8 0 10 -1 7 1 6 13 1 7 6 -2 7 -7 2 -6 1 -5 4 -4 4 -1 4 -4 -4 -3 1 0 1 -3 -1 0 2 -2 0 -1 3 -7 6 0 2 -7 6 0 3 2 4 -1 5 1 -1 0 3 -1 1 0 1 -5 3 0 5 -1 11 -8 -1 -12 1 -3 4 -7 5 -6 0 -1 -10 3 -8 -1 -10 -5 -6 -3 0 -5 4 -8 3 -3 -6 0 0 1 0 3 3 1 -3 1 1 1 -1 1 0 1 1 0 -1 -4 -6 0 -5 3 -1 -1 -1 4 -1 1 -8 8 -3 0 -9 -1 -6 -4 1 -2 2 -3 -1 -2 1 -1 2 1 2 -2 -1 -6 -7 -3 -4 2 -2 0 -1 4 3 -1 -6 -1 -6 -2 1 -1 -1 -1 -4 4 -3 -3 -3 0 0 1 -3 -2 -2 4 -3 -2 -7 -3 -2 -2 -3 4 -2 -6 -3 -4 0 1 -1 0 -1 0 0 -1 0 -3 -5 -6 -4 1 4 -6 2 -3 5 -6 0 1 -8 -4 -5 -1 1 -2 -1 -1 1 -1 -1 -1 1 -2 -3 -9 -3 -9 0 -5 -1 1 -2 0 -1 0 0 -1 0 0 0 0 1 0 -1 2 -4 -2 -2 1 0 -3 -1 -2 -4 -3 3 -2 -1 -1 0 0 0 0 -3 2 -2 -3 -3 1 -4 3 -4 0 -4 -2 1 -2 0 -4 -2 -4 -5 2 -1 -1 -4 -1 -1 1 -1 -2 -3 0 -7 2 -5 0 -1 -1 -4 0 -5 1 -1 -1 0 1 0 -1 0 1 0 2 2 3 -5 1 -9 2 -6 2 -6 4 -4 z M 279 488 l 1 10 3 4 3 5 2 9 4 8 4 5 4 2 8 4 5 3 5 3 9 4 6 -4 5 -3 3 -5 1 -4 -3 1 -4 1 -1 -1 -1 1 -4 2 -1 -8 -2 -5 -3 3 -2 0 -4 -8 -3 -8 -2 -1 0 -1 0 -1 1 -1 -6 3 -5 4 -2 2 -3 -4 -1 -11 3 7 1 -3 1 1 1 0 0 0 0 0 0 0 0 -1 1 -5 -1 -3 1 0 0 -1 -2 -4 3 3 2 1 0 -5 -2 -4 -1 0 0 -1 -4 -1 -7 6 2 2 -1 3 -4 3 -7 -1 0 -4 2 -3 z " />
 						</a>
-						<a id="yeongam" href="/petBill/search/searchResult?sidoSel=전라남도&siguSel=영암군&pageNum=1&petType=${param.petType}">
+						<a id="yeongam" href="/petBill/search/searchResult?sidoSel=전라남도&siguSel=영암군&pageNum=1&petType=${petType}">
 							<title>영암군</title>
 							<path id="yeongam" class="OUTLINE" d="M 292 460 l 4 -3 0 -7 11 -3 7 -2 3 -9 11 6 3 3 0 -1 0 0 0 -1 1 -1 -3 -2 6 -2 8 6 4 5 8 -1 3 -9 1 -5 5 -3 5 -6 1 -5 2 -8 1 -10 1 -8 7 -3 2 -8 1 -9 7 -3 4 -5 6 1 4 3 2 1 0 1 1 3 1 5 -3 2 5 4 10 0 3 3 3 0 -1 -2 2 -4 -1 -6 -1 -2 1 -2 -2 -3 -3 -5 2 -8 6 0 6 2 3 5 4 11 1 4 7 6 7 -2 10 1 5 6 5 4 4 4 2 0 5 -2 3 1 4 1 3 -1 2 1 4 3 -2 7 -6 5 -6 2 -5 3 -4 5 -2 8 -3 10 -7 2 -5 2 -3 5 -5 6 -7 0 -5 -2 -1 0 -1 0 -4 -2 -4 2 -5 4 -5 4 -5 7 3 5 5 4 -3 4 -2 7 -8 3 -5 5 -7 0 -10 -1 -10 1 -5 3 -4 5 1 -8 -7 3 -8 6 0 -5 -6 -3 1 -6 5 0 0 0 -5 -2 -6 -5 -2 -3 4 -2 -5 0 -8 -4 2 -6 1 -4 -6 0 -6 1 -2 -4 -4 2 -4 0 -3 -3 -6 -1 -5 4 -4 5 -9 -6 z " />
 						</a>
-						<a id="muan" href="/petBill/search/searchResult?sidoSel=전라남도&siguSel=무안군&pageNum=1&petType=${param.petType}">
+						<a id="muan" href="/petBill/search/searchResult?sidoSel=전라남도&siguSel=무안군&pageNum=1&petType=${petType}">
 							<title>무안군</title>
 							<path id="muan" class="OUTLINE" d="M 332 428 l -2 -1 -4 -5 -3 -8 -5 -3 -9 -2 -1 -7 -3 -9 -7 -1 5 -4 0 -1 -1 -1 3 -5 2 -9 -4 -5 -1 -2 1 0 -1 0 3 -3 -2 -3 -1 -3 1 -5 1 -5 -4 -3 -2 -8 -3 -6 -2 1 0 1 0 0 0 2 0 0 0 3 1 3 0 2 -4 4 5 3 0 5 -3 3 3 2 -1 2 -2 3 2 4 -1 2 -1 0 -4 -1 -3 2 -5 1 -4 -6 -8 0 1 -11 -3 -5 -6 -4 4 -6 5 -1 4 3 6 1 5 -2 4 -6 -2 -4 -5 -1 -2 2 2 -3 7 -5 5 -2 4 -4 6 -4 0 -4 -1 -4 -3 -4 -2 2 -2 -1 -1 0 -5 2 -3 -6 -6 -4 3 -2 1 -3 -2 -3 -4 -6 -6 1 -2 8 -5 4 0 1 0 0 -1 0 4 4 -2 5 -2 1 1 -1 0 -2 -6 -5 -10 2 -2 -7 -5 -4 -1 -12 7 0 0 -3 -8 -5 3 -8 4 -3 4 -6 5 3 2 2 4 -2 5 1 2 3 6 0 3 -8 5 -4 2 -1 0 1 0 0 -1 5 0 6 -2 5 -3 8 1 7 6 2 -3 4 0 2 4 2 6 0 -1 1 1 3 0 2 0 1 3 0 3 -5 3 -5 2 -1 0 2 -2 5 1 3 1 1 3 -3 2 7 -3 9 4 6 2 0 5 0 0 -5 2 -6 7 -4 3 -10 6 3 5 3 2 1 -3 5 -3 8 2 7 7 3 6 3 -1 2 0 1 1 1 -3 2 1 5 1 1 0 0 6 3 7 3 4 5 -3 11 2 9 1 7 -4 -4 -6 1 1 5 3 5 5 6 4 4 4 7 -1 8 -1 10 -2 8 -1 5 -5 6 -5 3 -1 5 -3 9 -8 1 -4 -5 -8 -6 z " />
 						</a>
-						<a id="hampyeong" href="/petBill/search/searchResult?sidoSel=전라남도&siguSel=함평군&pageNum=1&petType=${param.petType}">
+						<a id="hampyeong" href="/petBill/search/searchResult?sidoSel=전라남도&siguSel=함평군&pageNum=1&petType=${petType}">
 							<title>함평군</title>
 							<path id="hampyeong" class="OUTLINE" d="M 297 238 l 5 -3 5 -2 5 -3 0 -1 5 1 6 5 1 1 4 -4 7 -4 5 -2 2 -1 2 1 1 0 2 2 9 2 8 0 10 -1 6 -2 4 -4 5 -4 2 -7 0 -10 9 4 4 5 4 4 5 4 4 5 4 2 4 10 1 1 -4 3 -5 8 -2 3 3 2 0 6 3 10 -5 4 -4 4 -10 3 -7 -3 -4 12 -1 9 0 8 1 9 -3 5 3 1 2 6 -3 5 -3 5 -5 4 -1 -3 -9 -2 -3 3 -2 4 -4 -5 -7 -3 -6 -3 0 0 -1 -1 -1 -5 3 -2 -1 -1 0 -1 1 -2 -6 -3 -7 -3 -2 -7 3 -8 3 -5 -2 -1 -5 -3 -6 -3 -2 -6 8 -4 -1 -4 -7 -2 -9 -2 -5 -7 -3 -5 -1 -3 -2 1 -3 -3 -3 -5 z " />
 						</a>
-						<a id="yeonggwang" href="/petBill/search/searchResult?sidoSel=전라남도&siguSel=영광군&pageNum=1&petType=${param.petType}">
+						<a id="yeonggwang" href="/petBill/search/searchResult?sidoSel=전라남도&siguSel=영광군&pageNum=1&petType=${petType}">
 							<title>영광군</title>
 							<path id="yeonggwang" class="OUTLINE" d="M 329 101 l 5 1 5 1 2 -1 1 0 4 5 3 10 -3 4 0 0 0 4 5 5 0 5 -1 5 0 2 2 0 4 -4 3 3 2 5 -1 5 -1 3 3 3 2 5 11 1 9 2 4 3 0 0 0 1 1 0 1 -5 -2 -3 0 -1 0 -1 0 -1 4 -4 11 1 10 2 0 6 -9 5 -2 5 -2 11 -4 2 -6 6 1 10 0 10 -2 7 -5 4 -4 4 -6 2 -10 1 -8 0 -9 -2 -2 -2 -1 0 -2 -1 -2 1 -5 2 -7 4 -4 4 -1 -1 -6 -5 -5 -1 0 1 -5 3 -5 2 -5 3 -6 -1 0 -7 5 -2 0 -6 2 -7 -4 3 -5 4 -7 0 2 -5 0 -2 -2 -1 -2 4 -8 0 -2 -5 -3 -11 4 -7 3 2 3 2 5 -4 3 1 -2 -4 1 -2 -5 3 1 -8 4 0 -1 -1 3 -2 -6 1 2 -6 6 -1 8 -1 2 -7 2 2 -1 -7 2 -9 2 -4 0 0 0 0 0 -1 0 0 1 -4 5 -11 3 2 0 0 5 0 9 3 1 7 4 -1 0 -3 -6 -6 -6 -4 -3 -5 -4 -5 1 0 -1 -3 -1 -1 2 -2 -1 -2 1 0 -2 -1 1 -1 3 -5 5 -6 2 1 z " />
 						</a>
-						<a id="jangseong" href="/petBill/search/searchResult?sidoSel=전라남도&siguSel=장성군&pageNum=1&petType=${param.petType}">
+						<a id="jangseong" href="/petBill/search/searchResult?sidoSel=전라남도&siguSel=장성군&pageNum=1&petType=${petType}">
 							<title>장성군</title>
 							<path id="jangseong" class="OUTLINE" d="M 391 202 l -1 -10 6 -6 4 -2 2 -11 2 -5 9 -5 0 -6 7 -4 2 -6 9 -2 8 -2 3 -6 7 -3 4 -7 -2 -9 6 -4 4 -6 -1 -11 -1 -8 6 -5 6 -2 8 -1 9 -2 3 -7 4 1 5 5 0 7 3 -1 2 -1 4 2 6 2 8 5 3 7 3 9 3 2 4 7 -2 9 -6 3 -4 5 -5 4 -3 8 1 11 -7 2 -1 5 -2 9 3 10 2 4 3 5 1 6 -9 4 -6 3 -4 2 -4 0 0 0 -5 4 -9 0 -6 -2 -4 -3 -6 -4 2 -4 1 -4 -8 1 -4 1 -2 5 -5 11 -3 4 -6 1 -2 -1 -2 -1 -4 5 -2 7 -2 -1 0 0 -2 0 -2 0 -1 0 -4 -2 -4 -5 -5 -4 -4 -4 -4 -5 z " />
 						</a>
-						<a id="wando" href="/petBill/search/searchResult?sidoSel=전라남도&siguSel=완도군&pageNum=1&petType=${param.petType}">
+						<a id="wando" href="/petBill/search/searchResult?sidoSel=전라남도&siguSel=완도군&pageNum=1&petType=${petType}">
 							<title>완도군</title>
 							<path id="wando" class="OUTLINE" d="M 384 771 l -5 6 0 1 0 0 -5 4 -6 4 -4 2 -8 1 -5 -2 1 0 0 0 1 0 -1 -1 -3 -5 1 -3 0 -1 -1 0 2 -3 -2 -3 2 -2 5 -4 4 -2 0 0 3 -2 10 4 5 4 1 0 5 -3 6 1 2 1 0 0 0 0 1 0 2 1 4 3 -6 1 -1 5 -3 -5 z M 415 751 l 5 3 6 5 1 1 -6 3 -6 3 1 3 3 4 2 5 0 -1 1 1 1 -1 3 1 -4 2 -3 11 -2 5 -1 1 0 -1 1 0 -4 -5 -2 -5 -1 1 0 0 0 0 0 0 -2 1 -2 1 -2 -8 1 -6 3 -4 2 -3 1 0 0 -5 -5 -3 2 -1 0 -1 -2 -1 z M 519 743 l 5 3 2 9 0 4 3 -1 2 0 1 5 -2 4 -3 5 -6 1 0 0 -6 2 -6 -6 -1 -1 -2 2 -4 3 0 -2 0 0 0 0 -1 -1 1 -2 1 -2 -2 -3 2 -1 -1 -2 0 -2 2 -5 6 -7 z M 377 735 l 6 1 10 2 3 3 4 5 -1 4 -4 3 3 5 0 0 -2 1 -2 -1 -2 1 -3 -3 -4 0 -2 6 -8 -1 -2 -5 -5 -2 2 -3 1 -2 1 0 1 -5 z M 496 670 l 4 4 1 -2 2 -1 1 3 4 -2 4 1 0 1 -1 0 1 1 0 0 4 2 5 -1 -4 4 -3 5 0 7 -3 0 -2 -4 -4 4 -1 0 -1 1 -5 2 -3 -5 -6 -6 -3 -2 -1 1 -7 3 -9 -3 -3 -1 -5 -3 9 -2 8 1 9 -2 2 -6 z M 414 681 l -1 2 -1 -1 -2 1 2 -5 -1 -9 -2 -10 3 -9 8 -4 2 -2 1 0 0 0 2 1 1 0 2 -1 5 1 7 4 6 4 2 6 1 8 4 11 2 3 0 1 0 0 0 0 0 0 3 5 7 3 0 3 -2 4 2 3 1 3 -3 -1 -2 -1 -2 1 -2 -1 -1 1 -1 -1 -4 -4 -2 6 -3 -2 -6 -2 -9 -1 -5 -3 1 -1 -5 -7 -5 -5 0 0 0 0 -1 0 -1 1 z M 544 641 l -2 8 -3 4 -1 1 1 0 1 0 2 4 -6 4 -4 3 -6 3 -6 -1 1 0 -2 -1 -3 -3 -8 -5 2 -10 -1 -6 1 2 1 0 0 1 1 1 0 -1 1 0 2 -2 5 3 0 -2 2 0 1 1 2 -1 3 4 8 0 4 -4 1 -1 -1 -2 z M 495 624 l 1 7 -1 4 -2 -1 -3 -1 1 3 8 3 5 3 1 2 0 0 1 4 -7 3 -6 3 -1 1 1 0 -2 0 -3 -2 -1 1 -1 0 -1 0 -1 0 -3 -1 -3 1 0 0 -3 1 -4 6 -3 7 -4 -1 0 0 0 -2 0 -2 3 -5 -2 -4 -1 0 -1 0 -3 0 -2 1 2 -5 5 -5 0 -1 -1 -2 2 -4 4 -6 8 -4 8 -1 3 -3 z " />
 						</a>
-						<a id="jindo" href="/petBill/search/searchResult?sidoSel=전라남도&siguSel=진도군&pageNum=1&petType=${param.petType}">
+						<a id="jindo" href="/petBill/search/searchResult?sidoSel=전라남도&siguSel=진도군&pageNum=1&petType=${petType}">
 							<title>진도군</title>
 							<path id="jindo" class="OUTLINE" d="M 242 545 l 7 0 5 4 2 0 2 1 3 2 4 3 -1 4 0 0 -1 0 0 2 3 4 6 4 1 -2 5 -1 4 5 2 2 -1 3 3 0 4 5 5 4 1 2 1 0 -2 3 -2 1 2 3 1 5 -7 3 -1 9 0 9 -4 6 -3 5 -2 4 -1 0 -2 3 -5 2 -2 -7 -3 6 -5 0 -4 6 -2 1 0 0 -4 0 -3 -2 -1 1 -1 -1 -1 0 -2 4 3 3 -1 2 1 0 0 1 -1 0 -4 -1 -2 1 -2 -1 -1 0 -1 1 0 0 -4 2 -10 2 -5 1 3 0 -1 5 -8 1 -7 1 -6 -2 0 -1 2 -2 -4 0 -4 3 -2 -1 -2 -2 2 -1 -2 -1 2 -1 -1 -2 2 -2 2 0 0 0 0 0 0 0 0 -2 -9 0 -4 -1 0 -1 -1 -4 -4 -6 -4 -5 -1 -1 1 -1 -1 -1 2 -1 -2 -1 2 -2 1 -3 0 0 0 0 1 1 2 -5 5 -5 1 0 3 2 -1 -6 6 -5 4 -4 8 -5 4 -1 0 0 1 -3 3 -6 4 -3 1 6 5 0 -1 -4 -1 -2 5 -3 5 -2 -1 -1 -2 -3 4 -4 1 -4 2 3 5 -5 1 -3 1 -7 -3 -2 1 -3 -1 -1 1 -1 1 -2 -2 -1 z " />
 						</a>
-						<a id="sinan" href="/petBill/search/searchResult?sidoSel=전라남도&siguSel=신안군&pageNum=1&petType=${param.petType}">
+						<a id="sinan" href="/petBill/search/searchResult?sidoSel=전라남도&siguSel=신안군&pageNum=1&petType=${petType}">
 							<title>신안군</title>
 							<path id="sinan" class="OUTLINE" d="M 222 269 l 5 3 -1 -1 5 0 5 3 0 0 3 -1 2 2 1 12 5 4 2 7 2 9 -2 7 -6 3 -4 -6 -1 4 -4 0 0 -9 2 -3 -5 -6 -7 1 -1 6 -2 -7 -3 -5 -1 2 -3 0 0 -1 0 0 -4 -3 -5 -3 3 -4 -5 -5 1 -5 0 1 2 -2 6 -3 z M 171 377 l -1 2 -1 1 5 4 -1 6 -4 -1 -2 -1 1 5 2 3 -4 1 -4 3 -6 2 -3 5 -1 0 0 0 0 -1 -1 1 0 -1 -5 -5 -3 -7 -3 2 -4 2 -3 -2 -3 0 0 1 -5 -2 -3 -3 0 0 -2 -1 5 -1 6 -5 4 -3 4 -9 7 -1 3 -4 2 0 3 3 5 -3 1 -1 0 0 0 0 -1 -3 1 -2 -1 -2 0 -2 1 1 0 0 1 1 2 -1 3 5 6 4 -2 1 -1 1 z M 264 368 l 0 1 0 0 1 0 2 2 2 2 9 2 4 4 3 4 -7 1 -3 5 -4 1 3 3 -3 2 0 4 8 0 5 -1 -1 1 6 2 4 5 0 0 0 0 1 2 -2 3 2 3 -2 2 -4 6 -11 1 4 -8 3 -1 -4 -4 -3 -4 -6 0 -1 1 -2 -2 -8 -1 -8 0 -1 3 -1 0 -2 2 -7 0 -4 -3 -4 -4 7 -1 7 0 3 -6 3 3 3 0 0 -3 -2 -3 1 -4 0 -1 0 -1 2 0 4 2 3 -1 1 -2 -2 -4 -5 -8 z M 171 444 l 5 3 9 1 5 5 1 1 0 0 4 1 2 -1 4 -1 4 5 3 4 2 8 -1 7 -2 5 0 1 1 0 -3 0 -5 -1 -2 1 -1 0 -1 -6 -4 -7 -6 1 -3 4 -3 -2 0 0 0 -1 -1 0 0 0 -1 0 -1 1 -1 0 -2 0 0 0 -4 1 -4 3 0 -4 1 0 -2 -5 0 -9 -1 -10 6 -2 z M 131 428 l 0 1 0 1 1 3 0 3 -3 4 -2 5 1 0 2 0 1 0 1 -1 0 3 -1 3 0 1 -3 0 -6 3 -3 -2 -4 3 0 -5 -3 -2 1 4 0 2 -1 0 -2 -1 -5 2 -2 0 0 -1 0 0 -1 0 0 2 4 4 3 5 -3 -1 -1 5 -4 3 -3 1 -1 0 -1 1 -2 -1 -5 -5 -5 -4 0 0 -1 -2 2 -5 1 -8 4 -7 8 0 10 -1 4 -3 0 -1 3 0 4 -5 3 -3 0 0 z M 116 463 l 3 6 3 5 1 0 2 -2 4 6 7 4 -1 6 -5 4 -5 4 -4 4 1 1 0 0 -4 3 -7 0 0 -3 2 -2 -6 0 -4 -1 0 -2 -4 -2 -3 -6 2 -11 7 -2 4 -4 5 -6 z M 201 250 l -8 4 -4 1 -2 4 -1 10 0 11 -2 8 -1 6 -4 2 1 2 -6 0 -6 -4 -5 -4 -2 4 -1 1 0 -2 0 -1 -2 -1 -2 2 -1 -4 2 -6 0 0 -1 -5 2 -5 0 1 -1 -2 7 -2 8 -3 4 -5 6 -5 4 -6 8 0 4 -1 0 0 z M 184 388 l 3 1 7 2 6 4 0 4 -6 2 4 6 0 1 -3 4 -2 5 -3 -2 -4 -1 -2 8 -1 7 -4 2 0 0 -5 -1 -2 -7 -6 -3 -2 -7 -5 -6 0 -2 7 -3 8 -1 9 1 -2 -11 z M 156 520 l 0 1 0 0 2 0 7 4 4 6 5 4 3 6 2 1 -4 4 -2 8 0 6 -8 4 -5 4 0 1 -2 -1 -4 3 -9 0 0 -4 2 2 1 -1 0 0 0 0 2 1 1 -2 -1 -1 1 -1 -1 -1 5 -2 0 -3 -1 0 0 0 -2 0 -2 0 -2 -1 -4 2 2 -4 8 0 8 -5 2 -8 -3 -6 -1 -2 0 -1 -1 -3 -3 -1 -3 1 0 -1 -1 1 -1 -1 1 1 0 -5 z M 195 313 l 8 3 3 7 5 5 0 8 -3 5 -5 1 -7 4 0 4 -1 -1 -2 2 -5 1 1 -1 2 -5 1 -13 1 -3 2 2 -2 -5 -10 0 -5 -3 2 -2 4 -4 5 -4 -1 -1 3 -1 1 -1 z M 201 500 l 5 3 2 2 -1 1 3 2 2 7 6 2 -1 2 0 0 -3 1 -2 1 -1 0 -2 2 -6 0 -8 3 -9 -1 1 -7 2 -3 -5 -2 1 -5 7 -4 4 -4 z " />
 						</a>
@@ -292,7 +292,7 @@
 					<!-- </g> -->
 					
 						<%-- line 
-						<a id="sinan" href="/petBill/search/searchResult.pet?sidoSel=전라남도&siguSel=신안군&pageNum=1&petType=${param.petType}">
+						<a id="sinan" href="/petBill/search/searchResult.pet?sidoSel=전라남도&siguSel=신안군&pageNum=1&petType=${petType}">
 							<title>신안군</title>
 							<path class="LINE" d="M 231 288 l -8 100 " />
 							<path class="LINE" d="M 265 396 l -42 -8 " />
@@ -306,7 +306,7 @@
 							<path class="LINE" d="M 117 484 l 106 -96 " />
 							<path class="LINE" d="M 169 540 l 54 -152 " />
 						</a>
-						<a id="wando" href="/petBill/search/searchResult.pet?sidoSel=전라남도&siguSel=완도군&pageNum=1&petType=${param.petType}">
+						<a id="wando" href="/petBill/search/searchResult.pet?sidoSel=전라남도&siguSel=완도군&pageNum=1&petType=${petType}">
 							<title>완도군</title>
 							<path class="LINE" d="M 482 645 l -16 73 " />
 							<path class="LINE" d="M 436 677 l 30 41 " />
@@ -317,7 +317,7 @@
 							<path class="LINE" d="M 386 746 l 80 -28 " />
 							<path class="LINE" d="M 368 774 l 98 -56 " /> 
 						</a>
-						<a id="yeosu" href="/petBill/search/searchResult.pet?sidoSel=전라남도&siguSel=여수시&pageNum=1&petType=${param.petType}">
+						<a id="yeosu" href="/petBill/search/searchResult.pet?sidoSel=전라남도&siguSel=여수시&pageNum=1&petType=${petType}">
 							<title>여수시</title>
 							<path class="LINE" d="M 844 445 l 14 71 " />
 							<path class="LINE" d="M 901 522 l -43 -6 " />
@@ -326,112 +326,112 @@
 						--%>
 					
 						<text id="LCD46110" class="TEXT" x="315" y="420">
-							<a id="mokpo" class="OUTLINE" href="/petBill/search/searchResult?sidoSel=전라남도&siguSel=목포시&pageNum=1&petType=${param.petType}">
+							<a id="mokpo" class="OUTLINE" href="/petBill/search/searchResult?sidoSel=전라남도&siguSel=목포시&pageNum=1&petType=${petType}">
 								목포시
 							</a>	
 						</text>
 						<text id="LCD46130" class="TEXT" x="858" y="450">
-							<a id="yeosu" class="OUTLINE" href="/petBill/search/searchResult?sidoSel=전라남도&siguSel=여수시&pageNum=1&petType=${param.petType}">
+							<a id="yeosu" class="OUTLINE" href="/petBill/search/searchResult?sidoSel=전라남도&siguSel=여수시&pageNum=1&petType=${petType}">
 								여수시
 							</a>	
 						</text>
 						<text id="LCD46150" class="TEXT" x="737" y="332">
-							<a id="suncheon" class="OUTLINE" href="/petBill/search/searchResult?sidoSel=전라남도&siguSel=순천시&pageNum=1&petType=${param.petType}">
+							<a id="suncheon" class="OUTLINE" href="/petBill/search/searchResult?sidoSel=전라남도&siguSel=순천시&pageNum=1&petType=${petType}">
 								순천시
 							</a>	
 						</text>
 						<text id="LCD46170" class="TEXT" x="446" y="334">
-							<a id="naju" class="OUTLINE" href="/petBill/search/searchResult?sidoSel=전라남도&siguSel=나주시&pageNum=1&petType=${param.petType}">
+							<a id="naju" class="OUTLINE" href="/petBill/search/searchResult?sidoSel=전라남도&siguSel=나주시&pageNum=1&petType=${petType}">
 								나주시
 							</a>	
 						</text>
 						<text id="LCD46230" class="TEXT" x="852" y="318">
-							<a id="gwangyang" class="OUTLINE" href="/petBill/search/searchResult?sidoSel=전라남도&siguSel=광양시&pageNum=1&petType=${param.petType}">
+							<a id="gwangyang" class="OUTLINE" href="/petBill/search/searchResult?sidoSel=전라남도&siguSel=광양시&pageNum=1&petType=${petType}">
 								광양시
 							</a>	
 						</text>
 						<text id="LCD46710" class="TEXT" x="560" y="180">
-							<a id="damyang" class="OUTLINE" href="/petBill/search/searchResult?sidoSel=전라남도&siguSel=담양군&pageNum=1&petType=${param.petType}">
+							<a id="damyang" class="OUTLINE" href="/petBill/search/searchResult?sidoSel=전라남도&siguSel=담양군&pageNum=1&petType=${petType}">
 								담양군
 							</a>	
 						</text>
 						<text id="LCD46720" class="TEXT" x="682" y="215">
-							<a id="damyang" class="OUTLINE" href="/petBill/search/searchResult?sidoSel=전라남도&siguSel=곡성군&pageNum=1&petType=${param.petType}">
+							<a id="damyang" class="OUTLINE" href="/petBill/search/searchResult?sidoSel=전라남도&siguSel=곡성군&pageNum=1&petType=${petType}">
 								곡성군
 							</a>	
 						</text>
 						<text id="LCD46730" class="TEXT" x="786" y="205">
-							<a id="gurye" class="OUTLINE" href="/petBill/search/searchResult?sidoSel=전라남도&siguSel=구례군&pageNum=1&petType=${param.petType}">
+							<a id="gurye" class="OUTLINE" href="/petBill/search/searchResult?sidoSel=전라남도&siguSel=구례군&pageNum=1&petType=${petType}">
 								구례군
 							</a>	
 						</text>
 						<text id="LCD46770" class="TEXT" x="708" y="554">
-							<a id="goheung" class="OUTLINE" href="/petBill/search/searchResult?sidoSel=전라남도&siguSel=고흥군&pageNum=1&petType=${param.petType}">
+							<a id="goheung" class="OUTLINE" href="/petBill/search/searchResult?sidoSel=전라남도&siguSel=고흥군&pageNum=1&petType=${petType}">
 								고흥군
 							</a>	
 						</text>
 						<text id="LCD46780" class="TEXT" x="638" y="427">
-							<a id="boseong" class="OUTLINE" href="/petBill/search/searchResult?sidoSel=전라남도&siguSel=보성군&pageNum=1&petType=${param.petType}">
+							<a id="boseong" class="OUTLINE" href="/petBill/search/searchResult?sidoSel=전라남도&siguSel=보성군&pageNum=1&petType=${petType}">
 								보성군
 							</a>	
 						</text>
 						<text id="LCD46790" class="TEXT" x="582" y="325">
-							<a id="hwasun" class="OUTLINE" href="/petBill/search/searchResult?sidoSel=전라남도&siguSel=화순군&pageNum=1&petType=${param.petType}">
+							<a id="hwasun" class="OUTLINE" href="/petBill/search/searchResult?sidoSel=전라남도&siguSel=화순군&pageNum=1&petType=${petType}">
 								화순군
 							</a>	
 						</text>
 						<text id="LCD46800" class="TEXT" x="533" y="499">
-							<a id="jangheung" class="OUTLINE" href="/petBill/search/searchResult?sidoSel=전라남도&siguSel=장흥군&pageNum=1&petType=${param.petType}">
+							<a id="jangheung" class="OUTLINE" href="/petBill/search/searchResult?sidoSel=전라남도&siguSel=장흥군&pageNum=1&petType=${petType}">
 								장흥군
 							</a>	
 						</text>
 						<text id="LCD46810" class="TEXT" x="469" y="497">
-							<a id="gangjin" class="OUTLINE" href="/petBill/search/searchResult?sidoSel=전라남도&siguSel=강진군&pageNum=1&petType=${param.petType}">
+							<a id="gangjin" class="OUTLINE" href="/petBill/search/searchResult?sidoSel=전라남도&siguSel=강진군&pageNum=1&petType=${petType}">
 								강진군
 							</a>	
 						</text>
 						<text id="LCD46820" class="TEXT" x="379" y="570">
-							<a id="haenam" class="OUTLINE" href="/petBill/search/searchResult?sidoSel=전라남도&siguSel=해남군&pageNum=1&petType=${param.petType}">
+							<a id="haenam" class="OUTLINE" href="/petBill/search/searchResult?sidoSel=전라남도&siguSel=해남군&pageNum=1&petType=${petType}">
 								해남군
 							</a>	
 						</text>
 						<text id="LCD46830" class="TEXT" x="407" y="434">
-							<a id="yeongam" class="OUTLINE" href="/petBill/search/searchResult?sidoSel=전라남도&siguSel=영암군&pageNum=1&petType=${param.petType}">
+							<a id="yeongam" class="OUTLINE" href="/petBill/search/searchResult?sidoSel=전라남도&siguSel=영암군&pageNum=1&petType=${petType}">
 								영암군
 							</a>	
 						</text>
 						<text id="LCD46840" class="TEXT" x="330" y="372">
-							<a id="muan" class="OUTLINE" href="/petBill/search/searchResult?sidoSel=전라남도&siguSel=무안군&pageNum=1&petType=${param.petType}">
+							<a id="muan" class="OUTLINE" href="/petBill/search/searchResult?sidoSel=전라남도&siguSel=무안군&pageNum=1&petType=${petType}">
 								무안군
 							</a>	
 						</text>
 						<text id="LCD46860" class="TEXT" x="367" y="268">
-							<a id="hampyeong" class="OUTLINE" href="/petBill/search/searchResult?sidoSel=전라남도&siguSel=함평군&pageNum=1&petType=${param.petType}">
+							<a id="hampyeong" class="OUTLINE" href="/petBill/search/searchResult?sidoSel=전라남도&siguSel=함평군&pageNum=1&petType=${petType}">
 								함평군
 							</a>	
 						</text>
 						<text id="LCD46870" class="TEXT" x="332" y="190">
-							<a id="yeonggwang" class="OUTLINE" href="/petBill/search/searchResult?sidoSel=전라남도&siguSel=영광군&pageNum=1&petType=${param.petType}">
+							<a id="yeonggwang" class="OUTLINE" href="/petBill/search/searchResult?sidoSel=전라남도&siguSel=영광군&pageNum=1&petType=${petType}">
 								영광군
 							</a>	
 						</text>
 						<text id="LCD46880" class="TEXT" x="469" y="165">
-							<a id="jangseong" class="OUTLINE" href="/petBill/search/searchResult?sidoSel=전라남도&siguSel=장성군&pageNum=1&petType=${param.petType}">
+							<a id="jangseong" class="OUTLINE" href="/petBill/search/searchResult?sidoSel=전라남도&siguSel=장성군&pageNum=1&petType=${petType}">
 								장성군
 							</a>	
 						</text>
 						<text id="LCD46890" class="TEXT" x="466" y="730">
-							<a id="wando" class="OUTLINE" href="/petBill/search/searchResult?sidoSel=전라남도&siguSel=완도군&pageNum=1&petType=${param.petType}">
+							<a id="wando" class="OUTLINE" href="/petBill/search/searchResult?sidoSel=전라남도&siguSel=완도군&pageNum=1&petType=${petType}">
 								완도군
 							</a>	
 						</text>
 						<text id="LCD46900" class="TEXT" x="238" y="617">
-							<a id="jindo" class="OUTLINE" href="/petBill/search/searchResult?sidoSel=전라남도&siguSel=진도군&pageNum=1&petType=${param.petType}">
+							<a id="jindo" class="OUTLINE" href="/petBill/search/searchResult?sidoSel=전라남도&siguSel=진도군&pageNum=1&petType=${petType}">
 								진도군
 							</a>	
 						</text>
 						<text id="LCD46910" class="TEXT" x="223" y="388">
-							<a id="sinan" class="OUTLINE" href="/petBill/search/searchResult?sidoSel=전라남도&siguSel=신안군&pageNum=1&petType=${param.petType}">
+							<a id="sinan" class="OUTLINE" href="/petBill/search/searchResult?sidoSel=전라남도&siguSel=신안군&pageNum=1&petType=${petType}">
 								신안군
 							</a>	
 						</text>
