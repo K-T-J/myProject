@@ -17,7 +17,7 @@ public class TbCat {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "CAT_NO", unique = true, nullable = false) 
-	private Long catNo;
+	private Integer catNo;
 	/**
 	 * 병원 테이블 고유번호
 	 */
@@ -218,6 +218,38 @@ public class TbCat {
 	 */
 	 @Column(name = "C_SKIN_CARE", length = 50, columnDefinition = "varchar(50) default '0'") 
 	 private String cSkinCare;
+	 
+	 
+	public Integer getCatNo() {
+		return catNo;
+	}
+	public void setCatNo(Integer catNo) {
+		this.catNo = catNo;
+	}
+	public Integer getHosNo() {
+		return hosNo;
+	}
+	public void setHosNo(Integer hosNo) {
+		this.hosNo = hosNo;
+	}
+	public String getC1() {
+		return c1;
+	}
+	public void setC1(String c1) {
+		this.c1 = c1;
+	}
+	public String getC2() {
+		return c2;
+	}
+	public void setC2(String c2) {
+		this.c2 = c2;
+	}
+	public String getC3() {
+		return c3;
+	}
+	public void setC3(String c3) {
+		this.c3 = c3;
+	}
 	public String getcAllTest() {
 		return cAllTest;
 	}

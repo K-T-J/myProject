@@ -21,7 +21,7 @@ public class TbDog {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "DOG_NO", unique = true, nullable = false)
-	private Long dogNo;
+	private Integer dogNo;
 	/**
 	 * 병원 테이블 고유번호
 	 */
@@ -228,10 +228,10 @@ public class TbDog {
 	@Column(name = "D_SKIN_CARE", length = 50, columnDefinition = "varchar(50) default '0'")
 	private String dSkinCare;
 	
-	public Long getDogNo() {
+	public Integer getDogNo() {
 		return dogNo;
 	}
-	public void setDogNo(Long dogNo) {
+	public void setDogNo(Integer dogNo) {
 		this.dogNo = dogNo;
 	}
 	public Integer getHosNo() {

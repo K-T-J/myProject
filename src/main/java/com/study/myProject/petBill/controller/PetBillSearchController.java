@@ -169,7 +169,7 @@ public class PetBillSearchController {
 	}
 	
 	// [검색X, 시/도 선택X, 시/구 선택X] 전체 병원 리스트 
-	@RequestMapping("searchResult.pet")		// searchResult.pet?pageNum=
+	@RequestMapping("searchResult")		// searchResult.pet?pageNum=
 	public String searchResult(HttpServletRequest request, String pageNum, String sidoSel, String siguSel, String search, Model model)  {
 		// 해당 페이지에 맞는 화면에 뿌려줄 병원 list 가져와 view에 전달 
 		Map<String, Object> result = null;
