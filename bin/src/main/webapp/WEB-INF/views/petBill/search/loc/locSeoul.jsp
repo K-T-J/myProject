@@ -147,8 +147,8 @@
 								<li class="nav-item dropdown">
 									<a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">검색동물 변경</a>
 									<div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-										<a class="dropdown-item" href="/petBill/search/loc/locSeoul.pet?petType=${'dog'}&diagnosis=${'dAllTest'}">강아지</a>
-                                    	<a class="dropdown-item" href="/petBill/search/loc/locSeoul.pet?petType=${'cat'}&diagnosis=${'cAllTest'}">고양이</a>
+										<a class="dropdown-item" href="/petBill/search/loc/locSeoul?petType=${'dog'}&diagnosis=${'dAllTest'}">강아지</a>
+                                    	<a class="dropdown-item" href="/petBill/search/loc/locSeoul?petType=${'cat'}&diagnosis=${'cAllTest'}">고양이</a>
 									</div>
 								</li>
 							</ul>
@@ -267,7 +267,7 @@
 									c3.839-3.569,7.796-7.497,13.003-12.002c6.48-5.608,15.725-9.435,13.003-23.005c1.155-1.678,0.175-5.493,0.5-8.002
 									c1.876-13.255-8.925-25.063-6.001-37.508C126.606,538.5,132.789,536.269,134.875,530.751z"/>
 							</a>
-							<a id="gwanak" href="/petBill/search/searchResult.pet?sidoSel=서울특별시&siguSel=관악구&pageNum=1&petType=${petType}">
+							<a id="gwanak" href="/petBill/search/searchResult?sidoSel=서울특별시&siguSel=관악구&pageNum=1&petType=${petType}">
 								<title>관악구</title>
 								<path id="gwanak"  d="M694.002,1210.906
 									c-4.465,4.478-9.49,9.332-15.003,14.503c-4.905,4.601-9.783,10.629-15.504,14.503c-5.579,3.778-12.692,6.807-20.004,11.003
@@ -296,7 +296,7 @@
 									c-2.334,0-4.668,0-7.002,0c-3.334,0-6.668,0-10.002,0c-1.52,0.314-4.309-0.641-5.002,0.5
 									C995.094,881.143,980.262,877.802,968.564,871.328z"/>
 							</a>
-							<a id="guro" href="/petBill/search/searchResult.pet?sidoSel=서울특별시&siguSel=구로구&pageNum=1&petType=${petType}">
+							<a id="guro" href="/petBill/search/searchResult?sidoSel=서울특별시&siguSel=구로구&pageNum=1&petType=${petType}">
 								<title>구로구</title>
 								<path id="guro"  d="M428.942,1040.367c0.317,1.684-0.644,4.645,0.5,5.501
 									c0,1,0,2.001,0,3.001c-7.014,3.32-11.124,9.547-20.504,10.502c-1.849,0.319-4.982-0.647-6.001,0.5c-2.667,0-5.334,0-8.002,0
@@ -410,7 +410,7 @@
 									c8.283-2.733,16.484-15.161,25.005-17.004c9.141-1.977,18.662,0.807,29.507-1c3.474-3.274,7.478-7.106,11.502-11.503
 									c3.063-3.346,9.383-8.809,10.502-12.503c0.708-2.338-0.158-4.918,0.5-7.001C393.398,591.544,399.557,589.176,402.936,583.763z"/>
 							</a>
-							<a id="seodaemun" href="/petBill/search/searchResult.pet?sidoSel=서울특별시&siguSel=서대문구&pageNum=1&petType=${petType}">
+							<a id="seodaemun" href="/petBill/search/searchResult?sidoSel=서울특별시&siguSel=서대문구&pageNum=1&petType=${petType}">
 								<title>서대문구</title>
 								<path id="seodaemun" d="M651.993,687.787
 									c5.392,5.944,12.344,10.328,17.504,16.503c-9.036,16.137-28.058,22.287-41.509,34.008c-13.573-1.495-30.166-3.397-45.511-5.001

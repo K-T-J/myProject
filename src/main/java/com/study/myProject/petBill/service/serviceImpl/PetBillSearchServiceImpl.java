@@ -7,11 +7,17 @@ import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.study.myProject.petBill.dto.PetBillHospitalDTO;
 import com.study.myProject.petBill.dto.PetBillRevCountDTO;
+import com.study.myProject.petBill.entity.TbHospital;
+import com.study.myProject.petBill.repository.TbHospitalRepository;
 import com.study.myProject.petBill.service.PetBillSearchService;
 
 import lombok.RequiredArgsConstructor;
@@ -21,6 +27,8 @@ import lombok.RequiredArgsConstructor;
 //@RequiredArgsConstructore
 public class PetBillSearchServiceImpl implements PetBillSearchService {
 
+	@Autowired
+	private TbHospitalRepository tbHospitalRepository;
 	
 	// [검색X, 시/도 선택X, 시/구 선택X] - 전체 병원 list 
 	@Override
@@ -191,8 +199,12 @@ public class PetBillSearchServiceImpl implements PetBillSearchService {
 
 	// [검색O, 시/도 선택O, 시/구 선택O] - 선택O / 검색O 병원 list
 	@Override
-	public Map<String, Object> getSel(String pageNum, String sidoSel, String siguSel, String search) {
+	public Page<TbHospital> getSel(String pageNum, String sidoSel, String siguSel, String search) {
 		
+		Pageable pageable = PageRequest.of(0, 10);
+		
+		
+		return tbHospitalRepository.findAll(pageable);
 		
 		
 		// ** 게시글 페이지 관련 정보 세팅 **
@@ -251,8 +263,14 @@ public class PetBillSearchServiceImpl implements PetBillSearchService {
 //		result.put("siguSel", siguSel);
 //		result.put("search", search);
 		
-		return null;
 //		return result;
+	}
+
+
+	@Override
+	public Page<TbHospital> getHopistalList(Pageable pageable) {
+		return tbHospitalRepository.findAll(pageable);
+		
 	}
 
 

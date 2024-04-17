@@ -15,10 +15,6 @@ public class UserInfo{
 	
 	@Column(name = "PW", length = 20)
 	private String pw;
-	
-	@Column(name = "EMAIL", length = 255)
-	private String email;
-	
 
 	public String getId() {
 		return id;
@@ -26,14 +22,6 @@ public class UserInfo{
 
 	public void setId(String id) {
 		this.id = id;
-	}
-
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
 	}
 
 	public String getPw() {

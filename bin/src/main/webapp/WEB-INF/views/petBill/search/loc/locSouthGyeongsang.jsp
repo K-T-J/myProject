@@ -142,8 +142,8 @@
 		                       		<li class="nav-item"><a class="nav-link" href="/petBill/user/userSignupForm">회원가입</a></li>
 		                        </c:if>
 		                        <c:if test="${sessionScope.kakaoId != null ||sessionScope.userId != null && sessionScope.userId ne 'admin'}">
-		                        	<li class="nav-item active"><a class="nav-link" href="/petBill/user/logoutPro.pet">로그아웃</a></li>
-		                       		<li class="nav-item"><a class="nav-link" href="/petBill/user/userMypage.pet">마이페이지</a></li>
+		                        	<li class="nav-item active"><a class="nav-link" href="/petBill/user/logoutPro">로그아웃</a></li>
+		                       		<li class="nav-item"><a class="nav-link" href="/petBill/user/userMypage">마이페이지</a></li>
 		                        </c:if>
 	
 								<li class="nav-item dropdown">

@@ -42,14 +42,14 @@
 				var data = {id:response.id,email:response.kakao_account.email}//data에 넘어온 값 담기
 				$.ajax({
 					type : 'POST',
-					url : '/petBill/user/kakaologin.pet',
+					url : '/petBill/user/kakaologin',
 					data : data,
 					dataType : 'json',
 					success : function(data){
 						console.log(data)
 						if(data.login == "YES"){
 							alert("로그인되었습니다.");
-							location.href = '/petBill/user/main.pet'//메인으로 이동
+							location.href = '/petBill/user/main'//메인으로 이동
 						}else if(data.kakaosignup == "kakaosignup"){//db에 이메일이 없으면 회원가입
 							$("#kakaoEmail").val(response.kakao_account.email);
 							$("#kakaoId").val(response.id);
@@ -121,7 +121,7 @@
 	                <div class="form">
 	                
 	                	<%-- 카카오 로그인 form hidden --%>
-						<form action="userSignupForm.pet" id="kakaoForm" method="post">
+						<form action="userSignupForm" id="kakaoForm" method="post">
 							<input type="hidden" name="id" id="kakaoEmail"/>
 							<input type="hidden" name="pw" id="kakaoId"/>
 						</form>
@@ -152,10 +152,10 @@
 	                        </div> 
 	                        <br />
 	                        <p class="forget" align="center">
-	                            <a href="findIdForm.pet">아이디/비밀번호 찾기</a>
+	                            <a href="findIdForm">아이디/비밀번호 찾기</a>
 	                        </p>
 	                        <p class="forget" align="center">
-	                            <a href="userSignupForm.pet">회원가입</a>
+	                            <a href="userSignupForm">회원가입</a>
 	                        </p>
 	                    </form>
 	                </div>

@@ -134,7 +134,7 @@
 								<%-- 로그인 분기처리 --%>
 								<c:if test="${sessionScope.userId eq 'admin'}">	
 		                        	<li class="nav-item active"><a class="nav-link" href="/petBill/user/loginPro">로그아웃</a></li>
-		                       		<li class="nav-item"><a class="nav-link" href="/petBill/admin/adMain.pet">관리자 페이지</a></li>
+		                       		<li class="nav-item"><a class="nav-link" href="/petBill/admin/adMain">관리자 페이지</a></li>
 		                        </c:if>
                                 <c:if test="${sessionScope.userId == null && sessionScope.kakaoId == null}">	
 		                        	<li class="nav-item active"><a class="nav-link" href="/petBill/user/loginForm">로그인</a></li>

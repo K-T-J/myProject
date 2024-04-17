@@ -31,9 +31,9 @@ function kakaoLogout(){
 function kakaoLogoutPro(){
 	$.ajax({
 		type : 'POST',
-		url : '/petBill/user/kakaologout.pet',
+		url : '/petBill/user/kakaologout',
 		success : function(){
-				location.href='main.pet'
+				location.href='main'
 		},
 		error:function(error){
 			alert("error");
@@ -58,7 +58,7 @@ function kakaoLogoutPro(){
 					<%-- 로그인 분기처리 --%>
                   <c:if test="${sessionScope.userId eq 'admin'}">	
                   	<li class="nav-item active"><a class="nav-link" href="/petBill/user/logoutPro">로그아웃</a></li>
-                 	<li class="nav-item"><a class="nav-link" href="/petBill/admin/adMain.pet">관리자 페이지</a></li>
+                 	<li class="nav-item"><a class="nav-link" href="/petBill/admin/adMain">관리자 페이지</a></li>
                   </c:if>
                         <c:if test="${sessionScope.userId == null && sessionScope.kakaoId == null}">	
                   	<li class="nav-item active"><a class="nav-link" href="/petBill/user/loginForm">로그인</a></li>
@@ -78,7 +78,7 @@ function kakaoLogoutPro(){
 		onmouseover="this.src='/resources/img/petBill/7.png'"
 		onmouseout="this.src='/resources/img/petBill/6.png'" id="cat" ></a>
 		
-		<a href="/petBill/search/mapMain.pet?petType=${'dog'}">
+		<a href="/petBill/search/mapMain?petType=${'dog'}">
 		<img src="/resources/img/petBill/4.png"
 		onmouseover="this.src='/resources/img/petBill/2.png'"
 		onmouseout="this.src='/resources/img/petBill/4.png'" id="dog"></a>

@@ -1,15 +1,20 @@
-package com.study.myProject.petBill.controller;
+package com.study.myProject.petBill.controller.page;
 
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
 
+import com.study.myProject.petBill.entity.TbHospital;
 import com.study.myProject.petBill.service.PetBillSearchService;
 
 import lombok.RequiredArgsConstructor;
@@ -26,7 +31,7 @@ public class PetBillSearchController {
 	 * mapMain page 지도 페이지
 	 * @return
 	 */
-	@RequestMapping(value = "mapMain")
+	@RequestMapping(value = "/mapMain")
 	public String mapMain(@RequestParam(name = "petType", required = true) String petType , Model model) {
 		model.addAttribute("petType", petType);
 		return "petBill/search/mapMain";
@@ -169,15 +174,15 @@ public class PetBillSearchController {
 	}
 	
 	// [검색X, 시/도 선택X, 시/구 선택X] 전체 병원 리스트 
-	@RequestMapping("searchResult")		// searchResult.pet?pageNum=
+	@RequestMapping(value= "/searchResult")		// searchResult.pet?pageNum=
 	public String searchResult(HttpServletRequest request, String pageNum, String sidoSel, String siguSel, String search, Model model)  {
 		// 해당 페이지에 맞는 화면에 뿌려줄 병원 list 가져와 view에 전달 
-		Map<String, Object> result = null;
-		System.out.println("sidoSel : " + sidoSel);
-		System.out.println("siguSel :" + siguSel);
-		System.out.println("search :" + search);
-		result = petBillSearchService.getSel(pageNum, sidoSel, siguSel, search);
-		
+//		Map<String, Object> result = null;
+//		System.out.println("sidoSel : " + sidoSel);
+//		System.out.println("siguSel :" + siguSel);
+//		System.out.println("search :" + search);
+//		Page<TbHospital> sel = petBillSearchService.getSel(pageNum, sidoSel, siguSel, search);
+//		
 //		Map<String, Object> reviewListCount = null;
 //		reviewListCount = searchService.getRevListCount(hosNo);
 		
@@ -200,26 +205,24 @@ public class PetBillSearchController {
 		
 	
 		
-		// view에 전달할 데이터 보내기 
-		model.addAttribute("pageSize", result.get("pageSize"));
-		model.addAttribute("pageNum", result.get("pageNum"));
-		model.addAttribute("currentPage", result.get("currentPage"));
-		model.addAttribute("startRow", result.get("startRow"));
-		model.addAttribute("endRow", result.get("endRow"));
-		model.addAttribute("hosList", result.get("hosList"));
-		model.addAttribute("count", result.get("count"));
-		model.addAttribute("number", result.get("number"));
-		// petType 추가 : 혜란
-		String petType = (String)request.getParameter("petType");
-		model.addAttribute("petType", petType);
+//		// view에 전달할 데이터 보내기 
+//		model.addAttribute("pageSize", 10);
+//		model.addAttribute("pageNum", 0);
+//		model.addAttribute("currentPage", 0);
+//		model.addAttribute("startRow", 0);
+//		model.addAttribute("endRow", 0);
+//		model.addAttribute("hosList", sel.getContent());
+//		model.addAttribute("count", 1);
+//		model.addAttribute("number", 0);
+//		// petType 추가 : 혜란
+//		String petType = (String)request.getParameter("petType");
+//		model.addAttribute("petType", petType);
+//		
+//		model.addAttribute("search", search);
+		model.addAttribute("sidoSel", sidoSel);	// 시/도 (부모) 파라미터 값 
+		model.addAttribute("siguSel", siguSel);	// 시/구 (자식) 파라미터 값 
 		
-		model.addAttribute("search", result.get("search"));
-		model.addAttribute("sidoSel", result.get("sidoSel"));	// 시/도 (부모) 파라미터 값 
-		model.addAttribute("siguSel", result.get("siguSel"));	// 시/구 (자식) 파라미터 값 
-		
-		
-		
-		return "search/searchResult";
+	    return "/petBill/search/searchResult";
 	}
 
 }

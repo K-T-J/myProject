@@ -292,7 +292,7 @@
 					<!-- </g> -->
 					
 						<%-- line 
-						<a id="sinan" href="/petBill/search/searchResult.pet?sidoSel=전라남도&siguSel=신안군&pageNum=1&petType=${petType}">
+						<a id="sinan" href="/petBill/search/searchResult?sidoSel=전라남도&siguSel=신안군&pageNum=1&petType=${petType}">
 							<title>신안군</title>
 							<path class="LINE" d="M 231 288 l -8 100 " />
 							<path class="LINE" d="M 265 396 l -42 -8 " />
@@ -306,7 +306,7 @@
 							<path class="LINE" d="M 117 484 l 106 -96 " />
 							<path class="LINE" d="M 169 540 l 54 -152 " />
 						</a>
-						<a id="wando" href="/petBill/search/searchResult.pet?sidoSel=전라남도&siguSel=완도군&pageNum=1&petType=${petType}">
+						<a id="wando" href="/petBill/search/searchResult?sidoSel=전라남도&siguSel=완도군&pageNum=1&petType=${petType}">
 							<title>완도군</title>
 							<path class="LINE" d="M 482 645 l -16 73 " />
 							<path class="LINE" d="M 436 677 l 30 41 " />
@@ -317,7 +317,7 @@
 							<path class="LINE" d="M 386 746 l 80 -28 " />
 							<path class="LINE" d="M 368 774 l 98 -56 " /> 
 						</a>
-						<a id="yeosu" href="/petBill/search/searchResult.pet?sidoSel=전라남도&siguSel=여수시&pageNum=1&petType=${petType}">
+						<a id="yeosu" href="/petBill/search/searchResult?sidoSel=전라남도&siguSel=여수시&pageNum=1&petType=${petType}">
 							<title>여수시</title>
 							<path class="LINE" d="M 844 445 l 14 71 " />
 							<path class="LINE" d="M 901 522 l -43 -6 " />
